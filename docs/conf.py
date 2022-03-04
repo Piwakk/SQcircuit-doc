@@ -17,9 +17,9 @@ sys.path.append(os.path.abspath('src'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'test'
-copyright = '2022, Taha'
-author = 'Taha'
+project = 'SQcircuit'
+copyright = '2022, Taha Rajabzadeh, Amir Safavi-Naeini'
+author = 'Taha Rajabzadeh, Amir Safavi-Naeini'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
