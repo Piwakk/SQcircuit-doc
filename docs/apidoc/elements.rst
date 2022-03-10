@@ -1,7 +1,43 @@
-elements module
-===============
 
-.. automodule:: elements
+
+.. _element_classes:
+
+****************
+Element Classes
+****************
+
+Capacitor
+-------------------
+
+.. autoclass:: SQcircuit.Capacitor
    :members:
-   :undoc-members:
-   :show-inheritance:
+   :inherited-members:
+
+----------------------------------
+
+Inductor
+-------------------
+
+.. autoclass:: SQcircuit.Inductor
+   :members:
+   :inherited-members:
+
+
+----------------------------------
+
+Junction
+-------------------
+
+.. autoclass:: SQcircuit.Junction
+   :members:
+   :inherited-members:
+
+
+----------------------------------
+
+Loop
+-------------------
+
+.. autoclass:: SQcircuit.Loop
+   :members:
+   :inherited-members:

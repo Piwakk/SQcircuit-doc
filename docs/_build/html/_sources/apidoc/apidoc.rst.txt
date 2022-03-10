@@ -1,8 +1,10 @@
-src
-===
+.. _apidoc:
+
+*****************
+API documentation
+*****************
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
-   elements
-   units
+   elements.rst

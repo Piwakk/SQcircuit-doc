@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>elements module &mdash; SQcircuit 0.0.1 documentation</title>
+  <title>Element Classes &mdash; SQcircuit 0.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="units module" href="units.html" />
-    <link rel="prev" title="src" href="apidoc.html" /> 
+    <link rel="next" title="Developers" href="../contributors.html" />
+    <link rel="prev" title="API documentation" href="apidoc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,11 +38,19 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="apidoc.html">src</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">elements module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="units.html">units module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="apidoc.html">API documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Element Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#capacitor">Capacitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inductor">Inductor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#junction">Junction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loop">Loop</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html#contributors">Contributors</a></li>
 </ul>
 
         </div>
@@ -59,8 +67,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="apidoc.html">src</a> &raquo;</li>
-      <li>elements module</li>
+          <li><a href="apidoc.html">API documentation</a> &raquo;</li>
+      <li>Element Classes</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/apidoc/elements.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -70,24 +78,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-elements">
-<span id="elements-module"></span><h1>elements module<a class="headerlink" href="#module-elements" title="Permalink to this headline"></a></h1>
-<p>elements.py contains the classes for the circuit elements:
-capacitors, inductors, and josephson junctions.</p>
+  <section id="element-classes">
+<span id="id1"></span><h1>Element Classes<a class="headerlink" href="#element-classes" title="Permalink to this headline"></a></h1>
+<section id="capacitor">
+<h2>Capacitor<a class="headerlink" href="#capacitor" title="Permalink to this headline"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="elements.Capacitor">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">elements.</span></span><span class="sig-name descname"><span class="pre">Capacitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cUnit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'F'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Capacitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Capacitor" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>class that contains the capacitor properties.</p>
+<dt class="sig sig-object py" id="SQcircuit.Capacitor">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Capacitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cUnit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'F'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor" title="Permalink to this definition"></a></dt>
+<dd><p>class that contains the capacitor properties.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="elements.Capacitor.energy">
-<span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Capacitor.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Capacitor.energy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="SQcircuit.Capacitor.energy">
+<span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor.energy" title="Permalink to this definition"></a></dt>
 <dd><p>returns the charging energy of the capacitor in Hz.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="elements.Capacitor.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Capacitor.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Capacitor.value" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="SQcircuit.Capacitor.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor.value" title="Permalink to this definition"></a></dt>
 <dd><p>returns the value of the capacitor in Farad units. If random flag is true, it samples from a normal
 distribution.
 inputs:</p>
@@ -98,54 +105,23 @@ inputs:</p>
 
 </dd></dl>
 
+</section>
+<hr class="docutils" />
+<section id="inductor">
+<h2>Inductor<a class="headerlink" href="#inductor" title="Permalink to this headline"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="elements.Charge">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">elements.</span></span><span class="sig-name descname"><span class="pre">Charge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Charge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Charge" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>class that contains the charge offset properties.</p>
+<dt class="sig sig-object py" id="SQcircuit.Inductor">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Inductor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">lUnit</span></em>, <em class="sig-param"><span class="pre">cap=&lt;SQcircuit.elements.Capacitor</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">Q=None</span></em>, <em class="sig-param"><span class="pre">error=0</span></em>, <em class="sig-param"><span class="pre">loops=[]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor" title="Permalink to this definition"></a></dt>
+<dd><p>class that contains the inductor properties.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="elements.Charge.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Charge.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Charge.value" title="Permalink to this definition"></a></dt>
-<dd><p>returns the value of charge bias. If random flag is true, it samples from a normal distribution.
-inputs:</p>
-<blockquote>
-<div><p>– random: A flag which specifies whether the output is picked deterministically or randomly.</p>
-</div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="elements.Flux">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">elements.</span></span><span class="sig-name descname"><span class="pre">Flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Flux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Flux" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>class that contains the flux bias properties.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="elements.Flux.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Flux.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Flux.value" title="Permalink to this definition"></a></dt>
-<dd><p>returns the value of flux. If random flag is true, it samples from a normal distribution.
-inputs:</p>
-<blockquote>
-<div><p>– random: A flag which specifies whether the output is picked deterministically or randomly.</p>
-</div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="elements.Inductor">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">elements.</span></span><span class="sig-name descname"><span class="pre">Inductor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">lUnit</span></em>, <em class="sig-param"><span class="pre">cap=&lt;elements.Capacitor</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">Q=None</span></em>, <em class="sig-param"><span class="pre">error=0</span></em>, <em class="sig-param"><span class="pre">loops=[]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Inductor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Inductor" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>class that contains the inductor properties.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="elements.Inductor.energy">
-<span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Inductor.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Inductor.energy" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="SQcircuit.Inductor.energy">
+<span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor.energy" title="Permalink to this definition"></a></dt>
 <dd><p>returns the inductive energy of the inductor in Hz.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="elements.Inductor.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Inductor.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Inductor.value" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="SQcircuit.Inductor.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor.value" title="Permalink to this definition"></a></dt>
 <dd><p>returns the value of the inductor in Henry units. If random flag is true, it samples from a normal
 distribution.
 inputs:</p>
@@ -156,14 +132,17 @@ inputs:</p>
 
 </dd></dl>
 
+</section>
+<hr class="docutils" />
+<section id="junction">
+<h2>Junction<a class="headerlink" href="#junction" title="Permalink to this headline"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="elements.Junction">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">elements.</span></span><span class="sig-name descname"><span class="pre">Junction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">jUnit</span></em>, <em class="sig-param"><span class="pre">cap=&lt;elements.Capacitor</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">A_c=1e-07</span></em>, <em class="sig-param"><span class="pre">x_qp=3e-06</span></em>, <em class="sig-param"><span class="pre">error=0</span></em>, <em class="sig-param"><span class="pre">loops=[]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Junction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Junction" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>class that contains the Josephson Junction properties.</p>
+<dt class="sig sig-object py" id="SQcircuit.Junction">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Junction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">jUnit</span></em>, <em class="sig-param"><span class="pre">cap=&lt;SQcircuit.elements.Capacitor</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">A_c=1e-07</span></em>, <em class="sig-param"><span class="pre">x_qp=3e-06</span></em>, <em class="sig-param"><span class="pre">error=0</span></em>, <em class="sig-param"><span class="pre">loops=[]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction" title="Permalink to this definition"></a></dt>
+<dd><p>class that contains the Josephson Junction properties.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="elements.Junction.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Junction.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Junction.value" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="SQcircuit.Junction.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction.value" title="Permalink to this definition"></a></dt>
 <dd><p>returns the value of the Josephson Junction in angular frequency. If random flag is true, it samples
 from a normal distribution.
 inputs:</p>
@@ -174,39 +153,17 @@ inputs:</p>
 
 </dd></dl>
 
+</section>
+<hr class="docutils" />
+<section id="loop">
+<h2>Loop<a class="headerlink" href="#loop" title="Permalink to this headline"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="elements.Loop">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">elements.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Loop" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>class that contains the inductive loop properties.</p>
+<dt class="sig sig-object py" id="SQcircuit.Loop">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop" title="Permalink to this definition"></a></dt>
+<dd><p>class that contains the inductive loop properties.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="elements.Loop.addIndex">
-<span class="sig-name descname"><span class="pre">addIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Loop.addIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Loop.addIndex" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="elements.Loop.addK1">
-<span class="sig-name descname"><span class="pre">addK1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Loop.addK1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Loop.addK1" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="elements.Loop.getP">
-<span class="sig-name descname"><span class="pre">getP</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Loop.getP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Loop.getP" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="elements.Loop.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Loop.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Loop.reset" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="elements.Loop.setFlux">
-<span class="sig-name descname"><span class="pre">setFlux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Loop.setFlux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Loop.setFlux" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="elements.Loop.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/elements.html#Loop.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elements.Loop.value" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="SQcircuit.Loop.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop.value" title="Permalink to this definition"></a></dt>
 <dd><p>returns the value of flux. If random flag is true, it samples from a normal distribution.
 inputs:</p>
 <blockquote>
@@ -217,13 +174,14 @@ inputs:</p>
 </dd></dl>
 
 </section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="apidoc.html" class="btn btn-neutral float-left" title="src" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="units.html" class="btn btn-neutral float-right" title="units module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="apidoc.html" class="btn btn-neutral float-left" title="API documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../contributors.html" class="btn btn-neutral float-right" title="Developers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
