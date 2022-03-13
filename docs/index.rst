@@ -14,6 +14,7 @@ SQcircuit: superconducting quantum circuits in Python
 
    installation.rst
    apidoc/apidoc.rst
+   examples.rst
    contributors.rst
 
 

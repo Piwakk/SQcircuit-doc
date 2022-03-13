@@ -15,6 +15,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -39,6 +40,7 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apidoc/apidoc.html">API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html#contributors">Contributors</a></li>
 </ul>
@@ -67,7 +69,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <figure class="align-center">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<figure class="align-center">
 <a class="reference internal image-reference" href="_images/README_logo.png"><img alt="_images/README_logo.png" src="_images/README_logo.png" style="width: 3in;" /></a>
 </figure>
 <section id="sqcircuit-superconducting-quantum-circuits-in-python">
@@ -85,6 +111,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="apidoc/apidoc.html">API documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="apidoc/elements.html">Element Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/inductivelyShunted.html">Inductively shunted superconducting circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/zeroPiQubit.html"><span class="math notranslate nohighlight">\(0-\pi\)</span> Qubit</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
