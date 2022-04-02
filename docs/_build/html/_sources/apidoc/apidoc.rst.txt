@@ -8,3 +8,4 @@ API documentation
    :maxdepth: 2
 
    elements.rst
+   circuit.rst

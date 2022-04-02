@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circuit Class &mdash; SQcircuit 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="../examples.html" />
+    <link rel="prev" title="Element Classes" href="elements.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SQcircuit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="apidoc.html">API documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="elements.html">Element Classes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Circuit Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#circuit">Circuit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html#contributors">Contributors</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SQcircuit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="apidoc.html">API documentation</a> &raquo;</li>
+      <li>Circuit Class</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/apidoc/circuit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="circuit-class">
+<span id="id1"></span><h1>Circuit Class<a class="headerlink" href="#circuit-class" title="Permalink to this headline"></a></h1>
+<section id="circuit">
+<h2>Circuit<a class="headerlink" href="#circuit" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="SQcircuit.Circuit">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuitElements</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit" title="Permalink to this definition"></a></dt>
+<dd><p>Class that contains the circuit properties and uses the theory discussed in the original
+paper of the SQcircuit to calculate:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Eigenvalues and eigenvectors</p></li>
+<li><p>Phase coordinate representation of eigenvectors</p></li>
+<li><p>Coupling operators</p></li>
+<li><p>Matrix elements</p></li>
+<li><p>Decoherence rates</p></li>
+<li><p>Robustness analysis</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>circuitElements</strong> (<em>dict</em>) – a dictionary that contains the circuit’s elements at each branch of the circuit.</p></li>
+<li><p><strong>random</strong> (<em>bool</em>) – If <cite>True</cite>, each circuit’s element is a random number due to fabrication error. This
+is necessary for robustness analysis.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.chargeNoise">
+<span class="sig-name descname"><span class="pre">chargeNoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.chargeNoise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.chargeNoise" title="Permalink to this definition"></a></dt>
+<dd><p>set the charge noise for each charge mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<em>int</em>) – An integer that specifies the charge mode. To see, which mode is a charge mode, one
+can use <cite>description()</cite> method.</p></li>
+<li><p><strong>A</strong> (<em>float</em>) – The charge noise.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.chargeOffset">
+<span class="sig-name descname"><span class="pre">chargeOffset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ng</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.chargeOffset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.chargeOffset" title="Permalink to this definition"></a></dt>
+<dd><p>set the charge offset for each charge mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<em>int</em>) – An integer that specifies the charge mode. To see, which mode is a charge mode, one
+can use <cite>description()</cite> method.</p></li>
+<li><p><strong>ng</strong> (<em>float</em>) – The charge offset.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.coordinateTransformation">
+<span class="sig-name descname"><span class="pre">coordinateTransformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opType</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.coordinateTransformation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.coordinateTransformation" title="Permalink to this definition"></a></dt>
+<dd><p>Return the transformation of the coordinates for each type of operators, either charge or flux.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>opType</strong> (<em>str</em>) – The type of the operators that can be either <cite>“charge”</cite> or <cite>“flux”</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.couplingOperator">
+<span class="sig-name descname"><span class="pre">couplingOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">copType</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.couplingOperator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.couplingOperator" title="Permalink to this definition"></a></dt>
+<dd><p>Return the capacitive or inductive coupling operator related to the specified nodes. The output has the
+QuTip object format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>copType</strong> (<em>str</em>) – Coupling type which is either <cite>“capacitive”</cite> or <cite>“inductive”</cite>.</p></li>
+<li><p><strong>nodes</strong> (<em>tuple</em>) – A tuple of circuit nodes to which we want to couple.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.decRate">
+<span class="sig-name descname"><span class="pre">decRate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decType</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.decRate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.decRate" title="Permalink to this definition"></a></dt>
+<dd><p>Return the decoherence rate in [1/s] between each two eigenstates for different types of
+depolarization and dephasing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>decType</strong> (<em>str</em>) – decoherence type that can be: <cite>“capacitive”</cite> for capacitive loss; <cite>“inductive”</cite> for inductive loss;
+<cite>“quasiparticle”</cite> for quasiparticle loss; <cite>“charge”</cite> for charge noise, <cite>“flux”</cite> for flux noise; and
+<cite>“cc”</cite> for critical current noise.</p></li>
+<li><p><strong>states</strong> (<em>tuple</em>) – A tuple of indices of eigenstates for which we want to calculate the decoherence rate. For example,
+for <cite>states=(0,1)</cite>, we calculate the decoherence rate between the ground state and the first excited
+state.</p></li>
+<li><p><strong>total</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.description">
+<span class="sig-name descname"><span class="pre">description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.description" title="Permalink to this definition"></a></dt>
+<dd><p>Print out a listing of the modes, whether they are harmonic or
+charge modes, and the frequency for each harmonic mode. Moreover, it shows the
+prefactors in the Josephson junction part of the Hamiltonian <span class="math notranslate nohighlight">\(w_k^T\)</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.diag">
+<span class="sig-name descname"><span class="pre">diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numEig</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.diag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.diag" title="Permalink to this definition"></a></dt>
+<dd><p>Diagonalize the Hamiltonian of the circuit and return the eigenrfequencies and eigenvectors of the circuit up
+to specified number of eigenvalues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>numEig</strong> (<em>int</em>) – The number of eigenvalues to output. The lower <cite>numEig</cite>, the faster <cite>SQcircuit</cite> finds
+the eigenvalues.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.eigPhaseCoordinate">
+<span class="sig-name descname"><span class="pre">eigPhaseCoordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eigInd</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.eigPhaseCoordinate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.eigPhaseCoordinate" title="Permalink to this definition"></a></dt>
+<dd><p>Return the phase coordinate representations of the eigenvectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eigInd</strong> (<em>int</em>) – The eigenvector index. For example, we set it to 0 for the ground state and 1
+for the first excited state.</p></li>
+<li><p><strong>grid</strong> (<em>list</em>) – A list that contains the range of values of phase φ for which we want to evaluate the
+wavefunction.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.hamiltonian">
+<span class="sig-name descname"><span class="pre">hamiltonian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.hamiltonian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.hamiltonian" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the transformed hamiltonian of the circuit as QuTiP object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.matrixElements">
+<span class="sig-name descname"><span class="pre">matrixElements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">copType</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.matrixElements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.matrixElements" title="Permalink to this definition"></a></dt>
+<dd><p>Return the matrix element of two eigenstates for either capacitive or inductive coupling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>copType</strong> (<em>str</em>) – Coupling type which is either <cite>“capacitive”</cite> or <cite>“inductive”</cite>.</p></li>
+<li><p><strong>nodes</strong> (<em>tuple</em>) – A tuple of circuit nodes to which we want to couple.</p></li>
+<li><p><strong>states</strong> (<em>tuple</em>) – A tuple of indices of eigenstates for which we want to calculate the matrix element.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.setTemperature">
+<span class="sig-name descname"><span class="pre">setTemperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.setTemperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.setTemperature" title="Permalink to this definition"></a></dt>
+<dd><p>Set temperature of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>T</strong> (<em>float</em>) – The temperature in Kelvin</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.truncationNumbers">
+<span class="sig-name descname"><span class="pre">truncationNumbers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">truncNum</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.truncationNumbers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.truncationNumbers" title="Permalink to this definition"></a></dt>
+<dd><p>Set the truncation numbers for each mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>truncNum</strong> (<em>list</em>) – A list that contains the truncation numbers for each mode.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="elements.html" class="btn btn-neutral float-left" title="Element Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Taha Rajabzadeh, Amir Safavi-Naeini.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

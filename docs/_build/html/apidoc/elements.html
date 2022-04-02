@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Examples" href="../examples.html" />
+    <link rel="next" title="Circuit Class" href="circuit.html" />
     <link rel="prev" title="API documentation" href="apidoc.html" /> 
 </head>
 
@@ -48,6 +48,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#loop">Loop</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="circuit.html">Circuit Class</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
@@ -110,23 +111,38 @@
 <h2>Capacitor<a class="headerlink" href="#capacitor" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Capacitor">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Capacitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cUnit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'F'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor" title="Permalink to this definition"></a></dt>
-<dd><p>class that contains the capacitor properties.</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Capacitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cUnit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'F'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor" title="Permalink to this definition"></a></dt>
+<dd><p>Class that contains the capacitor properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The value of the capacitor.</p></li>
+<li><p><strong>unit</strong> (<em>string</em>) – The unit of input value. If <cite>unit</cite> is “THz”, “GHz”, and ,etc., the value specifies the
+charging energy of the capacitor. If <cite>unit</cite> is “fF”, “pF”, and ,etc., the value specifies
+the capacitance in farad.</p></li>
+<li><p><strong>Q</strong> – Quality factor of the dielectric of the capacitor which is one over tangent loss. It can be either
+a float number or a Python function of angular frequency.</p></li>
+<li><p><strong>error</strong> (<em>float</em>) – The error in fabrication as a percentage.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Capacitor.energy">
 <span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor.energy" title="Permalink to this definition"></a></dt>
-<dd><p>returns the charging energy of the capacitor in Hz.</p>
+<dd><p>Return the charging energy of the capacitor in frequency unit of SQcircuit (gigahertz
+by default).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Capacitor.value">
 <span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor.value" title="Permalink to this definition"></a></dt>
-<dd><p>returns the value of the capacitor in Farad units. If random flag is true, it samples from a normal
-distribution.
-inputs:</p>
-<blockquote>
-<div><p>– random: A flag which specifies whether the output is picked deterministically or randomly.</p>
-</div></blockquote>
+<dd><p>Return the value of the capacitor in farad units. If <cite>random</cite> is <cite>True</cite>, it
+samples from a normal distribution with variance defined by the fabrication error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>random</strong> (<em>bool</em>) – A boolean flag which specifies whether the output is deterministic or random.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -137,23 +153,41 @@ inputs:</p>
 <h2>Inductor<a class="headerlink" href="#inductor" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Inductor">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Inductor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">lUnit</span></em>, <em class="sig-param"><span class="pre">cap=&lt;SQcircuit.elements.Capacitor</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">Q=None</span></em>, <em class="sig-param"><span class="pre">error=0</span></em>, <em class="sig-param"><span class="pre">loops=[]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor" title="Permalink to this definition"></a></dt>
-<dd><p>class that contains the inductor properties.</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Inductor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">lUnit</span></em>, <em class="sig-param"><span class="pre">cap=&lt;SQcircuit.elements.Capacitor</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">Q='default'</span></em>, <em class="sig-param"><span class="pre">error=0</span></em>, <em class="sig-param"><span class="pre">loops=None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor" title="Permalink to this definition"></a></dt>
+<dd><p>Class that contains the inductor properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The value of the inductor.</p></li>
+<li><p><strong>unit</strong> (<em>string</em>) – The unit of input value. If <cite>unit</cite> is “THz”, “GHz”, and ,etc., the value specifies the
+inductive energy of the inductor. If <cite>unit</cite> is “fH”, “pH”, and ,etc., the value specifies
+the inductance in henry.</p></li>
+<li><p><strong>loops</strong> (<em>list</em>) – List of loops in which the inductor resides.</p></li>
+<li><p><strong>cap</strong> (<a class="reference internal" href="#SQcircuit.Capacitor" title="SQcircuit.Capacitor"><em>SQcircuit.Capacitor</em></a>) – Capacitor associated to the inductor, necessary for correct time-dependent external fluxes
+scheme.</p></li>
+<li><p><strong>Q</strong> – Quality factor of the inductor needed for inductive loss calculation. It can be either
+a float number or a Python function of angular frequency and temperature.</p></li>
+<li><p><strong>error</strong> (<em>float</em>) – The error in fabrication as a percentage.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Inductor.energy">
 <span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor.energy" title="Permalink to this definition"></a></dt>
-<dd><p>returns the inductive energy of the inductor in Hz.</p>
+<dd><p>Return the inductive energy of the capacitor in frequency unit of SQcircuit (gigahertz
+by default).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Inductor.value">
 <span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor.value" title="Permalink to this definition"></a></dt>
-<dd><p>returns the value of the inductor in Henry units. If random flag is true, it samples from a normal
-distribution.
-inputs:</p>
-<blockquote>
-<div><p>– random: A flag which specifies whether the output is picked deterministically or randomly.</p>
-</div></blockquote>
+<dd><p>Return the value of the inductor in henry units. If <cite>random</cite> is <cite>True</cite>, it
+samples from a normal distribution with variance defined by the fabrication error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>random</strong> (<em>bool</em>) – A boolean flag which specifies whether the output is deterministic or random.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -164,17 +198,35 @@ inputs:</p>
 <h2>Junction<a class="headerlink" href="#junction" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Junction">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Junction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">jUnit</span></em>, <em class="sig-param"><span class="pre">cap=&lt;SQcircuit.elements.Capacitor</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">A_c=1e-07</span></em>, <em class="sig-param"><span class="pre">x_qp=3e-06</span></em>, <em class="sig-param"><span class="pre">error=0</span></em>, <em class="sig-param"><span class="pre">loops=[]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction" title="Permalink to this definition"></a></dt>
-<dd><p>class that contains the Josephson Junction properties.</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Junction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">jUnit</span></em>, <em class="sig-param"><span class="pre">cap=&lt;SQcircuit.elements.Capacitor</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">A=1e-07</span></em>, <em class="sig-param"><span class="pre">x=3e-06</span></em>, <em class="sig-param"><span class="pre">delta=0.00034</span></em>, <em class="sig-param"><span class="pre">Y='default'</span></em>, <em class="sig-param"><span class="pre">error=0</span></em>, <em class="sig-param"><span class="pre">loops=None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction" title="Permalink to this definition"></a></dt>
+<dd><p>Class that contains the Josephson junction properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The value of the Josephson junction.</p></li>
+<li><p><strong>unit</strong> (<em>string</em>) – The unit of input value. The <cite>unit</cite> can be “THz”, “GHz”, and ,etc., that specifies the
+junction energy of the inductor.</p></li>
+<li><p><strong>loops</strong> (<em>list</em>) – List of loops in which the Josephson junction reside.</p></li>
+<li><p><strong>cap</strong> (<a class="reference internal" href="#SQcircuit.Capacitor" title="SQcircuit.Capacitor"><em>SQcircuit.Capacitor</em></a>) – Capacitor associated to the josephson junction, necessary for the correct time-dependent
+external fluxes scheme.</p></li>
+<li><p><strong>A</strong> (<em>float</em>) – Normalized noise amplitude related to critical current noise.</p></li>
+<li><p><strong>x</strong> (<em>float</em>) – Quasiparticle density</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – Superconducting gap</p></li>
+<li><p><strong>Y</strong> – Real part of admittance.</p></li>
+<li><p><strong>error</strong> (<em>float</em>) – The error in fabrication as a percentage.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Junction.value">
 <span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction.value" title="Permalink to this definition"></a></dt>
-<dd><p>returns the value of the Josephson Junction in angular frequency. If random flag is true, it samples
-from a normal distribution.
-inputs:</p>
-<blockquote>
-<div><p>– random: A flag which specifies whether the output is picked deterministically or randomly.</p>
-</div></blockquote>
+<dd><p>Return the value of the Josephson Junction in angular frequency. If <cite>random</cite> is <cite>True</cite>, it samples
+from a normal distribution with variance defined by the fabrication error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>random</strong> (<em>bool</em>) – A boolean flag which specifies whether the output is deterministic or random.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -185,16 +237,37 @@ inputs:</p>
 <h2>Loop<a class="headerlink" href="#loop" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Loop">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop" title="Permalink to this definition"></a></dt>
-<dd><p>class that contains the inductive loop properties.</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop" title="Permalink to this definition"></a></dt>
+<dd><p>Class that contains the inductive loop properties, closed path of inductive elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – Value of the external flux at the loop.</p></li>
+<li><p><strong>A</strong> (<em>float</em>) – Normalized noise amplitude related to flux noise.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Loop.setFlux">
+<span class="sig-name descname"><span class="pre">setFlux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop.setFlux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop.setFlux" title="Permalink to this definition"></a></dt>
+<dd><p>Set the external flux associated to the loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – The external flux value</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Loop.value">
 <span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop.value" title="Permalink to this definition"></a></dt>
-<dd><p>returns the value of flux. If random flag is true, it samples from a normal distribution.
-inputs:</p>
-<blockquote>
-<div><p>– random: A flag which specifies whether the output is picked deterministically or randomly.</p>
-</div></blockquote>
+<dd><p>Return the value of the external flux. If <cite>random</cite> is <cite>True</cite>, it samples from a normal distribution
+with variance defined by the flux noise amplitude.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>random</strong> (<em>bool</em>) – A boolean flag which specifies whether the output is deterministic or random.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -207,7 +280,7 @@ inputs:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="apidoc.html" class="btn btn-neutral float-left" title="API documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="circuit.html" class="btn btn-neutral float-right" title="Circuit Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

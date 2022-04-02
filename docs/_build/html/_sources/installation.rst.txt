@@ -13,7 +13,7 @@ SQcircuit can  be installed using `pip <http://www.pip-installer.org/>`_, a Pyth
 
 .. code-block:: bash
 
-   pip install scqubits
+   pip install SQcircuit
 
 To upgrade to the latest version of SQcircuit, one can execute 
 
@@ -26,7 +26,7 @@ To upgrade to the latest version of SQcircuit, one can execute
 General Requirements
 =====================
 
-scqubits depends on the following Python open-source libraries:
+SQcircuit depends on the following Python open-source libraries:
 
 
 .. cssclass:: table-striped
