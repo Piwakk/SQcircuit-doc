@@ -1,0 +1,63 @@
+/*For all paragraph*/
+p{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/*example circuit alignments*/
+.grid-container {
+    display: grid;
+    /*background-color: #000000;*/
+    grid-template-columns: 50% 50%;
+    align-content: center;
+    justify-content: center;
+}
+
+.border-left-custom{
+    border-left: 1px dashed #3C3C3C;
+}
+
+
+/*Search bar option*/
+.wy-side-nav-search {
+    background-color: #ff7f32;
+}
+.wy-side-nav-search input[type=text]{
+    border-color: #ffffff;
+}
+.wy-side-nav-search .wy-dropdown>a, .wy-side-nav-search>a {
+    color: #333131;
+}
+
+
+/*Size of the screen*/
+@media screen and (min-width: 1100px){
+    .wy-nav-content {
+        max-width: 910px;
+    }
+/*    .wy-nav-content-wrap {
+    background-color: #fcfcfc;
+    }*/
+}
+
+@media screen and (max-width: 1344px) {
+    .wy-nav-content {
+          max-width: 100%;
+    }
+}
+
+
+/*Header1*/
+h1{
+    font-size: 34px;
+    line-height: 34px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-family: "Open Sans", Roboto,ff-tisa-web-pro,Georgia,Arial,sans-serif;
+}
+
+/*Menu font*/
+.wy-menu-vertical a {
+   font-size: 16px;
+}
