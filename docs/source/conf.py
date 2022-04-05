@@ -14,7 +14,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../SQcircuit'))
+sys.path.insert(0, os.path.abspath('../../../SQcircuit'))
 # sys.path.insert(os.path.abspath('SQcircuit'))
 
 # -- Project information -----------------------------------------------------
@@ -69,12 +69,12 @@ html_css_files = ['theme_overrides.css']
 #
 html_theme = 'sphinx_rtd_theme'
 
-html_logo = './pics/logo_2.png'
-full_logo = True
+# html_logo = './pics/logo_2.png'
+# full_logo = True
 
-html_theme_options = {
-    'logo_only': True
-}
+# html_theme_options = {
+#     'logo_only': True
+# }
 
 
 # If true, the current module name will be prepended to all description

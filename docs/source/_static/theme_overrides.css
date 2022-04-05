@@ -14,7 +14,7 @@ p{
 }
 
 .border-left-custom{
-    border-left: 1px dashed #3C3C3C;
+    border-left: 1px solid #b8b8b8;
 }
 
 
@@ -26,7 +26,7 @@ p{
     border-color: #ffffff;
 }
 .wy-side-nav-search .wy-dropdown>a, .wy-side-nav-search>a {
-    color: #333131;
+    color: #333131 !important;
 }
 
 
@@ -57,7 +57,39 @@ h1{
     font-family: "Open Sans", Roboto,ff-tisa-web-pro,Georgia,Arial,sans-serif;
 }
 
+
+/*hiper link color*/
+a, a:link, a:hover, a:visited, a:active {
+    color: #007662
+}
+
 /*Menu font*/
 .wy-menu-vertical a {
-   font-size: 16px;
+   font-size: 15px;
+   color: #d9d9d9 !important;
 }
+.wy-menu-vertical li.current[aria-expanded="true"] a {
+     color: #404040 !important;
+}
+
+/*
+Class and function definitions*/
+html.writer-html4 .rst-content dl:not(.docutils)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt {
+    color: #343131;
+    background-color: #FFEFE6;
+    border-top-color: #ff7f31;
+}
+
+.viewcode-link {
+    color: #007662 !important;
+}
+
+/*Note header*/
+.rst-content .admonition-title, .wy-alert-title {
+    background-color: #ff7f32 !important;
+}
+.rst-content .admonition, .rst-content .note {
+    background-color: #ffefcx !important;
+}
+
+

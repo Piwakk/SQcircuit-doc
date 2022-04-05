@@ -35,6 +35,19 @@ ________________________________________________________________________________
 
 
 
+_______________________________________________________________________________________________________________
 
+.. container:: grid-container
+
+   .. figure:: pics/twoCPB.png
+      :align: center
+      :width: 2.2in
+
+   .. container:: border-left-custom
+
+      .. toctree::
+         :maxdepth: 2
+         
+         examples/twoCPB.ipynb
 
 
