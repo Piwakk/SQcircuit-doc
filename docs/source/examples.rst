@@ -6,6 +6,21 @@ Examples
 
 .. container:: grid-container
 
+   .. figure:: pics/twoCPB.png
+      :align: center
+      :width: 2.5in
+
+   .. container:: border-left-custom
+
+      .. toctree::
+         :maxdepth: 2
+         
+         examples/twoCPB.ipynb
+
+_______________________________________________________________________________________________________________
+
+.. container:: grid-container
+
    .. figure:: pics/inductivelyShunted_black.png
       :align: center
       :width: 3in
@@ -32,19 +47,7 @@ ________________________________________________________________________________
          
          examples/zeroPiQubit.ipynb
 
-_______________________________________________________________________________________________________________
 
-.. container:: grid-container
 
-   .. figure:: pics/twoCPB.png
-      :align: center
-      :width: 2.5in
-
-   .. container:: border-left-custom
-
-      .. toctree::
-         :maxdepth: 2
-         
-         examples/twoCPB.ipynb
 
 
