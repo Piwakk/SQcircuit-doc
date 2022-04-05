@@ -3,6 +3,9 @@
 *****************
 Examples
 *****************
+To manifest the potential of the SQcircuit, we prepared the examples from simple qubits to state of the art super conducting circuits of the literature, in which we effortlessly reproduce the main result of the paper by SQcircuit functionalities.
+
+_______________________________________________________________________________________________________________
 
 .. container:: grid-container
 
