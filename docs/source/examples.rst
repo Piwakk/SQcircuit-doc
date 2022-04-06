@@ -50,6 +50,21 @@ ________________________________________________________________________________
          
          examples/zeroPiQubit.ipynb
 
+_______________________________________________________________________________________________________________
+
+.. container:: grid-container
+
+   .. figure:: pics/Fluxonium.png
+      :align: center
+      :width: 1.85in
+
+   .. container:: border-left-custom
+
+      .. toctree::
+         :maxdepth: 2
+         
+         examples/fluxonium.ipynb
+
 
 
 
