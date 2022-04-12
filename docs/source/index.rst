@@ -13,8 +13,9 @@ Superconducting Quantum Circuits in Python
    :maxdepth: 2
 
    installation.rst
-   apidoc/apidoc.rst
    examples.rst
+   apidoc/apidoc.rst
+   quickTutorial.rst
    contributors.rst
 
 
