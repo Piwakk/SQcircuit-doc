@@ -3,7 +3,11 @@
 *****************
 Examples
 *****************
-To manifest the potential of the SQcircuit, we prepared the examples from simple qubits to state of the art super conducting circuits of the literature, in which we effortlessly reproduce the main result of the paper by SQcircuit functionalities.
+To manifest the potential of the SQcircuit, we prepared examples from simple qubits to state-of-the-art superconducting circuits in literature, in which we effortlessly reproduce the main result of the paper by SQcircuit functionalities.
+
+Users can clone the Jupyter notebook of all the following examples to thier local system by::
+
+   git clone https://github.com/stanfordLINQS/SQcircuit-examples
 
 _______________________________________________________________________________________________________________
 

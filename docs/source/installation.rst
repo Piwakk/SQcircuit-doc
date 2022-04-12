@@ -4,7 +4,25 @@
 Installation
 **************
 
-.. _install-via_pip:
+.. _install-Conda:
+
+Installing via Conda
+=====================
+
+For Python above 3.6, SQcirucit can be simply installed via Conda:
+
+.. code-block:: bash
+
+   conda install -c conda-forge sqcircuit
+
+Updating to the latest version of SQcircuit, can be done by
+
+.. code-block:: bash
+
+   conda update -c conda-forge sqcircuit
+
+
+.. _install-Pip:
 
 Installing via pip
 ==================
@@ -21,7 +39,7 @@ To upgrade to the latest version of SQcircuit, one can execute
 
    pip install SQcircuit -U
 
-.. _install-requires:
+.. _install-genRequires:
 
 General Requirements
 =====================
