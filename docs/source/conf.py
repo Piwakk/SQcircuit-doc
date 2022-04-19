@@ -68,6 +68,7 @@ html_css_files = ['theme_overrides.css']
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+html_favicon = 'pics/favicon.png'
 
 # html_logo = './pics/logo_2.png'
 # full_logo = True

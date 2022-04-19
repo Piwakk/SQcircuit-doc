@@ -14,14 +14,8 @@ Superconducting Quantum Circuits in Python
 
    installation.rst
    examples.rst
-   apidoc/apidoc.rst
    quickTutorial.rst
+   guides/guides.rst
+   apidoc/apidoc.rst
    contributors.rst
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

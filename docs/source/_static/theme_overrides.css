@@ -88,8 +88,42 @@ html.writer-html4 .rst-content dl:not(.docutils)>dt, html.writer-html5 .rst-cont
 .rst-content .admonition-title, .wy-alert-title {
     background-color: #ff7f32 !important;
 }
-.rst-content .admonition, .rst-content .note {
-    background-color: #ffefcx !important;
+.admonition .note {
+    background-color: #ffd152;
 }
 
-
+/*Code sections customization*/
+.rst-content div[class^=highlight], .rst-content pre.literal-block {
+    background-color: #333131;
+    border-radius: 9px;
+}
+.highlight .c1 {
+    color: #007662;
+}
+.highlight .n , .highlight .o , .highlight .p , .highlight .mf , .highlight .mi , .highlight .nn {
+    color: #d9d9d9;
+}
+.highlight .s2 , .highlight .s1 {
+    color: #ff7f32;
+}
+.highlight .ow , .highlight .kn , .highlight .k , .highlight .nb {
+    color: #ff5154;
+}
+.rst-content .note {
+    background-color: #feefe6;
+}
+pre {
+    color: #d9d9d9;
+}
+.wy-breadcrumbs-aside {
+    visibility: hidden;
+}
+div.nboutput.container div.output_area div[class*=highlight] > pre {
+    color: #404040;
+}
+.rst-content .linenodiv pre, .rst-content div[class^=highlight] pre, .rst-content pre.literal-block {
+    font-size: 13px;
+}
+div.nbinput.container div.input_area {
+    border: none;
+}
