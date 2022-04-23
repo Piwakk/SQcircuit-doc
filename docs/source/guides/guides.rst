@@ -9,6 +9,7 @@ The best way to learn about SQcircuit is by reading its original paper and the e
 .. toctree::
    :maxdepth: 2
 
+   hamiltonian.ipynb
    units.rst
 
    

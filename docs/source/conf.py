@@ -53,6 +53,10 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+nbsphinx_prompt_width = '0'
+# nbsphinx_input_prompt = '[%s]:'
+# nbsphinx_exclude_input = 'False'
+# nbsphinx_exclude_input_prompt = 'False'
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -81,8 +85,6 @@ html_favicon = 'pics/favicon.png'
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
 add_module_names = True
-
-
 
 
 

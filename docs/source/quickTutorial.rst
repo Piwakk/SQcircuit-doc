@@ -5,13 +5,13 @@ Quick Tutorial
 ***************
 
 To show a quick overview of how to use SQcircuit, we find the qubit frequency for the symmetric zero-pi qubit with the
-following parameters in gigahertz: E_C=0.15, E_CJ=10, E_L=0.13 , and E_J=5.   
+following parameters in gigahertz: :math:`E_C=0.15`, :math:`E_{CJ}=10`, :math:`E_L=0.13` , and :math:`E_J=5`.   
 
-.. figure:: pics/zeroPiQubit_black.png
-   :align: center
-   :width: 2.7in
+.. container:: grid-container
 
-|
+   .. figure:: pics/zeroPiQubit_black.png
+      :align: left
+      :width: 2.1in
 
 After installing the SQcircuit, we import it via:
 
@@ -28,8 +28,8 @@ flux bias at frustration point:
    # inductive loop of zero-pi qubit with flux bias at its frustration point.
    loop1 = sq.Loop(value=0.5)
 
-We can later change the value of the flux bias by `setFlux()` method. Each circuit component in SQcircuit has their
-own class definition `Capacitor` class for capacitors, `Inductor` class for inductors, and `Junction` class for
+We can later change the value of the flux bias by ``setFlux()`` method. Each circuit component in SQcircuit has their
+own class definition `Capacitor` class for capacitors, ``Inductor`` class for inductors, and ``Junction`` class for
 Josephson junctions. We define the elements of our zero-pi circuit as following:
 
 .. code-block:: python
@@ -43,9 +43,9 @@ Josephson junctions. We define the elements of our zero-pi circuit as following:
    JJ = sq.Junction(value=5, unit="GHz", loops=[loop1])
 
 Note that for the inductive elements( inductors as well as Josephson junctions) that are part of an 
-inductive loop, one should indicate the loops of which they are involved. For example here we pass `[loop1]` to `loops`
-argument for both inductors and Josephson Junctions, because all of them are part of `loop1`. After defining all
-components of the circuit, to describe the circuit topology in SQcircuit, one should create an object of `Circuit`
+inductive loop, one should indicate the loops of which they are involved. For example here we pass ``[loop1]`` to ``loops``
+argument for both inductors and Josephson Junctions, because all of them are part of ``loop1``. After defining all
+components of the circuit, to describe the circuit topology in SQcircuit, one should create an object of ``Circuit``
 class by passing a Python dictionary that contains the list of all elements at each edge
 
 .. code-block:: python
@@ -80,4 +80,4 @@ We get the first two eigenfrequencies of the circuit to calculate the qubit freq
    # print the qubit frequency
    print("qubit frequency:", eigFreq[1]-eigFreq[0])
 
-The frequency unit in SQcircuit is gigahertz by default. However, one can simply change it by `sq.units.setFreq()` method.
+The frequency unit in SQcircuit is gigahertz by default. However, one can simply change it by ``sq.units.setFreq()`` method.
