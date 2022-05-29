@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="API documentation" href="../apidoc/apidoc.html" />
-    <link rel="prev" title="Hamiltonian and Transformation of Coordinates" href="hamiltonian.html" /> 
+    <link rel="prev" title="External Flux Distribution" href="loopDist.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,6 +46,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../quickTutorial.html">Quick Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="guides.html">User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="hamiltonian.html">Hamiltonian and Transformation of Coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loopDist.html">External Flux Distribution</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Units</a></li>
 </ul>
 </li>
@@ -111,13 +112,25 @@
 <span class="n">sq</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">setFreq</span><span class="p">(</span><span class="s2">&quot;MHz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>The default unit for all elements are gigahertz, and there is no need to specify the unit for the elements in gigahertz unit. However, we can change the default unit for each type of element via <code class="docutils literal notranslate"><span class="pre">sq.units.setCap()</span></code>, <code class="docutils literal notranslate"><span class="pre">sq.units.setInd()</span></code>, and <code class="docutils literal notranslate"><span class="pre">sq.units.setJJ()</span></code> functions for capacitors, inductors, and Josephson junctions respectively. For example, in the following code <code class="docutils literal notranslate"><span class="pre">C1</span></code> and <code class="docutils literal notranslate"><span class="pre">C2</span></code> are in gigahertz unit and <code class="docutils literal notranslate"><span class="pre">C3</span></code> and <code class="docutils literal notranslate"><span class="pre">C4</span></code> are in femtofarad unit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># capacitors in GHz default unit</span>
+<span class="n">C1</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">C2</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">sq</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">setCap</span><span class="p">(</span><span class="s2">&quot;fF&quot;</span><span class="p">)</span>
+
+<span class="c1"># capacitors in fF default unit</span>
+<span class="n">C3</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">C4</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hamiltonian.html" class="btn btn-neutral float-left" title="Hamiltonian and Transformation of Coordinates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="loopDist.html" class="btn btn-neutral float-left" title="External Flux Distribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../apidoc/apidoc.html" class="btn btn-neutral float-right" title="API documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

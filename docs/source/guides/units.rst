@@ -12,4 +12,16 @@ The output of ``Circuit.diag()``, ``Capacitor.energy()``, and ``Inductor.energy(
 	
 	sq.units.setFreq("MHz")
 
- 
+The default unit for all elements are gigahertz, and there is no need to specify the unit for the elements in gigahertz unit. However, we can change the default unit for each type of element via ``sq.units.setCap()``, ``sq.units.setInd()``, and ``sq.units.setJJ()`` functions for capacitors, inductors, and Josephson junctions respectively. For example, in the following code ``C1`` and ``C2`` are in gigahertz unit and ``C3`` and ``C4`` are in femtofarad unit. 
+
+.. code-block:: 
+
+	# capacitors in GHz default unit
+	C1 = sq.Capacitor(10)
+	C2 = sq.Capacitor(12)
+
+	sq.units.setCap("fF")
+
+	# capacitors in fF default unit
+	C3 = sq.Capacitor(3)
+	C4 = sq.Capacitor(4)

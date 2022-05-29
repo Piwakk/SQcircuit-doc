@@ -127,3 +127,17 @@ div.nboutput.container div.output_area div[class*=highlight] > pre {
 div.nbinput.container div.input_area {
     border: none;
 }
+
+div.nbinput.container div.prompt pre {
+    visibility: hidden;
+}
+
+div.nbinput.container div.input_area {
+     border: none !important;
+}
+
+.rst-content code.literal, .rst-content tt.literal {
+     border: none !important;
+     background-color: #fcfcfc;
+     font-size: 14px;
+}

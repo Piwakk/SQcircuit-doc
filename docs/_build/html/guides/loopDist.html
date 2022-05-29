@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hamiltonian and Transformation of Coordinates &mdash; SQcircuit 0.0.1 documentation</title>
+  <title>External Flux Distribution &mdash; SQcircuit 0.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="External Flux Distribution" href="loopDist.html" />
-    <link rel="prev" title="User Guide" href="guides.html" /> 
+    <link rel="next" title="Units" href="units.html" />
+    <link rel="prev" title="Hamiltonian and Transformation of Coordinates" href="hamiltonian.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,8 +47,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickTutorial.html">Quick Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="guides.html">User Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Hamiltonian and Transformation of Coordinates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loopDist.html">External Flux Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hamiltonian.html">Hamiltonian and Transformation of Coordinates</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">External Flux Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="units.html">Units</a></li>
 </ul>
 </li>
@@ -72,9 +72,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="guides.html">User Guide</a> &raquo;</li>
-      <li>Hamiltonian and Transformation of Coordinates</li>
+      <li>External Flux Distribution</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/guides/hamiltonian.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/guides/loopDist.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -352,68 +352,102 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="Hamiltonian-and-Transformation-of-Coordinates">
-<h1>Hamiltonian and Transformation of Coordinates<a class="headerlink" href="#Hamiltonian-and-Transformation-of-Coordinates" title="Permalink to this headline"></a></h1>
+<section id="External-Flux-Distribution">
+<h1>External Flux Distribution<a class="headerlink" href="#External-Flux-Distribution" title="Permalink to this headline"></a></h1>
 <p>In the SQcircuit original paper, we show that the Hamiltonian of any circuit (without any transformation of coordinates) can be written as the following form</p>
 <p><span class="math">\begin{equation}
 {{H}} = \frac{1}{2} \hat{{\mathbf{Q}}}^T {\mathbf{C}}^{-1}\hat{{\mathbf{Q}}} + \frac{1}{2} \hat{{\mathbf\Phi}}^T {\mathbf{L}}^{*} \hat{{\mathbf\Phi}} +\sum_{k\in \mathcal{S}_L}\left(\frac{\Phi_0}{2\pi}\frac{\mathbf{b}_k^T\mathbf{\varphi}_{\text{ext}}}{l_k}\right){\mathbf{w}}^T_k{\hat{\mathbf{\Phi}}}-\sum_{k\in \mathcal{S}_J} E_{J_k} \cos \left(\frac{2\pi}{\Phi_0}{\mathbf{w}}^T_k{\hat{\mathbf{\Phi}}}+\mathbf{b}_k^T\mathbf{\varphi}_{\text{ext}}\right)\end{equation}</span></p>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{L}^*\)</span> are respectively capacitance and susceptance matrices, and <span class="math notranslate nohighlight">\(k\)</span>th row of <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> matrix is <span class="math notranslate nohighlight">\({\mathbf{w}}^T_k\)</span>. Consider <code class="docutils literal notranslate"><span class="pre">cr</span></code> as an object of <code class="docutils literal notranslate"><span class="pre">Circuit</span></code> class, all three matrices of <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{L}^*\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> are the attributes of <code class="docutils literal notranslate"><span class="pre">cr</span></code>.</p>
-<p>The <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> in farad unit, <span class="math notranslate nohighlight">\(\mathbf{L}^*\)</span> in henry unit, and <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> are accessible via</p>
+<p>where distribution of external fluxes for each inductive element is specified by <span class="math notranslate nohighlight">\(n_L\)</span> (number of loops) dimensional vector <span class="math notranslate nohighlight">\(\mathbf{b}_k\)</span>. We also showed in the paper that the correct description for external fluxes depends on the capacitors associated to each inductive element (see the paper for the details).</p>
+<p>We use the following circuit as an example to demonstrate the SQcircuit functionalities.</p>
+<p><img alt="22a9ad67030a48da9e466d3cf2cf4bd9" class="no-scaled-link" src="../_images/loopDist.png" style="width: 260px;" /></p>
+<p>Firstly, we build our circuit by assigning three equal capacitors to each inductive elements( Josephson junctions and inductors).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># capacitance matrix</span>
-<span class="n">cr</span><span class="o">.</span><span class="n">C</span>
-<span class="c1"># susceptance matrix</span>
-<span class="n">cr</span><span class="o">.</span><span class="n">L</span>
-<span class="c1"># vector assigning fluxes to junctions</span>
-<span class="n">cr</span><span class="o">.</span><span class="n">W</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SQcircuit</span> <span class="k">as</span> <span class="nn">sq</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">loop1</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">idStr</span><span class="o">=</span><span class="s2">&quot;loop1&quot;</span><span class="p">)</span>
+
+<span class="n">JJ1</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Junction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="p">[</span><span class="n">loop1</span><span class="p">],</span> <span class="n">cap</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">idStr</span><span class="o">=</span><span class="s2">&quot;JJ1&quot;</span><span class="p">)</span>
+<span class="n">JJ2</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Junction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="p">[</span><span class="n">loop1</span><span class="p">],</span> <span class="n">cap</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">idStr</span><span class="o">=</span><span class="s2">&quot;JJ2&quot;</span><span class="p">)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Inductor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="p">[</span><span class="n">loop1</span><span class="p">],</span> <span class="n">cap</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">idStr</span><span class="o">=</span><span class="s2">&quot;ind&quot;</span><span class="p">)</span>
+
+<span class="n">elements</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">[</span><span class="n">JJ1</span><span class="p">],</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="n">JJ2</span><span class="p">],</span>
+            <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="n">L</span><span class="p">]}</span>
 </pre></div>
 </div>
 </div>
-<p>SQcircuit transforms the charge and flux operators via following transformation</p>
-<p><span class="math">\begin{align*}
-\hat{\tilde{\mathbf{Q}}} = \mathbf{R}^{-1}\hat{\mathbf{Q}},\\
-\hat{\tilde{\mathbf{\Phi}}} = \mathbf{S}^{-1}\hat{\mathbf{\Phi}},
-\end{align*}</span></p>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}^{-1}\)</span> can be obtained via <code class="docutils literal notranslate"><span class="pre">coordinateTransformation()</span></code> method such as</p>
-<div class="nbinput nblast docutils container">
+<p>Note that in the construction of circuit elements, we set <code class="docutils literal notranslate"><span class="pre">idStr</span></code> for the loop and inductive elements, which makes it easier later to identify the assignment of loop distributions. If we do not pick the <code class="docutils literal notranslate"><span class="pre">idStr</span></code> for the interested elements, SQcircuit assigns auto-generated <code class="docutils literal notranslate"><span class="pre">idStr</span></code> for elements.</p>
+<p>By using <code class="docutils literal notranslate"><span class="pre">loopDescription()</span></code> method, we can find the loop description for our circuit. Here, we expect the distribution of the flux to be equal among the elements since we set equal capacitors for each element.</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transformation of cooridante for charge operators</span>
-<span class="n">R_inv</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">coordinateTransformation</span><span class="p">(</span><span class="n">opType</span><span class="p">:</span> <span class="s2">&quot;charge&quot;</span><span class="p">)</span>
-<span class="c1"># transformation of cooridante for flux operators</span>
-<span class="n">S_inv</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">coordinateTransformation</span><span class="p">(</span><span class="n">opType</span><span class="p">:</span> <span class="s2">&quot;flux&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+<span class="n">cr</span><span class="o">.</span><span class="n">loopDescription</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<p>The transformed Hamiltonian is</p>
-<p><span class="math">\begin{equation}\hat{\tilde{H}} = \frac{1}{2} \hat{\tilde{\mathbf{Q}}}^T \tilde{\mathbf{C}}^{-1}\hat{\tilde{\mathbf{Q}}} + \frac{1}{2} \hat{\tilde{\mathbf\Phi}}^T \tilde{\mathbf{L}}^{*} \hat{\tilde{\mathbf\Phi}}+\sum_{k\in \mathcal{S}_L}\left(\frac{\Phi_0}{2\pi}\frac{\mathbf{b}_k^T\mathbf{\varphi}_{\text{ext}}}{l_k}\right)\tilde{\mathbf{w}}^T_k\hat{\tilde{\mathbf{\Phi}}}-\sum_{k\in \mathcal{S}_J} E_{J_k} \cos \left(\frac{2\pi}{\Phi_0}\tilde{\mathbf{w}}^T_k\hat{\tilde{\mathbf{\Phi}}}+\mathbf{b}_k^T\mathbf{\varphi}_{\text{ext}}\right),
-\end{equation}</span></p>
-<p>where the transformed inverse capacitance and susceptance matrices are:</p>
-<p><span class="math">\begin{align*}
-\tilde{\mathbf{C}}^{-1} = \mathbf{R}^T\mathbf{C}^{-1}\mathbf{R},\\
-\tilde{\mathbf{L}}^{*} = \mathbf{S}^T\mathbf{L}^{*}\mathbf{S},
-\end{align*}</span></p>
-<p>and the vector assigning fluxes to junctions is given by</p>
-<p><span class="math">\begin{equation*}
-\tilde{\mathbf{W}} = \mathbf{W}\mathbf{S}.
-\end{equation*}</span></p>
-<p>The <span class="math notranslate nohighlight">\(\tilde{\mathbf{C}}^{-1}\)</span>, <span class="math notranslate nohighlight">\(\tilde{\mathbf{L}}^{*}\)</span>, and <span class="math notranslate nohighlight">\(\tilde{\mathbf{W}}\)</span> are accessible via</p>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+             loop1
+----------------------------
+JJ1, b1:     0.33333
+JJ2, b2:     0.33333
+ind, b3:     0.33333
+</pre></div></div>
+</div>
+<p>In SQcircuit, we provided <code class="docutils literal notranslate"><span class="pre">fluxDist</span></code> option in circuit construction that SQcircuit automatically assigns the external fluxes to either junctions or inductors if it is set to <code class="docutils literal notranslate"><span class="pre">&quot;junction&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;inductor&quot;</span></code> respectively. Note that using <code class="docutils literal notranslate"><span class="pre">fluxDist</span></code> option discards the capacitor assignment of inductive elements and assumes that junction capacitors are much smaller than inductor capacitors for <code class="docutils literal notranslate"><span class="pre">&quot;junction&quot;</span></code> option and otherwise for <code class="docutils literal notranslate"><span class="pre">&quot;inductor&quot;</span></code> option.</p>
+<p>For junction assignment:</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transformed inverted capacitance matrix</span>
-<span class="n">cr</span><span class="o">.</span><span class="n">cInvTrans</span>
-<span class="c1"># transformed susceptance matrix</span>
-<span class="n">cr</span><span class="o">.</span><span class="n">lTrans</span>
-<span class="c1"># transformed vector assigning fluxes to junctions</span>
-<span class="n">cr</span><span class="o">.</span><span class="n">wTrans</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">fluxDist</span><span class="o">=</span><span class="s2">&quot;junction&quot;</span><span class="p">)</span>
+<span class="n">cr</span><span class="o">.</span><span class="n">loopDescription</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+             loop1
+----------------------------
+JJ1, b1:     0.5
+JJ2, b2:     0.5
+ind, b3:     0.0
+</pre></div></div>
+</div>
+<p>and for inductor assignment:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">fluxDist</span><span class="o">=</span><span class="s2">&quot;inductor&quot;</span><span class="p">)</span>
+<span class="n">cr</span><span class="o">.</span><span class="n">loopDescription</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+             loop1
+----------------------------
+JJ1, b1:     0.0
+JJ2, b2:     0.0
+ind, b3:     1.0
+</pre></div></div>
 </div>
 </section>
 
@@ -421,8 +455,8 @@ div.rendered_html tbody tr:hover {
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="guides.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="loopDist.html" class="btn btn-neutral float-right" title="External Flux Distribution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hamiltonian.html" class="btn btn-neutral float-left" title="Hamiltonian and Transformation of Coordinates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="units.html" class="btn btn-neutral float-right" title="Units" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

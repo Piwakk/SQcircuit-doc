@@ -90,28 +90,34 @@
 <span class="sd">    ----------</span>
 <span class="sd">    value: float</span>
 <span class="sd">        The value of the capacitor.</span>
-<span class="sd">    unit: string</span>
-<span class="sd">        The unit of input value. If `unit` is &quot;THz&quot;, &quot;GHz&quot;, and ,etc., the value specifies the</span>
-<span class="sd">        charging energy of the capacitor. If `unit` is &quot;fF&quot;, &quot;pF&quot;, and ,etc., the value specifies</span>
-<span class="sd">        the capacitance in farad.</span>
+<span class="sd">    unit: str</span>
+<span class="sd">        The unit of input value. If ``unit`` is &quot;THz&quot;, &quot;GHz&quot;, and ,etc., the value specifies the</span>
+<span class="sd">        charging energy of the capacitor. If ``unit`` is &quot;fF&quot;, &quot;pF&quot;, and ,etc., the value specifies</span>
+<span class="sd">        the capacitance in farad. If ``unit`` is ``None``, the default unit of capacitor is &quot;GHz&quot;.</span>
 <span class="sd">    Q:</span>
 <span class="sd">        Quality factor of the dielectric of the capacitor which is one over tangent loss. It can be either</span>
 <span class="sd">        a float number or a Python function of angular frequency.</span>
 <span class="sd">    error: float</span>
 <span class="sd">        The error in fabrication as a percentage.</span>
+<span class="sd">    idStr: str</span>
+<span class="sd">        ID string for the capacitor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">1e-20</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">idStr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-        <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">freqList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">faradList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">freqList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">faradList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;The input unit for the capacitor is not correct. Look at the documentation for the correct input &quot;</span> \
                     <span class="s2">&quot;format.&quot;</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">cValue</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">phPar</span><span class="o">.</span><span class="n">capU</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
 
         <span class="k">if</span> <span class="n">Q</span> <span class="o">==</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">omega</span><span class="p">:</span> <span class="mf">1e6</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">6e9</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">omega</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.7</span>
@@ -119,6 +125,11 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">omega</span><span class="p">:</span> <span class="n">Q</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
+
+        <span class="k">if</span> <span class="n">idStr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="s2">&quot;C_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="n">idStr</span>
 
 <div class="viewcode-block" id="Capacitor.value"><a class="viewcode-back" href="../../apidoc/elements.html#SQcircuit.Capacitor.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -161,10 +172,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    value: float</span>
 <span class="sd">        The value of the inductor.</span>
-<span class="sd">    unit: string</span>
-<span class="sd">        The unit of input value. If `unit` is &quot;THz&quot;, &quot;GHz&quot;, and ,etc., the value specifies the</span>
-<span class="sd">        inductive energy of the inductor. If `unit` is &quot;fH&quot;, &quot;pH&quot;, and ,etc., the value specifies</span>
-<span class="sd">        the inductance in henry.</span>
+<span class="sd">    unit: str</span>
+<span class="sd">        The unit of input value. If ``unit`` is &quot;THz&quot;, &quot;GHz&quot;, and ,etc., the value specifies the</span>
+<span class="sd">        inductive energy of the inductor. If ``unit`` is &quot;fH&quot;, &quot;pH&quot;, and ,etc., the value specifies</span>
+<span class="sd">        the inductance in henry. If ``unit`` is ``None``, the default unit of inductor is &quot;GHz&quot;.</span>
 <span class="sd">    loops: list</span>
 <span class="sd">        List of loops in which the inductor resides.</span>
 <span class="sd">    cap: SQcircuit.Capacitor</span>
@@ -175,20 +186,32 @@
 <span class="sd">        a float number or a Python function of angular frequency and temperature.</span>
 <span class="sd">    error: float</span>
 <span class="sd">        The error in fabrication as a percentage.</span>
+<span class="sd">    idStr: str</span>
+<span class="sd">        ID string for the inductor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="n">Capacitor</span><span class="p">(</span><span class="n">Q</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="n">Q</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">idStr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-        <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">freqList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">henryList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">freqList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">henryList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;The input unit for the inductor is not correct. Look at the documentation for the correct input &quot;</span> \
                     <span class="s2">&quot;format.&quot;</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lValue</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">cap</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="n">idStr</span>
+
+        <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">phPar</span><span class="o">.</span><span class="n">indU</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
+
+        <span class="k">if</span> <span class="n">cap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">Capacitor</span><span class="p">(</span><span class="mf">1e-20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">cap</span>
+
         <span class="k">if</span> <span class="n">loops</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">loops</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -206,6 +229,11 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">omega</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span> <span class="n">Q</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
+
+        <span class="k">if</span> <span class="n">idStr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="s2">&quot;L_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="n">idStr</span>
 
 <div class="viewcode-block" id="Inductor.value"><a class="viewcode-back" href="../../apidoc/elements.html#SQcircuit.Inductor.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -245,12 +273,12 @@
 <span class="sd">    Class that contains the Josephson junction properties.</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
+<span class="sd">    -----------</span>
 <span class="sd">    value: float</span>
 <span class="sd">        The value of the Josephson junction.</span>
-<span class="sd">    unit: string</span>
-<span class="sd">        The unit of input value. The `unit` can be &quot;THz&quot;, &quot;GHz&quot;, and ,etc., that specifies the</span>
-<span class="sd">        junction energy of the inductor.</span>
+<span class="sd">    unit: str</span>
+<span class="sd">        The unit of input value. The ``unit`` can be &quot;THz&quot;, &quot;GHz&quot;, and ,etc., that specifies the</span>
+<span class="sd">        junction energy of the inductor. If ``unit`` is ``None``, the default unit of junction is &quot;GHz&quot;.</span>
 <span class="sd">    loops: list</span>
 <span class="sd">        List of loops in which the Josephson junction reside.</span>
 <span class="sd">    cap: SQcircuit.Capacitor</span>
@@ -266,22 +294,34 @@
 <span class="sd">        Real part of admittance.</span>
 <span class="sd">    error: float</span>
 <span class="sd">        The error in fabrication as a percentage.</span>
+<span class="sd">    idStr: str</span>
+<span class="sd">        ID string for the junction.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="n">Capacitor</span><span class="p">(</span><span class="n">Q</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="n">A</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">3e-06</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">3.4e-4</span><span class="p">,</span>
-                 <span class="n">Y</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">3e-06</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">3.4e-4</span><span class="p">,</span>
+                 <span class="n">Y</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">idStr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-        <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">freqList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">freqList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;The input unit for the Josephson Junction is not correct. Look at the documentation for the&quot;</span> \
                     <span class="s2">&quot;correct input format.&quot;</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">jValue</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">cap</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="n">idStr</span>
+
+        <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">phPar</span><span class="o">.</span><span class="n">junU</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
+
+        <span class="k">if</span> <span class="n">cap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">Capacitor</span><span class="p">(</span><span class="mf">1e-20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">cap</span>
+
         <span class="k">if</span> <span class="n">loops</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">loops</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -298,6 +338,11 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">yQP</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span>
+
+        <span class="k">if</span> <span class="n">idStr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="s2">&quot;JJ_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="n">idStr</span>
 
 <div class="viewcode-block" id="Junction.value"><a class="viewcode-back" href="../../apidoc/elements.html#SQcircuit.Junction.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -327,9 +372,11 @@
 <span class="sd">            Value of the external flux at the loop.</span>
 <span class="sd">        A: float</span>
 <span class="sd">            Normalized noise amplitude related to flux noise.</span>
+<span class="sd">        idStr: str</span>
+<span class="sd">            ID string for the loop.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">idStr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lpValue</span> <span class="o">=</span> <span class="n">value</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
@@ -337,6 +384,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">indices</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># k1 matrix related to this specific loop</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">K1</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="n">idStr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="s2">&quot;loop&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idStr</span> <span class="o">=</span> <span class="n">idStr</span>
 
     <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">K1</span> <span class="o">=</span> <span class="p">[]</span>
