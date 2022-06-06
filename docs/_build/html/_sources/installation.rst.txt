@@ -58,5 +58,7 @@ SQcircuit depends on the following Python open-source libraries:
 +----------------+--------------+-----------------------------------------------------+
 | **SciPy**      | 1.7.0+       | Not tested on lower versions.                       |
 +----------------+--------------+-----------------------------------------------------+
-| **QuTiP**      | 4.6+         | Quantum operators are defined in QuTip objects      |
+| **QuTiP**      | 4.6+         | Quantum operators are defined in QuTip objects.     |
++----------------+--------------+-----------------------------------------------------+
+| **IPython**    | 7.0+         | Not tested on lower versions.                       |
 +----------------+--------------+-----------------------------------------------------+
