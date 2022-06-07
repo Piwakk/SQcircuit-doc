@@ -359,7 +359,7 @@ div.rendered_html tbody tr:hover {
 {{H}} = \frac{1}{2} \hat{{\mathbf{Q}}}^T {\mathbf{C}}^{-1}\hat{{\mathbf{Q}}} + \frac{1}{2} \hat{{\mathbf\Phi}}^T {\mathbf{L}}^{*} \hat{{\mathbf\Phi}} +\sum_{k\in \mathcal{S}_L}\left(\frac{\Phi_0}{2\pi}\frac{\mathbf{b}_k^T\mathbf{\varphi}_{\text{ext}}}{l_k}\right){\mathbf{w}}^T_k{\hat{\mathbf{\Phi}}}-\sum_{k\in \mathcal{S}_J} E_{J_k} \cos \left(\frac{2\pi}{\Phi_0}{\mathbf{w}}^T_k{\hat{\mathbf{\Phi}}}+\mathbf{b}_k^T\mathbf{\varphi}_{\text{ext}}\right)\end{equation}</span></p>
 <p>where distribution of external fluxes for each inductive element is specified by <span class="math notranslate nohighlight">\(n_L\)</span> (number of loops) dimensional vector <span class="math notranslate nohighlight">\(\mathbf{b}_k\)</span>. We also showed in the paper that the correct description for external fluxes depends on the capacitors associated to each inductive element (see the paper for the details).</p>
 <p>We use the following circuit as an example to demonstrate the SQcircuit functionalities.</p>
-<p><img alt="22a9ad67030a48da9e466d3cf2cf4bd9" class="no-scaled-link" src="../_images/loopDist.png" style="width: 260px;" /></p>
+<p><img alt="d0c4798c7b544d78a5dce635090efe52" class="no-scaled-link" src="../_images/loopDist.png" style="width: 240px;" /></p>
 <p>Firstly, we build our circuit by assigning three equal capacitors to each inductive elements( Josephson junctions and inductors).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -382,12 +382,14 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>Note that in the construction of circuit elements, we set <code class="docutils literal notranslate"><span class="pre">idStr</span></code> for the loop and inductive elements, which makes it easier later to identify the assignment of loop distributions. If we do not pick the <code class="docutils literal notranslate"><span class="pre">idStr</span></code> for the interested elements, SQcircuit assigns auto-generated <code class="docutils literal notranslate"><span class="pre">idStr</span></code> for elements.</p>
+<p>In SQcircuit, we provided <code class="docutils literal notranslate"><span class="pre">fluxDist</span></code> option in circuit construction that specifies the method for assigning external fluxes to inductive elements. If <code class="docutils literal notranslate"><span class="pre">fluxDist</span></code> is set to <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>, SQcircuit automatically assigns the external fluxes to junctions and inductors based on their capacitors. However, if it is set to <code class="docutils literal notranslate"><span class="pre">&quot;junction&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;inductor&quot;</span></code>, SQcircuit discards the capacitor assignment of inductive elements and assumes that junction capacitors are much smaller than inductor capacitors for
+<code class="docutils literal notranslate"><span class="pre">&quot;junction&quot;</span></code> option and otherwise for <code class="docutils literal notranslate"><span class="pre">&quot;inductor&quot;</span></code> option.</p>
 <p>By using <code class="docutils literal notranslate"><span class="pre">loopDescription()</span></code> method, we can find the loop description for our circuit. Here, we expect the distribution of the flux to be equal among the elements since we set equal capacitors for each element.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">fluxDist</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 <span class="n">cr</span><span class="o">.</span><span class="n">loopDescription</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -404,13 +406,12 @@ JJ2, b2:     0.33333
 ind, b3:     0.33333
 </pre></div></div>
 </div>
-<p>In SQcircuit, we provided <code class="docutils literal notranslate"><span class="pre">fluxDist</span></code> option in circuit construction that SQcircuit automatically assigns the external fluxes to either junctions or inductors if it is set to <code class="docutils literal notranslate"><span class="pre">&quot;junction&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;inductor&quot;</span></code> respectively. Note that using <code class="docutils literal notranslate"><span class="pre">fluxDist</span></code> option discards the capacitor assignment of inductive elements and assumes that junction capacitors are much smaller than inductor capacitors for <code class="docutils literal notranslate"><span class="pre">&quot;junction&quot;</span></code> option and otherwise for <code class="docutils literal notranslate"><span class="pre">&quot;inductor&quot;</span></code> option.</p>
-<p>For junction assignment:</p>
+<p>For junction assignment (the default option in SQcircuit):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">fluxDist</span><span class="o">=</span><span class="s2">&quot;junction&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">fluxDist</span><span class="o">=</span><span class="s2">&quot;junctions&quot;</span><span class="p">)</span>
 <span class="n">cr</span><span class="o">.</span><span class="n">loopDescription</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -432,7 +433,7 @@ ind, b3:     0.0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">fluxDist</span><span class="o">=</span><span class="s2">&quot;inductor&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">fluxDist</span><span class="o">=</span><span class="s2">&quot;inductors&quot;</span><span class="p">)</span>
 <span class="n">cr</span><span class="o">.</span><span class="n">loopDescription</span><span class="p">()</span>
 </pre></div>
 </div>
