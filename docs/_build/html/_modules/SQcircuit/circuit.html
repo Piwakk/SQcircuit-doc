@@ -100,14 +100,15 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">        circuitElements: dict</span>
+<span class="sd">        elements: dict</span>
 <span class="sd">            A dictionary that contains the circuit&#39;s elements at each branch of the circuit.</span>
 <span class="sd">        random: bool</span>
 <span class="sd">            If `True`, each element of the circuit is a random number due to fabrication error. This</span>
 <span class="sd">            is necessary for robustness analysis.</span>
 <span class="sd">        fluxDist: str</span>
-<span class="sd">            Provide the method of distributing the external fluxes. If `fluxDist` is `None`( the default value)</span>
-<span class="sd">            , the SQcircuit assign the external fluxes based on the capacitor of each inductive element.</span>
+<span class="sd">            Provide the method of distributing the external fluxes. If ``fluxDist`` is ``&quot;all&quot;``,</span>
+<span class="sd">            SQcircuit assign the external fluxes based on the capacitor of each inductive element</span>
+<span class="sd">            (This option is necessary for time-dependent external fluxes).</span>
 <span class="sd">            If `fluxDist` is `&quot;inductor&quot;` SQcircuit finds the external flux distribution by assuming the</span>
 <span class="sd">            capacitor of the inductors are much smaller than the junction capacitors, If `fluxDist` is `&quot;junction&quot;`</span>
 <span class="sd">            it is the other way around.</span>
@@ -146,7 +147,7 @@
     <span class="c1"># experiment time</span>
     <span class="n">tExp</span> <span class="o">=</span> <span class="mf">10e-6</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">circuitElements</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">fluxDist</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">fluxDist</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;junctions&#39;</span><span class="p">):</span>
 
         <span class="c1"># circuit inductive loops</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">loops</span> <span class="o">=</span> <span class="p">[]</span>
@@ -157,14 +158,14 @@
         <span class="c1"># loop distribution over inductive elements.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">K2</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">circuitElements</span> <span class="o">=</span> <span class="n">circuitElements</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="n">elements</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">random</span> <span class="o">=</span> <span class="n">random</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">=</span> <span class="n">fluxDist</span>
 
         <span class="c1"># number of nodes</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circuitElements</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">))</span>
 
         <span class="c1"># number of branches that contain JJ without parallel inductor.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">countJJnoInd</span> <span class="o">=</span> <span class="mi">0</span>
@@ -281,7 +282,7 @@
         <span class="c1"># capacitor at each inductive elements</span>
         <span class="n">cEd</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitElements</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="c1"># i1 and i2 are the nodes of the edge</span>
             <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="n">edge</span>
 
@@ -294,7 +295,7 @@
                 <span class="n">w</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
 
             <span class="c1"># elements of the edge</span>
-            <span class="n">edgeElements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitElements</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span>
+            <span class="n">edgeElements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span>
 
             <span class="c1"># list of capacitors of the edge.</span>
             <span class="n">capList</span> <span class="o">=</span> <span class="p">[]</span>
@@ -320,11 +321,11 @@
                         <span class="n">loop</span><span class="o">.</span><span class="n">addK1</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 
                     <span class="n">K1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s1">&#39;All&#39;</span><span class="p">:</span>
                         <span class="n">cEd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="o">.</span><span class="n">cap</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
-                    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;junction&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;Junction&quot;</span><span class="p">:</span>
+                    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;junctions&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;Junctions&quot;</span><span class="p">:</span>
                         <span class="n">cEd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Capacitor</span><span class="p">(</span><span class="mf">1e20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
-                    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;inductor&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;Inductor&quot;</span><span class="p">:</span>
+                    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;inductors&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;Inductors&quot;</span><span class="p">:</span>
                         <span class="n">cEd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Capacitor</span><span class="p">(</span><span class="mf">1e-20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
 
                     <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -341,11 +342,11 @@
                         <span class="n">loop</span><span class="o">.</span><span class="n">addK1</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 
                     <span class="n">K1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s1">&#39;All&#39;</span><span class="p">:</span>
                         <span class="n">cEd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="o">.</span><span class="n">cap</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
-                    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;junction&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;Junction&quot;</span><span class="p">:</span>
+                    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;junctions&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;Junctions&quot;</span><span class="p">:</span>
                         <span class="n">cEd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Capacitor</span><span class="p">(</span><span class="mf">1e-20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
-                    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;inductor&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;Inductor&quot;</span><span class="p">:</span>
+                    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;inductors&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxDist</span> <span class="o">==</span> <span class="s2">&quot;Inductors&quot;</span><span class="p">:</span>
                         <span class="n">cEd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Capacitor</span><span class="p">(</span><span class="mf">1e20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
 
                     <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -1102,10 +1103,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">junctionHamil</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cos&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;sin&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;sinHalf&#39;</span><span class="p">:</span> <span class="p">{}}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inductorHamil</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitElements</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
 
             <span class="c1"># elements of the edge</span>
-            <span class="n">edgeElements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitElements</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span>
+            <span class="n">edgeElements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span>
 
             <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">edgeElements</span><span class="p">:</span>
 
@@ -1154,7 +1155,7 @@
 
 <div class="viewcode-block" id="Circuit.diag"><a class="viewcode-back" href="../../apidoc/circuit.html#SQcircuit.Circuit.diag">[docs]</a>    <span class="k">def</span> <span class="nf">diag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numEig</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Diagonalize the Hamiltonian of the circuit and return the eigenrfequencies and eigenvectors of the circuit up</span>
+<span class="sd">        Diagonalize the Hamiltonian of the circuit and return the eigenfrequencies and eigenvectors of the circuit up</span>
 <span class="sd">        to specified number of eigenvalues.</span>
 
 <span class="sd">        Parameters</span>
@@ -1468,9 +1469,9 @@
 
         <span class="k">if</span> <span class="n">decType</span> <span class="o">==</span> <span class="s2">&quot;capacitive&quot;</span><span class="p">:</span>
 
-            <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitElements</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
 
-                <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuitElements</span><span class="p">[</span><span class="n">edge</span><span class="p">]:</span>
+                <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">edge</span><span class="p">]:</span>
                     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="n">Capacitor</span><span class="p">):</span>
                         <span class="n">cap</span> <span class="o">=</span> <span class="n">el</span>
                     <span class="k">else</span><span class="p">:</span>

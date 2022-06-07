@@ -112,7 +112,7 @@
 <h2>Circuit<a class="headerlink" href="#circuit" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Circuit">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuitElements</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fluxDist</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fluxDist</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'junctions'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit" title="Permalink to this definition"></a></dt>
 <dd><p>Class that contains the circuit properties and uses the theory discussed in the original
 paper of the SQcircuit to calculate:</p>
 <blockquote>
@@ -128,12 +128,13 @@ paper of the SQcircuit to calculate:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>circuitElements</strong> (<em>dict</em>) – A dictionary that contains the circuit’s elements at each branch of the circuit.</p></li>
+<li><p><strong>elements</strong> (<em>dict</em>) – A dictionary that contains the circuit’s elements at each branch of the circuit.</p></li>
 <li><p><strong>random</strong> (<em>bool</em>) – If <cite>True</cite>, each element of the circuit is a random number due to fabrication error. This
 is necessary for robustness analysis.</p></li>
-<li><p><strong>fluxDist</strong> (<em>str</em>) – Provide the method of distributing the external fluxes. If <cite>fluxDist</cite> is <cite>None`( the default value)
-, the SQcircuit assign the external fluxes based on the capacitor of each inductive element.
-If `fluxDist</cite> is <cite>“inductor”</cite> SQcircuit finds the external flux distribution by assuming the
+<li><p><strong>fluxDist</strong> (<em>str</em>) – Provide the method of distributing the external fluxes. If <code class="docutils literal notranslate"><span class="pre">fluxDist</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>,
+SQcircuit assign the external fluxes based on the capacitor of each inductive element
+(This option is necessary for time-dependent external fluxes).
+If <cite>fluxDist</cite> is <cite>“inductor”</cite> SQcircuit finds the external flux distribution by assuming the
 capacitor of the inductors are much smaller than the junction capacitors, If <cite>fluxDist</cite> is <cite>“junction”</cite>
 it is the other way around.</p></li>
 </ul>
@@ -235,7 +236,7 @@ if <code class="docutils literal notranslate"><span class="pre">tp</span></code>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.diag">
 <span class="sig-name descname"><span class="pre">diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numEig</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.diag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.diag" title="Permalink to this definition"></a></dt>
-<dd><p>Diagonalize the Hamiltonian of the circuit and return the eigenrfequencies and eigenvectors of the circuit up
+<dd><p>Diagonalize the Hamiltonian of the circuit and return the eigenfrequencies and eigenvectors of the circuit up
 to specified number of eigenvalues.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

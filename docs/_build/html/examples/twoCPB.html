@@ -366,7 +366,7 @@ div.rendered_html tbody tr:hover {
 <section id="Introdcution">
 <h2>Introdcution<a class="headerlink" href="#Introdcution" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> designed a qubit that is protected by two Cooper-pair tunneling. We reproduced the main results of the paper such as energy spectrum, wavefunctions, and matrix elements by use of SQcircuit. The diagram of the circuit is</p>
-<p><img alt="514f514598b1428cb725793a8936d536" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
+<p><img alt="971fe73d4a834835b16b2f59b4f9452e" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
 <p>The circuit consists of four equal inductors with <span class="math notranslate nohighlight">\(E_L=2\text{GHz}\)</span>, two equal Josephson Junction with <span class="math notranslate nohighlight">\(E_J=15\text{GHz}\)</span> and <span class="math notranslate nohighlight">\(E_{C_J}=2\text{GHz}\)</span>, and one shunt capacitor of <span class="math notranslate nohighlight">\(E_{C}=0.04\text{GHz}\)</span>.</p>
 </section>
 <section id="Circuit-Description">
@@ -404,7 +404,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">JJ</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Junction</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="s1">&#39;GHz&#39;</span><span class="p">,</span> <span class="n">loops</span> <span class="o">=</span> <span class="p">[</span><span class="n">loop1</span><span class="p">])</span>
 
 <span class="c1"># define the circuit</span>
-<span class="n">circuitElements</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="p">{</span>
     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">[</span><span class="n">L</span><span class="p">],</span>
     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="n">L</span><span class="p">],</span>
     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="n">CJ</span><span class="p">,</span> <span class="n">JJ</span><span class="p">],</span>
@@ -414,12 +414,13 @@ div.rendered_html tbody tr:hover {
     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span> <span class="p">[</span><span class="n">Cshunt</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">circuitElements</span><span class="p">,</span> <span class="n">fluxDist</span><span class="o">=</span><span class="s2">&quot;junction&quot;</span><span class="p">)</span>
+<span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>By creating an object of <code class="docutils literal notranslate"><span class="pre">Circuit</span></code> class, SQcircuit systematically finds the correct set of transformations and basis to make the circuit ready to be diagonalized. Since the author of the paper assianged the external flux distribution to the junctions, we set the the <code class="docutils literal notranslate"><span class="pre">fluxDist</span></code> argument to <code class="docutils literal notranslate"><span class="pre">&quot;junction&quot;</span></code> to produce the same result.</p>
-<p>Before setting the truncation numbers for each mode and diagonalizing the Hamiltonian, we can gain more insight into our circuit by calling the <code class="docutils literal notranslate"><span class="pre">description()</span></code> method. This prints out which mode in SQcircuit is the charge mode or the harmonic mode with its natural frequency in GHz( the default unit). Moreover, it shows the prefactors in the Josephson junction part of the Hamiltonian <span class="math notranslate nohighlight">\(\tilde{\textbf{w}}_k\)</span>, which helps find the modes decoupled from the nonlinearity of the circuit.</p>
+<p>By creating an object of <code class="docutils literal notranslate"><span class="pre">Circuit</span></code> class, SQcircuit systematically finds the correct set of transformations and basis to make the circuit ready to be diagonalized.</p>
+<p>Before setting the truncation numbers for each mode and diagonalizing the Hamiltonian, we can gain more insight into our circuit by calling the <code class="docutils literal notranslate"><span class="pre">description()</span></code> method. This prints out the Hamiltonian and a listing of the modes, whether they are harmonic or charge modes, and the frequency for each harmonic in GHz (the default unit). Moreover, it shows the prefactors in the Josephson junction part of the Hamiltonian <span class="math notranslate nohighlight">\(\tilde{\textbf{w}}_k\)</span>, which helps find the modes decoupled from the
+nonlinearity of the circuit.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -428,21 +429,77 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~+~\omega_2\hat a^\dagger_2\hat a_2~+~\omega_3\hat a^\dagger_3\hat a_3~+~\omega_4\hat a^\dagger_4\hat a_4~+~E_{C_{55}}(\hat{n}_5-n_{g_{5}})^2~+~E_{J_{1}}\cos(\hat{\varphi}_3-\hat{\varphi}_4+\hat{\varphi}_5-0.5\varphi_{\text{ext}_{1}})~+~E_{J_{2}}\cos(\hat{\varphi}_3+\hat{\varphi}_4+\hat{\varphi}_5+0.5\varphi_{\text{ext}_{1}})~$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$------------------------------------------------------------$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{mode}~1:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_1~=~\varphi_{zp_{1}}(\hat a_1+\hat a^\dagger_1)~~~~~~~~~~~\omega_1/2\pi~=~5567.08109~~~~~~~~~~~\varphi_{zp_{1}}~=~1.94e+01$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{mode}~2:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_2~=~\varphi_{zp_{2}}(\hat a_2+\hat a^\dagger_2)~~~~~~~~~~~\omega_2/2\pi~=~5567.08109~~~~~~~~~~~\varphi_{zp_{2}}~=~1.94e+01$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{mode}~3:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_3~=~\varphi_{zp_{3}}(\hat a_3+\hat a^\dagger_3)~~~~~~~~~~~\omega_3/2\pi~=~4.07921~~~~~~~~~~~\varphi_{zp_{3}}~=~9.71e-01$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{mode}~4:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_4~=~\varphi_{zp_{4}}(\hat a_4+\hat a^\dagger_4)~~~~~~~~~~~\omega_4/2\pi~=~4.0~~~~~~~~~~~\varphi_{zp_{4}}~=~1.00e+00$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{mode}~5:~~~~~~~~~~~\text{charge}~~~~~~~~~~~~~~~~n_{g_{5}}~=~0$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$------------------------------------------------------------$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{parameters}:~~~~~~~~~~~E_{C_{55}}~=~0.153846~~~~~~~~~~~E_{J_{1}}~=~15.0~~~~~~~~~~~E_{J_{2}}~=~15.0~~~~~~~~~~~$</div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-mode_1:         harmonic        freq=5567.0810875767065
-mode_2:         harmonic        freq=5567.081087576705
-mode_3:         harmonic        freq=4.079214182961373
-mode_4:         harmonic        freq=3.9999985618865486
-mode_5:         charge
-w1:     [ 0.  0.  1. -1.  1.]
-w2:     [0. 0. 1. 1. 1.]
-</pre></div></div>
+<div class="math notranslate nohighlight">
+$\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~$</div></div>
 </div>
-<p>The above output shows that <code class="docutils literal notranslate"><span class="pre">cr</span></code> circuit has four harmonic modes with one charge mode. From <code class="docutils literal notranslate"><span class="pre">w1</span></code> and <code class="docutils literal notranslate"><span class="pre">w2</span></code>, it becomes clear that the prefactor of the first and second mode is zero for both Josephson Junctions, which means that both modes are decoupled from the other modes. We can remove them by setting their truncation number to one.</p>
+<p>The above output shows that <code class="docutils literal notranslate"><span class="pre">cr</span></code> circuit has four harmonic modes with one charge mode. From Josephson Junction part of the Hamiltonian, it becomes clear that the prefactor of the first and second mode is zero for both Josephson Junctions, which means that both modes are decoupled from the other modes. We can remove them by setting their truncation number to one.</p>
 <p>To determine the size of the Hilbert space, we specify the truncation number for each circuit mode via <code class="docutils literal notranslate"><span class="pre">truncationNumbers()</span></code> method. Note that this is a necessary step before diagonalizing the circuit.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -503,7 +560,7 @@ w2:     [0. 0. 1. 1. 1.]
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 3a of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="debebbe969e547c69044c65f1e7d618b" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
+<p><img alt="31786b6405234bfb8191031ad5c5cd3e" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
 </section>
 <section id="Eigenfunctions">
 <h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this headline"></a></h2>
@@ -571,12 +628,12 @@ w2:     [0. 0. 1. 1. 1.]
 </div>
 </div>
 <p>The next cell shows the eigenfunctions from the figure 3c of the paper, which is the same as what SQcircuit calculated.</p>
-<p><img alt="7c10d5fdc34e4649914fdf5be1125530" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
+<p><img alt="ac0aa3ada2fa4dff83ef420f86d3568d" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
 </section>
 <section id="Matrix-Elements">
 <h2>Matrix Elements<a class="headerlink" href="#Matrix-Elements" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> defined the normalized matrix element as a measure of degree of freedoms to which circuit can couple. For coupling operator <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> the normalized matrix element is</p>
-<p><img alt="66ada98daa5e4ee5a27dcadfb7acd67e" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
+<p><img alt="682c53c5494948078164bc98c725e252" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
 <p>where <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> is the eigenstates of the circuit and <span class="math notranslate nohighlight">\(|0o\rangle\)</span> is the ground state. We calculate the normalized matrix element for inductive coupling to inductor between node 0 and node 2 using <code class="docutils literal notranslate"><span class="pre">cr.couplingOperator()</span></code> method.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -621,15 +678,7 @@ w2:     [0. 0. 1. 1. 1.]
 </div>
 </div>
 <p>The next figure shows the same result from the figure 4a of the paper.</p>
-<p><img alt="326edb4f7ef948db90b3bb0702948e34" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
+<p><img alt="328e67528b2e4737beab346554e74498" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
 </section>
 </section>
 

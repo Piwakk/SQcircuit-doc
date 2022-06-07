@@ -364,9 +364,9 @@ div.rendered_html tbody tr:hover {
 <section id="Introduction">
 <h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://journals-aps-org.stanford.idm.oclc.org/prb/abstract/10.1103/PhysRevB.94.144507">Smith2016</a> explained how the conventional method or perturbation theory does not correctly diagonalize their highly anharmonic inductively-shunted qubits. However, by using SQcircuit, we simply reproduced the energy spectrum. The diagram of the circuit is</p>
-<p><img alt="ac42d5aee4cd4798b43962206b41a776" class="no-scaled-link" src="../_images/inductivelyShunted_pic1.png" style="width: 300px;" /></p>
+<p><img alt="c94663324fc94e399bdb5fabf58d21f2" class="no-scaled-link" src="../_images/inductivelyShunted_pic1.png" style="width: 300px;" /></p>
 <p>We choose the device A circuit parameters from the following table of the paper:</p>
-<p><img alt="e9d63d15c4b744438585356388b7f694" class="no-scaled-link" src="../_images/inductivelyShunted_pic2.png" style="width: 360px;" /></p>
+<p><img alt="00da662ef5d74ef39ecb9a99f0b4466a" class="no-scaled-link" src="../_images/inductivelyShunted_pic2.png" style="width: 360px;" /></p>
 </section>
 <section id="Circuit-Description">
 <h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this headline"></a></h2>
@@ -409,12 +409,14 @@ div.rendered_html tbody tr:hover {
             <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="n">L_s</span><span class="p">],</span>
             <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="n">L_q</span><span class="p">],</span>
             <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="n">JJ</span><span class="p">,</span><span class="n">C_q</span><span class="p">]}</span>
+
 <span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elemetns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>By creating an object of <code class="docutils literal notranslate"><span class="pre">Circuit</span></code> class, SQcircuit systematically finds the correct set of transformations and basis to make the circuit ready to be diagonalized. However, before setting the truncation numbers for each mode and diagonalizing the Hamiltonian, we can gain more insight into our circuit by calling the <code class="docutils literal notranslate"><span class="pre">description()</span></code> method. This prints out which mode in SQcircuit is the charge mode or the harmonic mode with its natural frequency in GHz( the default unit). Moreover, it shows
-the prefactors in the Josephson junction part of the Hamiltonian <span class="math notranslate nohighlight">\(\tilde{\textbf{w}}_k\)</span>, which helps find the modes decoupled from the nonlinearity of the circuit.</p>
+<p>By creating an object of <code class="docutils literal notranslate"><span class="pre">Circuit</span></code> class, SQcircuit systematically finds the correct set of transformations and basis to make the circuit ready to be diagonalized.</p>
+<p>Before setting the truncation numbers for each mode and diagonalizing the Hamiltonian, we can gain more insight into our circuit by calling the <code class="docutils literal notranslate"><span class="pre">description()</span></code> method. This prints out the Hamiltonian and a listing of the modes, whether they are harmonic or charge modes, and the frequency for each harmonic in GHz (the default unit). Moreover, it shows the prefactors in the Josephson junction part of the Hamiltonian <span class="math notranslate nohighlight">\(\tilde{\textbf{w}}_k\)</span>, which helps find the modes decoupled from the
+nonlinearity of the circuit.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -423,16 +425,61 @@ the prefactors in the Josephson junction part of the Hamiltonian <span class="ma
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~+~\omega_2\hat a^\dagger_2\hat a_2~+~\omega_3\hat a^\dagger_3\hat a_3~+~E_{J_{1}}\cos(\hat{\varphi}_1+\hat{\varphi}_2+\hat{\varphi}_3-\varphi_{\text{ext}_{1}})~$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$------------------------------------------------------------$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{mode}~1:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_1~=~\varphi_{zp_{1}}(\hat a_1+\hat a^\dagger_1)~~~~~~~~~~~\omega_1/2\pi~=~15618.70522~~~~~~~~~~~\varphi_{zp_{1}}~=~2.36e-05$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{mode}~2:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_2~=~\varphi_{zp_{2}}(\hat a_2+\hat a^\dagger_2)~~~~~~~~~~~\omega_2/2\pi~=~7.89173~~~~~~~~~~~\varphi_{zp_{2}}~=~3.82e-02$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{mode}~3:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_3~=~\varphi_{zp_{3}}(\hat a_3+\hat a^\dagger_3)~~~~~~~~~~~\omega_3/2\pi~=~3.4973~~~~~~~~~~~\varphi_{zp_{3}}~=~2.04e+00$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$------------------------------------------------------------$</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\text{parameters}:~~~~~~~~~~~E_{J_{1}}~=~6.2~~~~~~~~~~~$</div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-mode_1:         harmonic        freq=15618.705222871084
-mode_2:         harmonic        freq=7.891732789921152
-mode_3:         harmonic        freq=3.4973045347229648
-w1:     [1. 1. 1.]
-</pre></div></div>
+<div class="math notranslate nohighlight">
+$\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~$</div></div>
 </div>
 <p>The output of <code class="docutils literal notranslate"><span class="pre">description()</span></code> method specifies that our circuit is consist of three harmonic modes. However, the frequency of the first mode is about 16 THz which is extermly high. Since it is a fast-rotating mode and does not have impact on the dynamics of the lower eigenvalues of the circuit, we can remove it by setting its truncation number to one.</p>
 <p>To determine the size of the Hilbert space, we specify the truncation number for each circuit mode via <code class="docutils literal notranslate"><span class="pre">truncationNumbers()</span></code> method. Note that this is a necessary step before diagonalizing the circuit.</p>
@@ -493,7 +540,7 @@ w1:     [1. 1. 1.]
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 2 of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="a68e719f23c248a0adb9fac0d858dfe3" class="no-scaled-link" src="../_images/inductivelyShunted_pic3.png" style="width: 380px;" /></p>
+<p><img alt="a4623fd59c924579b40b9a6ba19c8273" class="no-scaled-link" src="../_images/inductivelyShunted_pic3.png" style="width: 380px;" /></p>
 </section>
 </section>
 
