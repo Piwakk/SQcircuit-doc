@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Inductively Shunted Superconducting Circuits" href="inductivelyShunted.html" />
+    <link rel="next" title="Flux Qubit (3JJ + L)" href="fluxQubit.html" />
     <link rel="prev" title="Examples" href="../examples.html" /> 
 </head>
 
@@ -53,6 +53,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Matrix-Elements">Matrix Elements</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="fluxQubit.html">Flux Qubit (3JJ + L)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inductivelyShunted.html">Inductively Shunted Superconducting Circuits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zeroPiQubit.html">0-π Qubit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fluxonium.html">Fluxonium</a></li>
@@ -366,7 +367,7 @@ div.rendered_html tbody tr:hover {
 <section id="Introdcution">
 <h2>Introdcution<a class="headerlink" href="#Introdcution" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> designed a qubit that is protected by two Cooper-pair tunneling. We reproduced the main results of the paper such as energy spectrum, wavefunctions, and matrix elements by use of SQcircuit. The diagram of the circuit is</p>
-<p><img alt="971fe73d4a834835b16b2f59b4f9452e" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
+<p><img alt="d8fb3a4cc9ac4353adfc4f65e139135f" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
 <p>The circuit consists of four equal inductors with <span class="math notranslate nohighlight">\(E_L=2\text{GHz}\)</span>, two equal Josephson Junction with <span class="math notranslate nohighlight">\(E_J=15\text{GHz}\)</span> and <span class="math notranslate nohighlight">\(E_{C_J}=2\text{GHz}\)</span>, and one shunt capacitor of <span class="math notranslate nohighlight">\(E_{C}=0.04\text{GHz}\)</span>.</p>
 </section>
 <section id="Circuit-Description">
@@ -560,7 +561,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 3a of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="31786b6405234bfb8191031ad5c5cd3e" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
+<p><img alt="659c82802e3548e4a7b588d177426fda" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
 </section>
 <section id="Eigenfunctions">
 <h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this headline"></a></h2>
@@ -628,12 +629,12 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the eigenfunctions from the figure 3c of the paper, which is the same as what SQcircuit calculated.</p>
-<p><img alt="ac0aa3ada2fa4dff83ef420f86d3568d" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
+<p><img alt="14fb27dad4f746a998a1749da3affa01" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
 </section>
 <section id="Matrix-Elements">
 <h2>Matrix Elements<a class="headerlink" href="#Matrix-Elements" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> defined the normalized matrix element as a measure of degree of freedoms to which circuit can couple. For coupling operator <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> the normalized matrix element is</p>
-<p><img alt="682c53c5494948078164bc98c725e252" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
+<p><img alt="b55d99cc5e8e42979bdb2133bf690a5c" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
 <p>where <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> is the eigenstates of the circuit and <span class="math notranslate nohighlight">\(|0o\rangle\)</span> is the ground state. We calculate the normalized matrix element for inductive coupling to inductor between node 0 and node 2 using <code class="docutils literal notranslate"><span class="pre">cr.couplingOperator()</span></code> method.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -678,7 +679,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next figure shows the same result from the figure 4a of the paper.</p>
-<p><img alt="328e67528b2e4737beab346554e74498" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
+<p><img alt="4b564bb52e6e41e7818a62f0dc5716c6" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
 </section>
 </section>
 
@@ -687,7 +688,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="inductivelyShunted.html" class="btn btn-neutral float-right" title="Inductively Shunted Superconducting Circuits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fluxQubit.html" class="btn btn-neutral float-right" title="Flux Qubit (3JJ + L)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -28,6 +28,22 @@ ________________________________________________________________________________
 
 .. container:: grid-container
 
+   .. figure:: pics/fluxQubit.png
+      :align: center
+      :width: 2.5in
+
+   .. container:: border-left-custom
+
+      .. toctree::
+         :maxdepth: 2
+         
+         examples/fluxQubit.ipynb
+
+_______________________________________________________________________________________________________________
+
+
+.. container:: grid-container
+
    .. figure:: pics/inductivelyShunted_black.png
       :align: center
       :width: 3in

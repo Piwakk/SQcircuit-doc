@@ -19,8 +19,7 @@ Developers
 Contributors
 ============
 
-
+| **Nathan Lee** (Stanford University) - Bug hunter and example Contributor
 | **Yudan Guo** (Stanford University) - Bug hunter
 | **Zhaoyou Wang** (Stanford University) - Bug hunter
-| **Nathan Lee** (Stanford University) - Bug hunter
 | **Takuma Makihara** (Stanford University) - Bug hunter

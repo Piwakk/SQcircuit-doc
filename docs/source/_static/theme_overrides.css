@@ -141,3 +141,16 @@ div.nbinput.container div.input_area {
      background-color: #fcfcfc;
      font-size: 14px;
 }
+
+/*Tob banner mobile issue*/
+.wy-nav-top {
+    background-color: #ff7f32!important;
+    color: #333131!important;
+}
+nav.wy-nav-top a {
+    color: #333131 !important;
+}
+/*end*/
+
+
+
