@@ -1,6 +1,6 @@
 .. figure:: pics/README_logo.png
    :align: center
-   :width: 2.5in
+   :width: 6in
 
 Superconducting Quantum Circuits in Python
 =====================================================
