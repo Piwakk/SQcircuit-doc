@@ -1191,18 +1191,18 @@
     <span class="c1"># Methods that calculate circuit properties</span>
     <span class="c1">###############################################</span>
 
-<div class="viewcode-block" id="Circuit.coordinateTransformation"><a class="viewcode-back" href="../../apidoc/circuit.html#SQcircuit.Circuit.coordinateTransformation">[docs]</a>    <span class="k">def</span> <span class="nf">coordinateTransformation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opType</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="viewcode-block" id="Circuit.coord_transform"><a class="viewcode-back" href="../../apidoc/circuit.html#SQcircuit.Circuit.coord_transform">[docs]</a>    <span class="k">def</span> <span class="nf">coord_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the transformation of the coordinates for each type of operators, either charge or flux.</span>
+<span class="sd">        Return the transformation of the coordinates for each type of variables, either charge or flux.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">            opType: str</span>
+<span class="sd">            var_type: str</span>
 <span class="sd">                The type of the operators that can be either `&quot;charge&quot;` or `&quot;flux&quot;`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">opType</span> <span class="o">==</span> <span class="s2">&quot;charge&quot;</span> <span class="ow">or</span> <span class="n">opType</span> <span class="o">==</span> <span class="s2">&quot;Charge&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">var_type</span> <span class="o">==</span> <span class="s2">&quot;charge&quot;</span> <span class="ow">or</span> <span class="n">var_type</span> <span class="o">==</span> <span class="s2">&quot;Charge&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">opType</span> <span class="o">==</span> <span class="s2">&quot;flux&quot;</span> <span class="ow">or</span> <span class="n">opType</span> <span class="o">==</span> <span class="s2">&quot;Flux&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">var_type</span> <span class="o">==</span> <span class="s2">&quot;flux&quot;</span> <span class="ow">or</span> <span class="n">var_type</span> <span class="o">==</span> <span class="s2">&quot;Flux&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot; The input must be either </span><span class="se">\&quot;</span><span class="s2">charge</span><span class="se">\&quot;</span><span class="s2"> or </span><span class="se">\&quot;</span><span class="s2">flux</span><span class="se">\&quot;</span><span class="s2">.&quot;</span><span class="p">)</span></div>

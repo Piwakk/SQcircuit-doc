@@ -377,15 +377,15 @@ div.rendered_html tbody tr:hover {
 \hat{\tilde{\mathbf{Q}}} = \mathbf{R}^{-1}\hat{\mathbf{Q}},\\
 \hat{\tilde{\mathbf{\Phi}}} = \mathbf{S}^{-1}\hat{\mathbf{\Phi}},
 \end{align*}</span></p>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}^{-1}\)</span> can be obtained via <code class="docutils literal notranslate"><span class="pre">coordinateTransformation()</span></code> method such as</p>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}^{-1}\)</span> can be obtained via <code class="docutils literal notranslate"><span class="pre">coord_transform()</span></code> method such as</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transformation of cooridante for charge operators</span>
-<span class="n">R_inv</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">coordinateTransformation</span><span class="p">(</span><span class="n">opType</span><span class="p">:</span> <span class="s2">&quot;charge&quot;</span><span class="p">)</span>
+<span class="n">R_inv</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">coord_transform</span><span class="p">(</span><span class="n">var_type</span><span class="o">=</span><span class="s2">&quot;charge&quot;</span><span class="p">)</span>
 <span class="c1"># transformation of cooridante for flux operators</span>
-<span class="n">S_inv</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">coordinateTransformation</span><span class="p">(</span><span class="n">opType</span><span class="p">:</span> <span class="s2">&quot;flux&quot;</span><span class="p">)</span>
+<span class="n">S_inv</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">coord_transform</span><span class="p">(</span><span class="n">var_type</span><span class="o">=</span><span class="s2">&quot;flux&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
