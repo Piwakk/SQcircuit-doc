@@ -1,0 +1,197 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# External Flux Distribution"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In the SQcircuit original paper, we show that the Hamiltonian of any circuit (without any transformation of coordinates) can be written as the following form"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\\begin{equation}\n",
+    "{{H}} = \\frac{1}{2} \\hat{{\\mathbf{Q}}}^T {\\mathbf{C}}^{-1}\\hat{{\\mathbf{Q}}} + \\frac{1}{2} \\hat{{\\mathbf\\Phi}}^T {\\mathbf{L}}^{*} \\hat{{\\mathbf\\Phi}} +\\sum_{k\\in \\mathcal{S}_L}\\left(\\frac{\\Phi_0}{2\\pi}\\frac{\\mathbf{b}_k^T\\mathbf{\\varphi}_{\\text{ext}}}{l_k}\\right){\\mathbf{w}}^T_k{\\hat{\\mathbf{\\Phi}}}-\\sum_{k\\in \\mathcal{S}_J} E_{J_k} \\cos \\left(\\frac{2\\pi}{\\Phi_0}{\\mathbf{w}}^T_k{\\hat{\\mathbf{\\Phi}}}+\\mathbf{b}_k^T\\mathbf{\\varphi}_{\\text{ext}}\\right)\\end{equation}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "where distribution of external fluxes for each inductive element is specified by $n_L$ (number of loops) dimensional vector $\\mathbf{b}_k$. We also showed in the paper that the correct description for external fluxes depends on the capacitors associated to each inductive element (see the paper for the details)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We use the following circuit as an example to demonstrate the SQcircuit functionalities."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<img src=\"pics/loopDist.png\" width=240 align=\"left\" />"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Firstly, we build our circuit by assigning three equal capacitors to each inductive elements( Josephson junctions and inductors)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import SQcircuit as sq\n",
+    "\n",
+    "C = sq.Capacitor(1)\n",
+    "\n",
+    "loop1 = sq.Loop(id_str=\"loop1\")\n",
+    "\n",
+    "JJ1 = sq.Junction(1, loops=[loop1], cap=C, id_str=\"JJ1\")\n",
+    "JJ2 = sq.Junction(1, loops=[loop1], cap=C, id_str=\"JJ2\")\n",
+    "L = sq.Inductor(1, loops=[loop1], cap=C, id_str=\"ind\")\n",
+    "\n",
+    "elements = {(0, 1): [JJ1],\n",
+    "            (0, 2): [JJ2],\n",
+    "            (1, 2): [L]}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note that in the construction of circuit elements, we set ``id_str`` for the loop and inductive elements, which makes it easier later to identify the assignment of loop distributions. If we do not pick the ``id_str`` for the interested elements, SQcircuit assigns auto-generated ``id_str`` for elements."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In SQcircuit, we provided ``flux_dist`` option in circuit construction that specifies the method for assigning external fluxes to inductive elements. If ``flux_dist`` is set to ``\"all\"``, SQcircuit automatically assigns the external fluxes to junctions and inductors based on their capacitors. However, if it is set to ``\"junction\"`` or ``\"inductor\"``, SQcircuit discards the capacitor assignment of inductive elements and assumes that junction capacitors are much smaller than inductor capacitors for ``\"junction\"`` option and otherwise for ``\"inductor\"`` option."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "By using ``loop_description()`` method, we can find the loop description for our circuit. Here, we expect the distribution of the flux to be equal among the elements since we set equal capacitors for each element."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "             loop1          \n",
+      "----------------------------\n",
+      "JJ1, b1:     0.33333        \n",
+      "JJ2, b2:     0.33333        \n",
+      "ind, b3:     0.33333        \n"
+     ]
+    }
+   ],
+   "source": [
+    "cr = sq.Circuit(elements, flux_dist='all')\n",
+    "cr.loop_description()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For junction assignment (the default option in SQcircuit):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "             loop1          \n",
+      "----------------------------\n",
+      "JJ1, b1:     0.5            \n",
+      "JJ2, b2:     0.5            \n",
+      "ind, b3:     0.0            \n"
+     ]
+    }
+   ],
+   "source": [
+    "cr = sq.Circuit(elements, flux_dist=\"junctions\")\n",
+    "cr.loop_description()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "and for inductor assignment:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "             loop1          \n",
+      "----------------------------\n",
+      "JJ1, b1:     0.0            \n",
+      "JJ2, b2:     0.0            \n",
+      "ind, b3:     1.0            \n"
+     ]
+    }
+   ],
+   "source": [
+    "cr = sq.Circuit(elements, flux_dist=\"inductors\")\n",
+    "cr.loop_description()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

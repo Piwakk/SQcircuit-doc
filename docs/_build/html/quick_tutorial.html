@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Tutorial &mdash; SQcircuit 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User Guide" href="guides/guides.html" />
+    <link rel="prev" title="Fluxonium" href="examples/fluxonium.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SQcircuit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/guides.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apidoc/apidoc.html">API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html#contributors">Contributors</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SQcircuit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Quick Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/quick_tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="quick-tutorial">
+<span id="quicktutor"></span><h1>Quick Tutorial<a class="headerlink" href="#quick-tutorial" title="Permalink to this headline"></a></h1>
+<p>To show a quick overview of how to use SQcircuit, we find the qubit frequency for the symmetric zero-pi qubit with the
+following parameters in gigahertz: <span class="math notranslate nohighlight">\(E_C=0.15\)</span>, <span class="math notranslate nohighlight">\(E_{CJ}=10\)</span>, <span class="math notranslate nohighlight">\(E_L=0.13\)</span> , and <span class="math notranslate nohighlight">\(E_J=5\)</span>.</p>
+<div class="grid-container docutils container">
+<figure class="align-left">
+<a class="reference internal image-reference" href="_images/zeroPiQubit_black.png"><img alt="_images/zeroPiQubit_black.png" src="_images/zeroPiQubit_black.png" style="width: 2.1in;" /></a>
+</figure>
+</div>
+<p>After installing the SQcircuit, we import it via:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the SQcircuit library</span>
+<span class="kn">import</span> <span class="nn">SQcircuit</span> <span class="k">as</span> <span class="nn">sq</span>
+</pre></div>
+</div>
+<p>Since zero-pi qubit has a single inductive loop, we define its loop by creating a loop object from <cite>Loop</cite> class with
+flux bias at frustration point:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># inductive loop of zero-pi qubit with flux bias at its frustration point.</span>
+<span class="n">loop1</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can later change the value of the flux bias by <code class="docutils literal notranslate"><span class="pre">set_flux()</span></code> method. Each circuit component in SQcircuit has their
+own class definition <cite>Capacitor</cite> class for capacitors, <code class="docutils literal notranslate"><span class="pre">Inductor</span></code> class for inductors, and <code class="docutils literal notranslate"><span class="pre">Junction</span></code> class for
+Josephson junctions. We define the elements of our zero-pi circuit as following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># capacitors</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>  <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;GHz&quot;</span><span class="p">)</span>
+<span class="n">CJ</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Capacitor</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;GHz&quot;</span><span class="p">)</span>
+<span class="c1"># inductors</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Inductor</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">0.13</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;GHz&quot;</span><span class="p">,</span> <span class="n">loops</span> <span class="o">=</span> <span class="p">[</span><span class="n">loop1</span><span class="p">])</span>
+<span class="c1"># JJs</span>
+<span class="n">JJ</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Junction</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;GHz&quot;</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="p">[</span><span class="n">loop1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that for the inductive elements( inductors as well as Josephson junctions) that are part of an
+inductive loop, one should indicate the loops of which they are involved. For example here we pass <code class="docutils literal notranslate"><span class="pre">[loop1]</span></code> to <code class="docutils literal notranslate"><span class="pre">loops</span></code>
+argument for both inductors and Josephson Junctions, because all of them are part of <code class="docutils literal notranslate"><span class="pre">loop1</span></code>. After defining all
+components of the circuit, to describe the circuit topology in SQcircuit, one should create an object of <code class="docutils literal notranslate"><span class="pre">Circuit</span></code>
+class by passing a Python dictionary that contains the list of all elements at each edge</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dictionary that contains the list of all elements at each edge</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">[</span><span class="n">CJ</span><span class="p">,</span> <span class="n">JJ</span><span class="p">],</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="n">L</span><span class="p">],</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="n">C</span><span class="p">],</span>
+            <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="p">[</span><span class="n">C</span><span class="p">],</span>
+            <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="n">L</span><span class="p">],</span>
+            <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="p">[</span><span class="n">CJ</span><span class="p">,</span> <span class="n">JJ</span><span class="p">]}</span>
+
+<span class="c1"># define the circuit</span>
+<span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>One step before diagonalizing the circuit is to define the size of the Hilbert space by specifying the truncation
+numbers for each mode.(For more information about modes and truncation number check the SQcircuit original paper or
+the documentation)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># call this function to set the truncation number for each mode of the circuit.</span>
+<span class="n">cr</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>We get the first two eigenfrequencies of the circuit to calculate the qubit frequency via:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the first two eigenfrequencies and eigenvectors</span>
+<span class="n">efreqs</span><span class="p">,</span> <span class="n">evecs</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">n_eig</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># print the qubit frequency</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;qubit frequency:&quot;</span><span class="p">,</span> <span class="n">efreqs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">efreqs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The frequency unit in SQcircuit is gigahertz by default. However, one can simply change it by <code class="docutils literal notranslate"><span class="pre">sq.set_unit_freq()</span></code> method.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples/fluxonium.html" class="btn btn-neutral float-left" title="Fluxonium" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="guides/guides.html" class="btn btn-neutral float-right" title="User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Taha Rajabzadeh, Amir Safavi-Naeini.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

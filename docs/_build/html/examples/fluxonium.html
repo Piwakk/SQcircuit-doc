@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Quick Tutorial" href="../quickTutorial.html" />
-    <link rel="prev" title="0-π Qubit" href="zeroPiQubit.html" /> 
+    <link rel="next" title="Quick Tutorial" href="../quick_tutorial.html" />
+    <link rel="prev" title="0-π Qubit" href="zeropi_qubit.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,10 +45,10 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../examples.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="twoCPB.html">Qubit Protected by Two-Cooper-Pair Tunneling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fluxQubit.html">Flux Qubit (3JJ + L)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inductivelyShunted.html">Inductively Shunted Superconducting Circuits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zeroPiQubit.html">0-π Qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="two_CPB.html">Qubit Protected by Two-Cooper-Pair Tunneling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_qubit.html">Flux Qubit (3JJ + L)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inductively_shunted.html">Inductively Shunted Superconducting Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zeropi_qubit.html">0-π Qubit</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Fluxonium</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Circuit-Description">Circuit Description</a></li>
@@ -59,7 +59,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../quickTutorial.html">Quick Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_tutorial.html">Quick Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/guides.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../apidoc/apidoc.html">API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Developers</a></li>
@@ -370,7 +370,7 @@ div.rendered_html tbody tr:hover {
 <section id="Circuit-Description">
 <h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this headline"></a></h2>
 <p>The following Fluxonium qubit consists of an inductor with <span class="math notranslate nohighlight">\(E_L=0.46~\text{GHz}\)</span> and Josephson Junction with <span class="math notranslate nohighlight">\(E_J=10.2~\text{GHz}\)</span>. The capacitor with <span class="math notranslate nohighlight">\(E_{C_J}=3.6~\text{GHz}\)</span> is assigned to Josephson Junction rather than the inductor.</p>
-<p><img alt="5755db3223f2459f94843f3bd0e40b62" class="no-scaled-link" src="../_images/Fluxonium1.png" style="width: 185px;" /></p>
+<p><img alt="8941bb2774e743d1baccb07adbdb0efa" class="no-scaled-link" src="../_images/Fluxonium1.png" style="width: 185px;" /></p>
 <p>Firstly, we import the SQcircuit and the relavant libraries</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -406,7 +406,7 @@ div.rendered_html tbody tr:hover {
     <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">[</span><span class="n">L</span><span class="p">,</span> <span class="n">JJ</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">fluxDist</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">cr</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">flux_dist</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -465,35 +465,35 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 <p>We determinte the size of the Hilbert space and truncation number for the only mode of the circuit.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span><span class="o">.</span><span class="n">truncationNumbers</span><span class="p">([</span><span class="mi">60</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<p>To generate the spectrum and decoherence rates of the circuit, firstly, we need to change and sweep the external flux of <code class="docutils literal notranslate"><span class="pre">loop1</span></code> by the <code class="docutils literal notranslate"><span class="pre">setFlux()</span></code> method. Then, we need to find the eigenfrequencies and decherence rates of the circuit that correspond to that external flux via <code class="docutils literal notranslate"><span class="pre">diag()</span></code> and <code class="docutils literal notranslate"><span class="pre">decRate()</span></code> method. In the following lines of code the <code class="docutils literal notranslate"><span class="pre">spec</span></code> is a 2D NumPy array that each column of it contains the eigenfrequencies with respect to its external flux. The <code class="docutils literal notranslate"><span class="pre">decay</span></code> is a Python
-dictionary that contains the decoherence rates for each type of loss channel.</p>
-<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numEig</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">60</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>To generate the spectrum and decoherence rates of the circuit, firstly, we need to change and sweep the external flux of <code class="docutils literal notranslate"><span class="pre">loop1</span></code> by the <code class="docutils literal notranslate"><span class="pre">set_flux()</span></code> method. Then, we need to find the eigenfrequencies and decherence rates of the circuit that correspond to that external flux via <code class="docutils literal notranslate"><span class="pre">diag()</span></code> and <code class="docutils literal notranslate"><span class="pre">dec_rate()</span></code> method. In the following lines of code the <code class="docutils literal notranslate"><span class="pre">spec</span></code> is a 2D NumPy array that each column of it contains the eigenfrequencies with respect to its external flux. The <code class="docutils literal notranslate"><span class="pre">decays</span></code> is a Python
+dictionary that contains the decoherence rates for each type of loss channel.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_eig</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="n">phiExt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
 
-<span class="n">decay</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;capacitive&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">phiExt</span><span class="p">),</span>
-         <span class="s1">&#39;inductive&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">phiExt</span><span class="p">),</span>
-         <span class="s1">&#39;cc&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">phiExt</span><span class="p">),</span>
-         <span class="s1">&#39;quasiparticle&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">phiExt</span><span class="p">)}</span>
+<span class="n">decays</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;capacitive&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">phiExt</span><span class="p">),</span>
+          <span class="s1">&#39;inductive&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">phiExt</span><span class="p">),</span>
+          <span class="s1">&#39;cc&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">phiExt</span><span class="p">),</span>
+          <span class="s1">&#39;quasiparticle&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">phiExt</span><span class="p">)}</span>
 
-<span class="n">spec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">numEig</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">phiExt</span><span class="p">)))</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_eig</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">phiExt</span><span class="p">)))</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">phi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">phiExt</span><span class="p">):</span>
-    <span class="n">loop1</span><span class="o">.</span><span class="n">setFlux</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
-    <span class="n">spec</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">numEig</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">decType</span> <span class="ow">in</span> <span class="n">decay</span><span class="p">:</span>
-        <span class="n">decay</span><span class="p">[</span><span class="n">decType</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">cr</span><span class="o">.</span><span class="n">decRate</span><span class="p">(</span><span class="n">decType</span><span class="o">=</span><span class="n">decType</span><span class="p">,</span> <span class="n">states</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">loop1</span><span class="o">.</span><span class="n">set_flux</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="n">spec</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">n_eig</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">dec_type</span> <span class="ow">in</span> <span class="n">decays</span><span class="p">:</span>
+        <span class="n">decays</span><span class="p">[</span><span class="n">dec_type</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">cr</span><span class="o">.</span><span class="n">dec_rate</span><span class="p">(</span><span class="n">dec_type</span><span class="o">=</span><span class="n">dec_type</span><span class="p">,</span> <span class="n">states</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -501,11 +501,11 @@ dictionary that contains the decoherence rates for each type of loss channel.</p
 <section id="Circuit-Spectrum">
 <h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this headline"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numEig</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_eig</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phiExt</span><span class="p">,</span> <span class="p">(</span><span class="n">spec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">spec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\Phi_</span><span class="si">{ext}</span><span class="s2">/\Phi_0$&quot;</span><span class="p">)</span>
@@ -525,13 +525,13 @@ dictionary that contains the decoherence rates for each type of loss channel.</p
 <section id="Decoherence-Rates">
 <h2>Decoherence Rates<a class="headerlink" href="#Decoherence-Rates" title="Permalink to this headline"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">dpi</span> <span class="o">=</span><span class="mi">80</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">decType</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">decay</span><span class="p">,</span> <span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">phiExt</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">decay</span><span class="p">[</span><span class="n">decType</span><span class="p">],</span><span class="s1">&#39;#ff7f32&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">decType</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">dec_type</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">decays</span><span class="p">,</span> <span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">phiExt</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">decays</span><span class="p">[</span><span class="n">dec_type</span><span class="p">],</span><span class="s1">&#39;#ff7f32&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">dec_type</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\Phi/\Phi_0$&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$T(s)$&quot;</span><span class="p">)</span>
 </pre></div>
@@ -547,18 +547,18 @@ dictionary that contains the decoherence rates for each type of loss channel.</p
 </section>
 <section id="Eigenfunctions">
 <h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this headline"></a></h2>
-<p>We can get the phase space eigenfunction of a specific eigenvector of a circuit by using the <code class="docutils literal notranslate"><span class="pre">eigPhaseSpace()</span></code> method. To calculate the eigenfunction at <span class="math notranslate nohighlight">\(\Phi_{ext} = 0.5\Phi_0\)</span>, we set back the flux of our loop to <span class="math notranslate nohighlight">\(0.5\)</span> and diagonalize the <code class="docutils literal notranslate"><span class="pre">cr</span></code> again.</p>
+<p>We can get the phase space eigenfunction of a specific eigenvector of a circuit by using the <code class="docutils literal notranslate"><span class="pre">eig_phase_coord()</span></code> method. To calculate the eigenfunction at <span class="math notranslate nohighlight">\(\Phi_{ext} = 0.5\Phi_0\)</span>, we set back the flux of our loop to <span class="math notranslate nohighlight">\(0.5\)</span> and diagonalize the <code class="docutils literal notranslate"><span class="pre">cr</span></code> again.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loop1</span><span class="o">.</span><span class="n">setFlux</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">numEig</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loop1</span><span class="o">.</span><span class="n">set_flux</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phi1</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
@@ -566,18 +566,18 @@ dictionary that contains the decoherence rates for each type of loss channel.</p
 <span class="n">grid</span> <span class="o">=</span> <span class="p">[</span><span class="n">phi1</span><span class="p">]</span>
 
 <span class="c1"># the ground state</span>
-<span class="n">state0</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">eigPhaseCoordinate</span><span class="p">(</span><span class="n">eigInd</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;#ff7f32&#39;</span><span class="p">)</span>
+<span class="n">state0</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">eig_phase_coord</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;#ff7f32&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7fe8a7f68820&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fa50b1b3190&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -594,8 +594,8 @@ dictionary that contains the decoherence rates for each type of loss channel.</p
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="zeroPiQubit.html" class="btn btn-neutral float-left" title="0-π Qubit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../quickTutorial.html" class="btn btn-neutral float-right" title="Quick Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="zeropi_qubit.html" class="btn btn-neutral float-left" title="0-π Qubit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../quick_tutorial.html" class="btn btn-neutral float-right" title="Quick Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

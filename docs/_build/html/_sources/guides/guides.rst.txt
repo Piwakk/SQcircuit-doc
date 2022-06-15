@@ -10,7 +10,7 @@ The best way to learn about SQcircuit is by reading its original paper and the e
    :maxdepth: 2
 
    hamiltonian.ipynb
-   loopDist.ipynb
+   loop_dist.ipynb
    units.rst
 
    
