@@ -99,11 +99,11 @@
 <span class="sd">        a float number or a Python function of angular frequency.</span>
 <span class="sd">    error: float</span>
 <span class="sd">        The error in fabrication as a percentage.</span>
-<span class="sd">    id_srt: str</span>
+<span class="sd">    id_str: str</span>
 <span class="sd">        ID string for the capacitor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">id_str</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">freqList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">faradList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;The input unit for the capacitor is not correct. Look at the documentation for the correct input &quot;</span> \
@@ -126,10 +126,10 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
 
-        <span class="k">if</span> <span class="n">id_srt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="s2">&quot;C_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">id_str</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="s2">&quot;C_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="n">id_srt</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="n">id_str</span>
 
 <div class="viewcode-block" id="Capacitor.value"><a class="viewcode-back" href="../../apidoc/elements.html#SQcircuit.Capacitor.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -186,11 +186,11 @@
 <span class="sd">        a float number or a Python function of angular frequency and temperature.</span>
 <span class="sd">    error: float</span>
 <span class="sd">        The error in fabrication as a percentage.</span>
-<span class="sd">    id_srt: str</span>
+<span class="sd">    id_str: str</span>
 <span class="sd">        ID string for the inductor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">id_srt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">id_str</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">freqList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">henryList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;The input unit for the inductor is not correct. Look at the documentation for the correct input &quot;</span> \
@@ -200,7 +200,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">lValue</span> <span class="o">=</span> <span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="n">id_srt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="n">id_str</span>
 
         <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">phPar</span><span class="o">.</span><span class="n">indU</span>
@@ -230,10 +230,10 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
 
-        <span class="k">if</span> <span class="n">id_srt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="s2">&quot;L_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">id_str</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="s2">&quot;L_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="n">id_srt</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="n">id_str</span>
 
 <div class="viewcode-block" id="Inductor.value"><a class="viewcode-back" href="../../apidoc/elements.html#SQcircuit.Inductor.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -294,12 +294,12 @@
 <span class="sd">        Real part of admittance.</span>
 <span class="sd">    error: float</span>
 <span class="sd">        The error in fabrication as a percentage.</span>
-<span class="sd">    id_srt: str</span>
+<span class="sd">    id_str: str</span>
 <span class="sd">        ID string for the junction.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">3e-06</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">3.4e-4</span><span class="p">,</span>
-                 <span class="n">Y</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">id_srt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">Y</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">id_str</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phPar</span><span class="o">.</span><span class="n">freqList</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;The input unit for the Josephson Junction is not correct. Look at the documentation for the&quot;</span> \
@@ -310,7 +310,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="n">id_srt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="n">id_str</span>
 
         <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">phPar</span><span class="o">.</span><span class="n">junU</span>
@@ -339,10 +339,10 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span>
 
-        <span class="k">if</span> <span class="n">id_srt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="s2">&quot;JJ_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">id_str</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="s2">&quot;JJ_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="n">id_srt</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="n">id_str</span>
 
 <div class="viewcode-block" id="Junction.value"><a class="viewcode-back" href="../../apidoc/elements.html#SQcircuit.Junction.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -372,11 +372,11 @@
 <span class="sd">            Value of the external flux at the loop.</span>
 <span class="sd">        A: float</span>
 <span class="sd">            Normalized noise amplitude related to flux noise.</span>
-<span class="sd">        id_srt: str</span>
+<span class="sd">        id_str: str</span>
 <span class="sd">            ID string for the loop.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">id_srt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">id_str</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lpValue</span> <span class="o">=</span> <span class="n">value</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
@@ -385,10 +385,10 @@
         <span class="c1"># k1 matrix related to this specific loop</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">K1</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">if</span> <span class="n">id_srt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="s2">&quot;loop&quot;</span>
+        <span class="k">if</span> <span class="n">id_str</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="s2">&quot;loop&quot;</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">id_srt</span> <span class="o">=</span> <span class="n">id_srt</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_str</span> <span class="o">=</span> <span class="n">id_str</span>
 
     <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">K1</span> <span class="o">=</span> <span class="p">[]</span>
