@@ -136,10 +136,10 @@ fabrication error. This is necessary for robustness analysis.</p></li>
 <li><p><strong>flux_dist</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Provide the method of distributing the external fluxes. If
 <code class="docutils literal notranslate"><span class="pre">flux_dist</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>, SQcircuit assign the external fluxes
 based on the capacitor of each inductive element (This option is
-necessary for time-dependent external fluxes). If <cite>flux_dist</cite> is
-<cite>“inductor”</cite> SQcircuit finds the external flux distribution by
+necessary for time-dependent external fluxes). If <code class="docutils literal notranslate"><span class="pre">flux_dist</span></code> is
+<code class="docutils literal notranslate"><span class="pre">&quot;inductor&quot;</span></code> SQcircuit finds the external flux distribution by
 assuming the capacitor of the inductors are much smaller than the
-junction capacitors, If <cite>flux_dist</cite> is <cite>“junction”</cite> it is the
+junction capacitors, If <code class="docutils literal notranslate"><span class="pre">flux_dist</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;junction&quot;</span></code> it is the
 other way around.</p></li>
 </ul>
 </dd>
@@ -147,11 +147,15 @@ other way around.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.coord_transform">
 <span class="sig-name descname"><span class="pre">coord_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.coord_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.coord_transform" title="Permalink to this definition"></a></dt>
-<dd><p>Return the transformation of the coordinates for each type of variables, either charge or flux.</p>
+<dd><p>Return the transformation of the coordinates as ndarray for each type
+of variables, either charge or flux.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>var_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The type of the variables that can be either <cite>“charge”</cite> or
-<cite>“flux”</cite>.</p>
+<dd class="field-odd"><p><strong>var_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The type of the variables that can be either <code class="docutils literal notranslate"><span class="pre">&quot;charge&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;flux&quot;</span></code>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -159,14 +163,18 @@ other way around.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.coupling_op">
 <span class="sig-name descname"><span class="pre">coupling_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.coupling_op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.coupling_op" title="Permalink to this definition"></a></dt>
-<dd><p>Return the capacitive or inductive coupling operator related to the specified nodes. The output has the
-QuTip object format.</p>
+<dd><p>Return the capacitive or inductive coupling operator related to the
+specified nodes. The output has the <cite>qutip.Qobj</cite> format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ctype</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Coupling type which is either <cite>“capacitive”</cite> or <cite>“inductive”</cite>.</p></li>
+<li><p><strong>ctype</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Coupling type which is either <code class="docutils literal notranslate"><span class="pre">&quot;capacitive&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code>.</p></li>
 <li><p><strong>nodes</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of circuit nodes to which we want to couple.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -179,15 +187,18 @@ for different types of depolarization and dephasing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dec_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – decoherence type that can be: <cite>“capacitive”</cite> for capacitive
-loss; <cite>“inductive”</cite> for inductive loss; <cite>“quasiparticle”</cite> for
-quasiparticle loss; <cite>“charge”</cite> for charge noise, <cite>“flux”</cite> for
-flux noise; and <cite>“cc”</cite> for critical current noise.</p></li>
+<li><p><strong>dec_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – decoherence type that can be: <code class="docutils literal notranslate"><span class="pre">&quot;capacitive&quot;</span></code> for capacitive
+loss; <code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code> for inductive loss; <cite>“quasiparticle”</cite> for
+quasiparticle loss; <code class="docutils literal notranslate"><span class="pre">&quot;charge&quot;</span></code> for charge noise, <code class="docutils literal notranslate"><span class="pre">&quot;flux&quot;</span></code>
+for flux noise; and <code class="docutils literal notranslate"><span class="pre">&quot;cc&quot;</span></code> for critical current noise.</p></li>
 <li><p><strong>states</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of indices of eigenstates for which we want to
-calculate the decoherence rate. For example, for <cite>states=(0,
-1)</cite>, we calculate the decoherence rate between the ground
+calculate the decoherence rate. For example, for <code class="docutils literal notranslate"><span class="pre">states=(0,</span>
+<span class="pre">1)</span></code>, we calculate the decoherence rate between the ground
 state and the first excited state.</p></li>
-<li><p><strong>total</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+<li><p><strong>total</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if False return a decoherence rate associated with a
+transition from state m to state n for <code class="docutils literal notranslate"><span class="pre">states=(m,</span> <span class="pre">n)</span></code>. if
+True return a decoherence rate associated with both m to n
+and n to m transitions.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -199,15 +210,19 @@ state and the first excited state.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.description">
 <span class="sig-name descname"><span class="pre">description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.description" title="Permalink to this definition"></a></dt>
-<dd><p>Print out Hamiltonian and a listing of the modes (whether they are harmonic or
-charge modes with the frequency for each harmonic mode), Hamiltonian parameters, and external flux values.</p>
+<dd><p>Print out Hamiltonian and a listing of the modes (whether they are
+harmonic or charge modes with the frequency for each harmonic mode),
+Hamiltonian parameters, and external flux values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>tp</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – If <code class="docutils literal notranslate"><span class="pre">None</span></code> prints out the output as Latex if SQcircuit is running in a Jupyter notebook and as text
-if SQcircuit is running in Python terminal. If <code class="docutils literal notranslate"><span class="pre">tp</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;ltx&quot;</span></code>, the output is in Latex format
-if <code class="docutils literal notranslate"><span class="pre">tp</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;txt&quot;</span></code> the output is in text format.</p></li>
-<li><p><strong>_test</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if True, return the entire description as string text. (use only for testing the function)</p></li>
+<li><p><strong>tp</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – If <code class="docutils literal notranslate"><span class="pre">None</span></code> prints out the output as Latex if SQcircuit is
+running in a Jupyter notebook and as text if SQcircuit is
+running in Python terminal. If <code class="docutils literal notranslate"><span class="pre">tp</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;ltx&quot;</span></code>,
+the output is in Latex format if <code class="docutils literal notranslate"><span class="pre">tp</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;txt&quot;</span></code> the
+output is in text format.</p></li>
+<li><p><strong>_test</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if True, return the entire description as string
+text. (use only for testing the function)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -219,12 +234,24 @@ if <code class="docutils literal notranslate"><span class="pre">tp</span></code>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.diag">
 <span class="sig-name descname"><span class="pre">diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_eig</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.diag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.diag" title="Permalink to this definition"></a></dt>
-<dd><p>Diagonalize the Hamiltonian of the circuit and return the eigenfrequencies and eigenvectors of the circuit up
-to specified number of eigenvalues.</p>
+<dd><p>Diagonalize the Hamiltonian of the circuit and return the
+eigenfrequencies and eigenvectors of the circuit up to specified
+number of eigenvalues.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>n_eig</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of eigenvalues to output. The lower <code class="docutils literal notranslate"><span class="pre">n_eig</span></code>, the faster <code class="docutils literal notranslate"><span class="pre">SQcircuit</span></code> finds
-the eigenvalues.</p>
+<dd class="field-odd"><p><strong>n_eig</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of eigenvalues to output. The lower <code class="docutils literal notranslate"><span class="pre">n_eig</span></code>, the
+faster <code class="docutils literal notranslate"><span class="pre">SQcircuit</span></code> finds the eigenvalues.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code>]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>efreq</em> – ndarray of eigenfrequencies in frequency unit of SQcircuit (
+gigahertz by default)</p></li>
+<li><p><em>evecs</em> – List of eigenvectors in qutip.Qobj format.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -232,15 +259,19 @@ the eigenvalues.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.eig_phase_coord">
 <span class="sig-name descname"><span class="pre">eig_phase_coord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.eig_phase_coord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.eig_phase_coord" title="Permalink to this definition"></a></dt>
-<dd><p>Return the phase coordinate representations of the eigenvectors.</p>
+<dd><p>Return the phase coordinate representations of the eigenvectors as
+ndarray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>k</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The eigenvector index. For example, we set it to 0 for the ground state and 1
-for the first excited state.</p></li>
-<li><p><strong>grid</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – A list that contains the range of values of phase φ for which we want to evaluate the
-wavefunction.</p></li>
+<li><p><strong>k</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The eigenvector index. For example, we set it to 0 for the
+ground state and 1 for the first excited state.</p></li>
+<li><p><strong>grid</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – A list that contains the range of values of phase φ for which
+we want to evaluate the wavefunction.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -248,7 +279,13 @@ wavefunction.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.hamiltonian">
 <span class="sig-name descname"><span class="pre">hamiltonian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.hamiltonian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.hamiltonian" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the transformed hamiltonian of the circuit as QuTiP object.</p>
+<dd><p>Returns the transformed hamiltonian of the circuit as
+qutip.Qobj format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -270,7 +307,8 @@ or inductive coupling.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ctype</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Coupling type which is either <cite>“capacitive”</cite> or <cite>“inductive”</cite>.</p></li>
+<li><p><strong>ctype</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Coupling type which is either <code class="docutils literal notranslate"><span class="pre">&quot;capacitive&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code>.</p></li>
 <li><p><strong>nodes</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of circuit nodes to which we want to couple.</p></li>
 <li><p><strong>states</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of indices of eigenstates for which we want to
 calculate the matrix element.</p></li>
@@ -290,7 +328,7 @@ calculate the matrix element.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – An integer that specifies the charge mode. To see which mode
-is a charge mode, we can use <cite>description()</cite> method.</p></li>
+is a charge mode, we can use <code class="docutils literal notranslate"><span class="pre">description()</span></code> method.</p></li>
 <li><p><strong>A</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The charge noise.</p></li>
 </ul>
 </dd>
@@ -307,8 +345,8 @@ is a charge mode, we can use <cite>description()</cite> method.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – An integer that specifies the charge mode. To see, which mode is a charge mode, one
-can use <cite>description()</cite> method.</p></li>
+<li><p><strong>mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – An integer that specifies the charge mode. To see, which mode
+is a charge mode, one can use <code class="docutils literal notranslate"><span class="pre">description()</span></code> method.</p></li>
 <li><p><strong>ng</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The charge offset.</p></li>
 </ul>
 </dd>
@@ -327,7 +365,7 @@ can use <cite>description()</cite> method.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The value of the frequency.</p></li>
 <li><p><strong>unit</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The unit of the input value in hertz unit that can be
-“THz”, “GHz”, “MHz”,and ,etc.</p></li>
+<code class="docutils literal notranslate"><span class="pre">&quot;THz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;GHz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;MHz&quot;</span></code>,and ,etc.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -345,7 +383,7 @@ can use <cite>description()</cite> method.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The value of the frequency.</p></li>
 <li><p><strong>unit</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The unit of the input value in hertz unit that can be
-“THz”, “GHz”, “MHz”,and ,etc.</p></li>
+<code class="docutils literal notranslate"><span class="pre">&quot;THz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;GHz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;MHz&quot;</span></code>,and ,etc.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -363,7 +401,7 @@ can use <cite>description()</cite> method.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The value of the measurement time.</p></li>
 <li><p><strong>unit</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The unit of the input value in time unit that can be
-“s”, “ms”, “us”,and ,etc.</p></li>
+<code class="docutils literal notranslate"><span class="pre">&quot;s&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ms&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;us&quot;</span></code>,and ,etc.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
