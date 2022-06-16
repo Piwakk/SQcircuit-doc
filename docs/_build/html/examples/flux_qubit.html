@@ -16,10 +16,11 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -360,12 +361,12 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Flux-Qubit-(3JJ-+-L)">
-<h1>Flux Qubit (3JJ + L)<a class="headerlink" href="#Flux-Qubit-(3JJ-+-L)" title="Permalink to this headline"></a></h1>
+<h1>Flux Qubit (3JJ + L)<a class="headerlink" href="#Flux-Qubit-(3JJ-+-L)" title="Permalink to this heading"></a></h1>
 <section id="Introduction">
-<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this heading"></a></h2>
 <p>Calculating the flux-tuning eigenvalues for a three-junction flux qubit incorporating nonzero linear loop inductance. The goal is to compare SQcircuit’s solution to a case-specific solution following the two papers mentioned below.</p>
 <p>Reference for circuit model and parameters: <a class="reference external" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.73.174526">https://journals.aps.org/prb/abstract/10.1103/PhysRevB.73.174526</a></p>
-<p><img alt="6fecf1eec97e49689406f93732958a69" class="no-scaled-link" src="../_images/fluxQubit_pic1.png" style="width: 230px;" /></p>
+<p><img alt="fc3065c5f9b94be1ac4d33d6c716b035" class="no-scaled-link" src="../_images/fluxQubit_pic1.png" style="width: 230px;" /></p>
 <p>Note:</p>
 <p>2D Brillouin zone for periodic coordinates used an incorrect unit cell of 2x the correct size, leading to parasitic doublets in the low spectrum (with both curves of a doublet close to the correct single curve), and large deviations in the high spectrum. This error was mentioned and corrected by Yamamoto et. al. NJP 2014: <a class="reference external" href="https://iopscience.iop.org/article/10.1088/1367-2630/16/1/015017/pdf">https://iopscience.iop.org/article/10.1088/1367-2630/16/1/015017/pdf</a></p>
 <div class="nbinput nblast docutils container">
@@ -418,7 +419,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="Circuit-Description">
-<h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this headline"></a></h2>
+<h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -519,7 +520,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </section>
 <section id="Circuit-Spectrum">
-<h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this headline"></a></h2>
+<h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this heading"></a></h2>
 <p>To determine the size of the Hilbert space, we specify the truncation number for each circuit mode via <code class="docutils literal notranslate"><span class="pre">set_trunc_nums()</span></code> method. Note that this is a necessary step before diagonalizing the circuit.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:

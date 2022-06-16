@@ -16,10 +16,11 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -361,17 +362,17 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="0-π-Qubit">
-<h1>0-π Qubit<a class="headerlink" href="#0-π-Qubit" title="Permalink to this headline"></a></h1>
+<h1>0-π Qubit<a class="headerlink" href="#0-π-Qubit" title="Permalink to this heading"></a></h1>
 <p>In this notebook, we try to reproduce the result of the <a class="reference external" href="https://iopscience-iop-org.stanford.idm.oclc.org/article/10.1088/1367-2630/aab7cd">“Coherence properties of the 0-π qubit”</a> paper.</p>
 <section id="Introduction">
-<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this heading"></a></h2>
 <p>Our goal is to reproduce the enegry spectrum and eigenfunctions that <a class="reference external" href="https://iopscience-iop-org.stanford.idm.oclc.org/article/10.1088/1367-2630/aab7cd">Groszkowski2018</a> is calculated for the <span class="math notranslate nohighlight">\(0-\pi\)</span> qubit. The diagram of the circuit is</p>
-<p><img alt="d87fd54edec34f1db86ee7ace9145a91" class="no-scaled-link" src="../_images/zeroPiQubit_pic1.png" style="width: 220px;" /></p>
+<p><img alt="813cc6b621a64001ae269004d9cb6999" class="no-scaled-link" src="../_images/zeroPiQubit_pic1.png" style="width: 220px;" /></p>
 <p>We choose the parameter set 3 for the circuit from the following table of the paper:</p>
-<p><img alt="de5a6367037545f4a549689879dc9623" class="no-scaled-link" src="../_images/zeroPiQubit_pic2.png" style="width: 400px;" /></p>
+<p><img alt="aa45fe3968ac44b2b4bc1bce25912658" class="no-scaled-link" src="../_images/zeroPiQubit_pic2.png" style="width: 400px;" /></p>
 </section>
 <section id="Circuit-Description">
-<h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this headline"></a></h2>
+<h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this heading"></a></h2>
 <p>Firstly, we import the SQcircuit and the relavant libraries</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -495,7 +496,7 @@ one.</p>
 </div>
 </section>
 <section id="Circuit-Spectrum">
-<h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this headline"></a></h2>
+<h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this heading"></a></h2>
 <p>To generate the spectrum of the circuit, firstly, we need to change and sweep the external flux of <code class="docutils literal notranslate"><span class="pre">loop1</span></code> by the <code class="docutils literal notranslate"><span class="pre">set_flux()</span></code> method. Then, we need to find the eigenfrequencies of the circuit that correspond to that external flux via <code class="docutils literal notranslate"><span class="pre">diag()</span></code> method. The following lines of code find the <code class="docutils literal notranslate"><span class="pre">spec</span></code> a 2D NumPy array so that each column of it contains the eigenfrequencies with respect to its external flux.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -539,10 +540,10 @@ one.</p>
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 4 of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="ac8eb0d8d7ff4bc2ac1b83c278575a4f" class="no-scaled-link" src="../_images/zeroPiQubit_pic3.png" style="width: 250px;" /></p>
+<p><img alt="2ef8dd3b4136422abeeff7b3acbf373c" class="no-scaled-link" src="../_images/zeroPiQubit_pic3.png" style="width: 250px;" /></p>
 </section>
 <section id="Eigenfunctions">
-<h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this headline"></a></h2>
+<h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this heading"></a></h2>
 <p>We generate the eigenfunction in the phase space by <code class="docutils literal notranslate"><span class="pre">eig_phase_coord()</span></code> method for the ground and first excited state. To calculate the eigenfunction at <span class="math notranslate nohighlight">\(\Phi_{ext} = 0.9\Phi_0\)</span> similar to paper, we set back the flux of our loop to <span class="math notranslate nohighlight">\(0.9\Phi_0\)</span> and diagonalize the <code class="docutils literal notranslate"><span class="pre">zrPi</span></code> again.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:

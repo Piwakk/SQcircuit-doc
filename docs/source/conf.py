@@ -41,6 +41,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.ifconfig',
               'sphinx.ext.napoleon',
               'sphinx.ext.mathjax',
+              "sphinx_autodoc_typehints",
               'sphinx_rtd_theme',
               'nbsphinx',
               ]

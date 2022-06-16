@@ -16,10 +16,11 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -362,16 +363,16 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Qubit-Protected-by-Two-Cooper-Pair-Tunneling">
-<h1>Qubit Protected by Two-Cooper-Pair Tunneling<a class="headerlink" href="#Qubit-Protected-by-Two-Cooper-Pair-Tunneling" title="Permalink to this headline"></a></h1>
+<h1>Qubit Protected by Two-Cooper-Pair Tunneling<a class="headerlink" href="#Qubit-Protected-by-Two-Cooper-Pair-Tunneling" title="Permalink to this heading"></a></h1>
 <p>In this notebook, we try to reproduce the result of the <a class="reference external" href="https://www-nature-com.stanford.idm.oclc.org/articles/s41534-019-0231-2">“Superconducting circuit protected by two-Cooper-pair tunneling”</a> paper.</p>
 <section id="Introdcution">
-<h2>Introdcution<a class="headerlink" href="#Introdcution" title="Permalink to this headline"></a></h2>
+<h2>Introdcution<a class="headerlink" href="#Introdcution" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> designed a qubit that is protected by two Cooper-pair tunneling. We reproduced the main results of the paper such as energy spectrum, wavefunctions, and matrix elements by use of SQcircuit. The diagram of the circuit is</p>
-<p><img alt="86541418338341299b753f111ec6298a" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
+<p><img alt="6584b025f253487bb5b986b387ea6601" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
 <p>The circuit consists of four equal inductors with <span class="math notranslate nohighlight">\(E_L=2\text{GHz}\)</span>, two equal Josephson Junction with <span class="math notranslate nohighlight">\(E_J=15\text{GHz}\)</span> and <span class="math notranslate nohighlight">\(E_{C_J}=2\text{GHz}\)</span>, and one shunt capacitor of <span class="math notranslate nohighlight">\(E_{C}=0.04\text{GHz}\)</span>.</p>
 </section>
 <section id="Circuit-Description">
-<h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this headline"></a></h2>
+<h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this heading"></a></h2>
 <p>Firstly, we import the SQcircuit and the relavant libraries</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -512,7 +513,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </section>
 <section id="Circuit-Spectrum">
-<h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this headline"></a></h2>
+<h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this heading"></a></h2>
 <p>To generate the spectrum of the circuit, firstly, we need to change and sweep the external flux of <code class="docutils literal notranslate"><span class="pre">loop1</span></code> by the <code class="docutils literal notranslate"><span class="pre">set_flux()</span></code> method. Then, we need to find the eigenfrequencies of the circuit that correspond to that external flux via <code class="docutils literal notranslate"><span class="pre">diag()</span></code> method. The following lines of code find the <code class="docutils literal notranslate"><span class="pre">spec</span></code> a 2D NumPy array so that each column of it contains the eigenfrequencies with respect to its external flux.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -561,10 +562,10 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 3a of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="7c9f6458ea1f40acb6e579934f894984" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
+<p><img alt="63c4be320af4489787035367790af41f" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
 </section>
 <section id="Eigenfunctions">
-<h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this headline"></a></h2>
+<h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this heading"></a></h2>
 <p>We can get the phase space eigenfunction of a specific eigenvector of a circuit by using the <code class="docutils literal notranslate"><span class="pre">eig_phase_coord()</span></code> method. To calculate the eigenfunction at <span class="math notranslate nohighlight">\(\Phi_{ext} = 0.5\Phi_0\)</span> similar to paper, we set back the flux of our loop to <span class="math notranslate nohighlight">\(0.5\)</span> and diagonalize the <code class="docutils literal notranslate"><span class="pre">cr</span></code> again.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -630,12 +631,12 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the eigenfunctions from the figure 3c of the paper, which is the same as what SQcircuit calculated.</p>
-<p><img alt="3c195d557cbd47d5a913a89f21ddbb83" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
+<p><img alt="0a9c6999764944cabc72fef9aef10199" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
 </section>
 <section id="Matrix-Elements">
-<h2>Matrix Elements<a class="headerlink" href="#Matrix-Elements" title="Permalink to this headline"></a></h2>
+<h2>Matrix Elements<a class="headerlink" href="#Matrix-Elements" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> defined the normalized matrix element as a measure of degree of freedoms to which circuit can couple. For coupling operator <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> the normalized matrix element is</p>
-<p><img alt="d519432d37ec4bf8939426b4254560df" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
+<p><img alt="35809ff9a48c4099bd2282194d089906" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
 <p>where <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> is the eigenstates of the circuit and <span class="math notranslate nohighlight">\(|0o\rangle\)</span> is the ground state. We calculate the normalized matrix element for inductive coupling to inductor between node 0 and node 2 using <code class="docutils literal notranslate"><span class="pre">cr.coupling_op()</span></code> method.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -680,7 +681,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next figure shows the same result from the figure 4a of the paper.</p>
-<p><img alt="6736c6001bc84152be49000009dd3836" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
+<p><img alt="21eddcd72cf54e74845076caffbe2b51" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
 </section>
 </section>
 

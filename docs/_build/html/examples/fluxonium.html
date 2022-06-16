@@ -16,10 +16,11 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -362,15 +363,15 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Fluxonium">
-<h1>Fluxonium<a class="headerlink" href="#Fluxonium" title="Permalink to this headline"></a></h1>
+<h1>Fluxonium<a class="headerlink" href="#Fluxonium" title="Permalink to this heading"></a></h1>
 <section id="Introduction">
-<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this heading"></a></h2>
 <p>In this notebook, we calculate Fluxonium qubit properties such as energy spectrum, eigenfunctions, and decoherence rates for different loss channels.</p>
 </section>
 <section id="Circuit-Description">
-<h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this headline"></a></h2>
+<h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this heading"></a></h2>
 <p>The following Fluxonium qubit consists of an inductor with <span class="math notranslate nohighlight">\(E_L=0.46~\text{GHz}\)</span> and Josephson Junction with <span class="math notranslate nohighlight">\(E_J=10.2~\text{GHz}\)</span>. The capacitor with <span class="math notranslate nohighlight">\(E_{C_J}=3.6~\text{GHz}\)</span> is assigned to Josephson Junction rather than the inductor.</p>
-<p><img alt="d1c5383b7fdd492881c8d2974dacdcd1" class="no-scaled-link" src="../_images/Fluxonium1.png" style="width: 185px;" /></p>
+<p><img alt="6b2d004adf624ae1a5a055e487e00895" class="no-scaled-link" src="../_images/Fluxonium1.png" style="width: 185px;" /></p>
 <p>Firstly, we import the SQcircuit and the relavant libraries</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -499,7 +500,7 @@ dictionary that contains the decoherence rates for each type of loss channel.</p
 </div>
 </section>
 <section id="Circuit-Spectrum">
-<h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this headline"></a></h2>
+<h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -523,7 +524,7 @@ dictionary that contains the decoherence rates for each type of loss channel.</p
 </div>
 </section>
 <section id="Decoherence-Rates">
-<h2>Decoherence Rates<a class="headerlink" href="#Decoherence-Rates" title="Permalink to this headline"></a></h2>
+<h2>Decoherence Rates<a class="headerlink" href="#Decoherence-Rates" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -546,7 +547,7 @@ dictionary that contains the decoherence rates for each type of loss channel.</p
 </div>
 </section>
 <section id="Eigenfunctions">
-<h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this headline"></a></h2>
+<h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this heading"></a></h2>
 <p>We can get the phase space eigenfunction of a specific eigenvector of a circuit by using the <code class="docutils literal notranslate"><span class="pre">eig_phase_coord()</span></code> method. To calculate the eigenfunction at <span class="math notranslate nohighlight">\(\Phi_{ext} = 0.5\Phi_0\)</span>, we set back the flux of our loop to <span class="math notranslate nohighlight">\(0.5\)</span> and diagonalize the <code class="docutils literal notranslate"><span class="pre">cr</span></code> again.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
