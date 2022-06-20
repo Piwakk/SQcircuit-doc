@@ -42,7 +42,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quick_tutorial.html">Quick Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../guides/guides.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/guides.html">Users Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../apidoc/apidoc.html">API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors.html#contributors">Contributors</a></li>
@@ -124,6 +124,19 @@
 <span class="sd">            junction capacitors, If ``flux_dist`` is ``&quot;junction&quot;`` it is the</span>
 <span class="sd">            other way around.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_op_memory</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Qobj</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># list of identity operators</span>
+        <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># list of charge operators (normalized by 1/sqrt(hbar))</span>
+        <span class="s2">&quot;QQ&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># list of charge times charge operators</span>
+        <span class="s2">&quot;phi&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># list of flux operators (normalized by 1/sqrt(hbar))</span>
+        <span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># list of number operators</span>
+        <span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># List of exponential operators</span>
+        <span class="s2">&quot;root_exp&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># List of square root of exponential operators</span>
+        <span class="s2">&quot;cos&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># List of cosine operators</span>
+        <span class="s2">&quot;sin&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># List of sine operators</span>
+        <span class="s2">&quot;sin/2&quot;</span><span class="p">:</span> <span class="p">[],</span>  <span class="c1"># list of sin(phi/2)</span>
+    <span class="p">}</span>
 
     <span class="c1"># external charges of the circuit</span>
     <span class="n">extCharge</span> <span class="o">=</span> <span class="p">{}</span>
@@ -298,7 +311,7 @@
             <span class="c1"># i1 and i2 are the nodes of the edge</span>
             <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="n">edge</span>
 
-            <span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
             <span class="k">if</span> <span class="n">i1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">w</span><span class="p">[</span><span class="n">i1</span> <span class="o">+</span> <span class="n">i2</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -724,7 +737,7 @@
                 <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>
                     <span class="n">w</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">w</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">S</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">S</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
                 <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">w</span><span class="p">[:</span><span class="n">harDim</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
                 <span class="n">indTxt</span> <span class="o">+=</span> <span class="n">txt</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">phi</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)(&quot;</span> <span class="o">+</span> \
                           <span class="n">txt</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">phiExt</span><span class="p">,</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:])</span>
@@ -881,9 +894,9 @@
         <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;The specified mode is not a charge mode.&quot;</span>
         <span class="k">assert</span> <span class="n">mode</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extCharge</span><span class="p">,</span> <span class="n">error</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">extCharge</span><span class="p">[</span><span class="n">mode</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setOffset</span><span class="p">(</span><span class="n">ng</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extCharge</span><span class="p">[</span><span class="n">mode</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setOffset</span><span class="p">(</span><span class="n">ng</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">extCharge</span><span class="p">[</span><span class="n">mode</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setOffset</span><span class="p">(</span><span class="n">ng</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extCharge</span><span class="p">[</span><span class="n">mode</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setOffset</span><span class="p">(</span><span class="n">ng</span><span class="p">)</span>
 
             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chargeOpList</span><span class="p">,</span>
              <span class="bp">self</span><span class="o">.</span><span class="n">numOpList</span><span class="p">,</span>
@@ -1239,9 +1252,9 @@
                     <span class="c1"># save the operators for loss calculations.</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">junctionHamil</span><span class="p">[</span><span class="s1">&#39;cos&#39;</span><span class="p">][</span><span class="n">el</span><span class="p">]</span> <span class="o">=</span> <span class="n">HJ</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">junctionHamil</span><span class="p">[</span><span class="s1">&#39;sin&#39;</span><span class="p">][(</span><span class="n">countInd</span><span class="p">,</span> <span class="n">el</span><span class="p">)]</span> <span class="o">=</span> \
-                        <span class="p">(</span><span class="n">HJ_exp</span><span class="o">-</span><span class="n">HJ_exp</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span> <span class="o">/</span> <span class="mi">1</span><span class="n">j</span>
+                        <span class="p">(</span><span class="n">HJ_exp</span> <span class="o">-</span> <span class="n">HJ_exp</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span> <span class="o">/</span> <span class="mi">1</span><span class="n">j</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">junctionHamil</span><span class="p">[</span><span class="s1">&#39;sinHalf&#39;</span><span class="p">][</span><span class="n">el</span><span class="p">]</span> <span class="o">=</span> \
-                        <span class="p">(</span><span class="n">HJ_expRoot</span><span class="o">-</span><span class="n">HJ_expRoot</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span> <span class="o">/</span> <span class="mi">1</span><span class="n">j</span>
+                        <span class="p">(</span><span class="n">HJ_expRoot</span> <span class="o">-</span> <span class="n">HJ_expRoot</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span> <span class="o">/</span> <span class="mi">1</span><span class="n">j</span>
 
                     <span class="n">countInd</span> <span class="o">+=</span> <span class="mi">1</span>
                     <span class="n">JJFlag</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1478,11 +1491,13 @@
                 <span class="c1"># K = np.linalg.inv(self.getMatC()) @ self.R</span>
                 <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">)</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span>
                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
-                    <span class="n">op</span> <span class="o">+=</span> <span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="n">node2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">K</span><span class="p">[</span><span class="n">node1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">chargeOpList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">op</span> <span class="o">+=</span> <span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="n">node2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">K</span><span class="p">[</span><span class="n">node1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> \
+                          <span class="bp">self</span><span class="o">.</span><span class="n">chargeOpList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">ctype</span> <span class="o">==</span> <span class="s2">&quot;inductive&quot;</span><span class="p">:</span>
                 <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">S</span>
                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
-                    <span class="n">op</span> <span class="o">+=</span> <span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="n">node1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">K</span><span class="p">[</span><span class="n">node2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxOpList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">op</span> <span class="o">+=</span> <span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="n">node1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">K</span><span class="p">[</span><span class="n">node2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fluxOpList</span><span class="p">[</span>
+                        <span class="n">i</span><span class="p">]</span>
 
         <span class="c1"># squeezing the dimension</span>
         <span class="n">op</span><span class="o">.</span><span class="n">dims</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ms</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ms</span><span class="p">]</span>
