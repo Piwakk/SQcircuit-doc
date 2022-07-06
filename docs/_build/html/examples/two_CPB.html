@@ -61,7 +61,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_tutorial.html">Quick Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/guides.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/guides.html">Users Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../apidoc/apidoc.html">API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html#contributors">Contributors</a></li>
@@ -368,7 +368,7 @@ div.rendered_html tbody tr:hover {
 <section id="Introdcution">
 <h2>Introdcution<a class="headerlink" href="#Introdcution" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> designed a qubit that is protected by two Cooper-pair tunneling. We reproduced the main results of the paper such as energy spectrum, wavefunctions, and matrix elements by use of SQcircuit. The diagram of the circuit is</p>
-<p><img alt="528a5c2a225547b1bc1c539fb9155c4f" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
+<p><img alt="0ac0c3739d8a4460b42357c7beafa91b" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
 <p>The circuit consists of four equal inductors with <span class="math notranslate nohighlight">\(E_L=2\text{GHz}\)</span>, two equal Josephson Junction with <span class="math notranslate nohighlight">\(E_J=15\text{GHz}\)</span> and <span class="math notranslate nohighlight">\(E_{C_J}=2\text{GHz}\)</span>, and one shunt capacitor of <span class="math notranslate nohighlight">\(E_{C}=0.04\text{GHz}\)</span>.</p>
 </section>
 <section id="Circuit-Description">
@@ -507,7 +507,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -562,13 +562,13 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 3a of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="91a1c8e06136470392e138935a53a14b" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
+<p><img alt="c49b916b339a4b9a90e1e7378a021c4e" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
 </section>
 <section id="Eigenfunctions">
 <h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this heading"></a></h2>
 <p>We can get the phase space eigenfunction of a specific eigenvector of a circuit by using the <code class="docutils literal notranslate"><span class="pre">eig_phase_coord()</span></code> method. To calculate the eigenfunction at <span class="math notranslate nohighlight">\(\Phi_{ext} = 0.5\Phi_0\)</span> similar to paper, we set back the flux of our loop to <span class="math notranslate nohighlight">\(0.5\)</span> and diagonalize the <code class="docutils literal notranslate"><span class="pre">cr</span></code> again.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loop1</span><span class="o">.</span><span class="n">set_flux</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
@@ -631,12 +631,12 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the eigenfunctions from the figure 3c of the paper, which is the same as what SQcircuit calculated.</p>
-<p><img alt="51d05bd24a7d4e758410c812ad6f3115" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
+<p><img alt="ac2bcbb2f2654b1d98b7927da3182b46" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
 </section>
 <section id="Matrix-Elements">
 <h2>Matrix Elements<a class="headerlink" href="#Matrix-Elements" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> defined the normalized matrix element as a measure of degree of freedoms to which circuit can couple. For coupling operator <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> the normalized matrix element is</p>
-<p><img alt="dd1fbde63b5145a0bbfd14d63098e3a4" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
+<p><img alt="678e5155bcee4145bf1960c1c4247d79" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
 <p>where <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> is the eigenstates of the circuit and <span class="math notranslate nohighlight">\(|0o\rangle\)</span> is the ground state. We calculate the normalized matrix element for inductive coupling to inductor between node 0 and node 2 using <code class="docutils literal notranslate"><span class="pre">cr.coupling_op()</span></code> method.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -681,7 +681,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next figure shows the same result from the figure 4a of the paper.</p>
-<p><img alt="c153c0124ac74eaeb15f0120f6d6454a" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
+<p><img alt="fd4496d97155437698acb325aa0b6238" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
 </section>
 </section>
 

@@ -191,7 +191,7 @@ for different types of depolarization and dephasing.</p>
 loss; <code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code> for inductive loss; <cite>“quasiparticle”</cite> for
 quasiparticle loss; <code class="docutils literal notranslate"><span class="pre">&quot;charge&quot;</span></code> for charge noise, <code class="docutils literal notranslate"><span class="pre">&quot;flux&quot;</span></code>
 for flux noise; and <code class="docutils literal notranslate"><span class="pre">&quot;cc&quot;</span></code> for critical current noise.</p></li>
-<li><p><strong>states</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of indices of eigenstates for which we want to
+<li><p><strong>states</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of eigenstate indices, for which we want to
 calculate the decoherence rate. For example, for <code class="docutils literal notranslate"><span class="pre">states=(0,</span>
 <span class="pre">1)</span></code>, we calculate the decoherence rate between the ground
 state and the first excited state.</p></li>
@@ -290,11 +290,15 @@ qutip.Qobj format.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.loop_description">
-<span class="sig-name descname"><span class="pre">loop_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.loop_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.loop_description" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">loop_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.loop_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.loop_description" title="Permalink to this definition"></a></dt>
 <dd><p>Print out the external flux distribution over inductive elements.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>_test</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if True, return the entire description as string
+text. (use only for testing the function)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -357,80 +361,15 @@ is a charge mode, one can use <code class="docutils literal notranslate"><span c
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.set_high_freq">
-<span class="sig-name descname"><span class="pre">set_high_freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_high_freq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_high_freq" title="Permalink to this definition"></a></dt>
-<dd><p>Set the high-frequency cut-off.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The value of the frequency.</p></li>
-<li><p><strong>unit</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The unit of the input value in hertz unit that can be
-<code class="docutils literal notranslate"><span class="pre">&quot;THz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;GHz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;MHz&quot;</span></code>,and ,etc.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.set_low_freq">
-<span class="sig-name descname"><span class="pre">set_low_freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_low_freq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_low_freq" title="Permalink to this definition"></a></dt>
-<dd><p>Set the low-frequency cut-off.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The value of the frequency.</p></li>
-<li><p><strong>unit</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The unit of the input value in hertz unit that can be
-<code class="docutils literal notranslate"><span class="pre">&quot;THz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;GHz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;MHz&quot;</span></code>,and ,etc.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.set_t_exp">
-<span class="sig-name descname"><span class="pre">set_t_exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_t_exp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_t_exp" title="Permalink to this definition"></a></dt>
-<dd><p>Set the measurement time.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The value of the measurement time.</p></li>
-<li><p><strong>unit</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The unit of the input value in time unit that can be
-<code class="docutils literal notranslate"><span class="pre">&quot;s&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ms&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;us&quot;</span></code>,and ,etc.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.set_temp">
-<span class="sig-name descname"><span class="pre">set_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_temp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_temp" title="Permalink to this definition"></a></dt>
-<dd><p>Set the temperature of the circuit.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>T</strong> (<em>float</em>) – The temperature in Kelvin</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.set_trunc_nums">
 <span class="sig-name descname"><span class="pre">set_trunc_nums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nums</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_trunc_nums"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_trunc_nums" title="Permalink to this definition"></a></dt>
 <dd><p>Set the truncation numbers for each mode.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>nums</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A list that contains the truncation numbers for each mode.</p>
+<dd class="field-odd"><p><strong>nums</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A list that contains the truncation numbers for each mode.
+Harmonic modes with truncation number N are 0, 1 , …,
+(N-1), and charge modes with truncation number N are -(N-1),
+…, 0, …, (N-1).</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>

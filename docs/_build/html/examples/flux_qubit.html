@@ -59,7 +59,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_tutorial.html">Quick Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/guides.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/guides.html">Users Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../apidoc/apidoc.html">API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html#contributors">Contributors</a></li>
@@ -366,7 +366,7 @@ div.rendered_html tbody tr:hover {
 <h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this heading"></a></h2>
 <p>Calculating the flux-tuning eigenvalues for a three-junction flux qubit incorporating nonzero linear loop inductance. The goal is to compare SQcircuit’s solution to a case-specific solution following the two papers mentioned below.</p>
 <p>Reference for circuit model and parameters: <a class="reference external" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.73.174526">https://journals.aps.org/prb/abstract/10.1103/PhysRevB.73.174526</a></p>
-<p><img alt="b934bd8ace484b67b21480d4a942c76d" class="no-scaled-link" src="../_images/fluxQubit_pic1.png" style="width: 230px;" /></p>
+<p><img alt="870e919c1bbe42c699db6a6984c1fcfb" class="no-scaled-link" src="../_images/fluxQubit_pic1.png" style="width: 230px;" /></p>
 <p>Note:</p>
 <p>2D Brillouin zone for periodic coordinates used an incorrect unit cell of 2x the correct size, leading to parasitic doublets in the low spectrum (with both curves of a doublet close to the correct single curve), and large deviations in the high spectrum. This error was mentioned and corrected by Yamamoto et. al. NJP 2014: <a class="reference external" href="https://iopscience.iop.org/article/10.1088/1367-2630/16/1/015017/pdf">https://iopscience.iop.org/article/10.1088/1367-2630/16/1/015017/pdf</a></p>
 <div class="nbinput nblast docutils container">
@@ -528,8 +528,8 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set truncation numbers, desired eigenvalues, and flux sweep</span>
 <span class="n">n1</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># harmonic [see cr.description()]</span>
-<span class="n">n2</span> <span class="o">=</span> <span class="mi">11</span> <span class="c1"># charge [see cr.description()]</span>
-<span class="n">n3</span> <span class="o">=</span> <span class="mi">11</span> <span class="c1"># charge [see cr.description()]</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># charge [see cr.description()]</span>
+<span class="n">n3</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># charge [see cr.description()]</span>
 
 <span class="n">cr1</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">])</span>
 
