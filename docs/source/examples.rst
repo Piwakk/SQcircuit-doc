@@ -28,6 +28,22 @@ ________________________________________________________________________________
 
 .. container:: grid-container
 
+   .. figure:: pics/kite.png
+      :align: center
+      :width: 2.5in
+
+   .. container:: border-left-custom
+
+      .. toctree::
+         :maxdepth: 2
+         
+         examples/kite.ipynb
+
+
+_______________________________________________________________________________________________________________
+
+.. container:: grid-container
+
    .. figure:: pics/fluxQubit.png
       :align: center
       :width: 2.5in

@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Flux Qubit (3JJ + L)" href="flux_qubit.html" />
+    <link rel="next" title="Kite Circuit" href="kite.html" />
     <link rel="prev" title="Examples" href="../examples.html" /> 
 </head>
 
@@ -54,6 +54,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Matrix-Elements">Matrix Elements</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="kite.html">Kite Circuit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flux_qubit.html">Flux Qubit (3JJ + L)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inductively_shunted.html">Inductively Shunted Superconducting Circuits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zeropi_qubit.html">0-π Qubit</a></li>
@@ -368,7 +369,7 @@ div.rendered_html tbody tr:hover {
 <section id="Introdcution">
 <h2>Introdcution<a class="headerlink" href="#Introdcution" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> designed a qubit that is protected by two Cooper-pair tunneling. We reproduced the main results of the paper such as energy spectrum, wavefunctions, and matrix elements by use of SQcircuit. The diagram of the circuit is</p>
-<p><img alt="2d68e7ea14cb42b5acfa22223e13058c" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
+<p><img alt="629b496e3b6e4f098fe7851a700915cb" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
 <p>The circuit consists of four equal inductors with <span class="math notranslate nohighlight">\(E_L=2\text{GHz}\)</span>, two equal Josephson Junction with <span class="math notranslate nohighlight">\(E_J=15\text{GHz}\)</span> and <span class="math notranslate nohighlight">\(E_{C_J}=2\text{GHz}\)</span>, and one shunt capacitor of <span class="math notranslate nohighlight">\(E_{C}=0.04\text{GHz}\)</span>.</p>
 </section>
 <section id="Circuit-Description">
@@ -548,7 +549,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 3a of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="d568597c6a71412fab775df167c9d0f3" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
+<p><img alt="5c0fedeb8dcd4a00b459263ffb011ee1" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
 </section>
 <section id="Eigenfunctions">
 <h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this heading"></a></h2>
@@ -615,12 +616,12 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the eigenfunctions from the figure 3c of the paper, which is the same as what SQcircuit calculated.</p>
-<p><img alt="89d4d4e240894587ac753e39c431c480" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
+<p><img alt="2c6780744d14484dad01007873544f2a" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
 </section>
 <section id="Matrix-Elements">
 <h2>Matrix Elements<a class="headerlink" href="#Matrix-Elements" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> defined the normalized matrix element as a measure of degree of freedoms to which circuit can couple. For coupling operator <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> the normalized matrix element is</p>
-<p><img alt="fe7bf712422f4e0da7060b86100990a5" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
+<p><img alt="f0c178dad0384afbb677052d217cd6bf" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
 <p>where <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> is the eigenstates of the circuit and <span class="math notranslate nohighlight">\(|0o\rangle\)</span> is the ground state. We calculate the normalized matrix element for inductive coupling to inductor between node 0 and node 2 using <code class="docutils literal notranslate"><span class="pre">cr.coupling_op()</span></code> method.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -666,7 +667,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next figure shows the same result from the figure 4a of the paper.</p>
-<p><img alt="2a3862d37b3440d6bebd66a46d330172" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
+<p><img alt="8cb301a592ab4f4895fa2a2c3af17fa4" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
 </section>
 </section>
 
@@ -675,7 +676,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="flux_qubit.html" class="btn btn-neutral float-right" title="Flux Qubit (3JJ + L)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="kite.html" class="btn btn-neutral float-right" title="Kite Circuit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
