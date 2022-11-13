@@ -145,6 +145,43 @@ other way around.</p></li>
 </dd>
 </dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.alpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.alpha" title="Permalink to this definition"></a></dt>
+<dd><p>Return the alpha, amount of displacement, for the bosonic
+displacement operator for junction i and mode j.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">range</span></code>]) – Index of the Junction. (starts from zero for the first mode)</p></li>
+<li><p><strong>j</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Index of the mode. (starts from zero for the first mode)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.charge_op">
+<span class="sig-name descname"><span class="pre">charge_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FC'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.charge_op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.charge_op" title="Permalink to this definition"></a></dt>
+<dd><p>Return charge operator for specific mode in the Fock/Charge basis or
+the eigenbasis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Integer that specifies the mode number.</p></li>
+<li><p><strong>basis</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – String that specifies the basis. It can be either <code class="docutils literal notranslate"><span class="pre">&quot;FC&quot;</span></code>
+for original Fock/Charge basis or <code class="docutils literal notranslate"><span class="pre">&quot;eig&quot;</span></code> for eigenbasis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.coord_transform">
 <span class="sig-name descname"><span class="pre">coord_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.coord_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.coord_transform" title="Permalink to this definition"></a></dt>
 <dd><p>Return the transformation of the coordinates as ndarray for each type
@@ -247,8 +284,8 @@ faster <code class="docutils literal notranslate"><span class="pre">SQcircuit</s
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
-<li><p><em>efreq</em> – ndarray of eigenfrequencies in frequency unit of SQcircuit (
-gigahertz by default)</p></li>
+<li><p><em>efreq</em> – ndarray of eigenfrequencies in frequency unit of SQcircuit
+(gigahertz by default)</p></li>
 <li><p><em>evecs</em> – List of eigenvectors in qutip.Qobj format.</p></li>
 </ul>
 </p>

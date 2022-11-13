@@ -366,15 +366,15 @@ div.rendered_html tbody tr:hover {
 <section id="Introduction">
 <h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://journals-aps-org.stanford.idm.oclc.org/prb/abstract/10.1103/PhysRevB.94.144507">Smith2016</a> explained how the conventional method or perturbation theory does not correctly diagonalize their highly anharmonic inductively-shunted qubits. However, by using SQcircuit, we simply reproduced the energy spectrum. The diagram of the circuit is</p>
-<p><img alt="ccaf4cf0808243a794cedc4f5003c07c" class="no-scaled-link" src="../_images/inductivelyShunted_pic1.png" style="width: 300px;" /></p>
+<p><img alt="7ffe8e960de64bb8a5925665518a4a65" class="no-scaled-link" src="../_images/inductivelyShunted_pic1.png" style="width: 300px;" /></p>
 <p>We choose the device A circuit parameters from the following table of the paper:</p>
-<p><img alt="d2fa2a1fd63e4215be7267a5ad241448" class="no-scaled-link" src="../_images/inductivelyShunted_pic2.png" style="width: 360px;" /></p>
+<p><img alt="623e138ede7f4082ae2064d77fb7a581" class="no-scaled-link" src="../_images/inductivelyShunted_pic2.png" style="width: 360px;" /></p>
 </section>
 <section id="Circuit-Description">
 <h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this heading"></a></h2>
 <p>Firstly, we import the SQcircuit and the relavant libraries</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SQcircuit</span> <span class="k">as</span> <span class="nn">sq</span>
@@ -385,7 +385,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>We define the single inductive loop of the circuit via <code class="docutils literal notranslate"><span class="pre">Loop</span></code> class</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loop1</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">Loop</span><span class="p">()</span>
@@ -394,7 +394,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>The elements of the circuit can be defined via <code class="docutils literal notranslate"><span class="pre">Capacitor</span></code>, <code class="docutils literal notranslate"><span class="pre">Inductor</span></code>, and <code class="docutils literal notranslate"><span class="pre">Junction</span></code> classes in SQcircuit, and to define the circuit, we use the <code class="docutils literal notranslate"><span class="pre">Circuit</span></code> class.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the circuit ’s elements</span>
@@ -417,10 +417,9 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>By creating an object of <code class="docutils literal notranslate"><span class="pre">Circuit</span></code> class, SQcircuit systematically finds the correct set of transformations and basis to make the circuit ready to be diagonalized.</p>
-<p>Before setting the truncation numbers for each mode and diagonalizing the Hamiltonian, we can gain more insight into our circuit by calling the <code class="docutils literal notranslate"><span class="pre">description()</span></code> method. This prints out the Hamiltonian and a listing of the modes, whether they are harmonic or charge modes, and the frequency for each harmonic in GHz (the default unit). Moreover, it shows the prefactors in the Josephson junction part of the Hamiltonian <span class="math notranslate nohighlight">\(\tilde{\textbf{w}}_k\)</span>, which helps find the modes decoupled from the
-nonlinearity of the circuit.</p>
+<p>Before setting the truncation numbers for each mode and diagonalizing the Hamiltonian, we can gain more insight into our circuit by calling the <code class="docutils literal notranslate"><span class="pre">description()</span></code> method. This prints out the Hamiltonian and a listing of the modes, whether they are harmonic or charge modes, and the frequency for each harmonic in GHz (the default unit).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
@@ -432,7 +431,7 @@ nonlinearity of the circuit.</p>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~+~\omega_2\hat a^\dagger_2\hat a_2~+~\omega_3\hat a^\dagger_3\hat a_3~+~E_{J_{1}}\cos(\hat{\varphi}_1+\hat{\varphi}_2+\hat{\varphi}_3-\varphi_{\text{ext}_{1}})~$</div></div>
+$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~+~\omega_2\hat a^\dagger_2\hat a_2~+~\omega_3\hat a^\dagger_3\hat a_3~~-~E_{J_{1}}\cos(\hat{\varphi}_1+\hat{\varphi}_2+\hat{\varphi}_3-\varphi_{\text{ext}_{1}})$</div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -483,10 +482,10 @@ $\text{parameters}:~~~~~~~~~~~E_{J_{1}}~=~6.2~~~~~~~~~~~$</div></div>
 <div class="math notranslate nohighlight">
 $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~$</div></div>
 </div>
-<p>The output of <code class="docutils literal notranslate"><span class="pre">description()</span></code> method specifies that our circuit is consist of three harmonic modes. However, the frequency of the first mode is about 16 THz which is extermly high. Since it is a fast-rotating mode and does not have impact on the dynamics of the lower eigenvalues of the circuit, we can remove it by setting its truncation number to one.</p>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">description()</span></code> method specifies that our circuit is consist of three harmonic modes. However, the frequency of the first mode is about 16 THz which is extermly high. Since it is a fast-rotating mode and does not have an impact on the dynamics of the lower eigenvalues of the circuit, we can remove it by setting its truncation number to one.</p>
 <p>To determine the size of the Hilbert space, we specify the truncation number for each circuit mode via <code class="docutils literal notranslate"><span class="pre">set_trunc_nums()</span></code> method. Note that this is a necessary step before diagonalizing the circuit.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">23</span><span class="p">])</span>
@@ -498,7 +497,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 <h2>Circuit Spectrum<a class="headerlink" href="#Circuit-Spectrum" title="Permalink to this heading"></a></h2>
 <p>To generate the spectrum of the circuit, firstly, we need to change and sweep the external flux of <code class="docutils literal notranslate"><span class="pre">loop1</span></code> by the <code class="docutils literal notranslate"><span class="pre">set_flux()</span></code> method. Then, we need to find the eigenfrequencies of the circuit that correspond to that external flux via <code class="docutils literal notranslate"><span class="pre">diag()</span></code> method. The following lines of code find the <code class="docutils literal notranslate"><span class="pre">spec</span></code> a 2D NumPy array so that each column of it contains the eigenfrequencies with respect to its external flux.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of eigenvalues we aim for</span>
@@ -521,7 +520,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 <p>Here we plot the spectrum as a function of external fluxes</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n_eig</span><span class="p">):</span>
@@ -542,7 +541,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 2 of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="97c6333418874c01ac967c1eb4e32b6a" class="no-scaled-link" src="../_images/inductivelyShunted_pic3.png" style="width: 380px;" /></p>
+<p><img alt="03d807aa6c1b4ab490a0a1de1db60f6d" class="no-scaled-link" src="../_images/inductivelyShunted_pic3.png" style="width: 380px;" /></p>
 </section>
 </section>
 

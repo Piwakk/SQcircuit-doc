@@ -367,9 +367,9 @@ div.rendered_html tbody tr:hover {
 <section id="Introduction">
 <h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this heading"></a></h2>
 <p>Our goal is to reproduce the enegry spectrum and eigenfunctions that <a class="reference external" href="https://iopscience-iop-org.stanford.idm.oclc.org/article/10.1088/1367-2630/aab7cd">Groszkowski2018</a> is calculated for the <span class="math notranslate nohighlight">\(0-\pi\)</span> qubit. The diagram of the circuit is</p>
-<p><img alt="f8b60227d1614a5ea0a72144132cc0c1" class="no-scaled-link" src="../_images/zeroPiQubit_pic1.png" style="width: 220px;" /></p>
+<p><img alt="e98d882f5fa14fac91a29c61127e762d" class="no-scaled-link" src="../_images/zeroPiQubit_pic1.png" style="width: 220px;" /></p>
 <p>We choose the parameter set 3 for the circuit from the following table of the paper:</p>
-<p><img alt="23dcaaa083f440c7a94b81ab690689fb" class="no-scaled-link" src="../_images/zeroPiQubit_pic2.png" style="width: 400px;" /></p>
+<p><img alt="1289475badc843a5a8d9adb43ebd4a1d" class="no-scaled-link" src="../_images/zeroPiQubit_pic2.png" style="width: 400px;" /></p>
 </section>
 <section id="Circuit-Description">
 <h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this heading"></a></h2>
@@ -432,7 +432,7 @@ nonlinearity of the circuit.</p>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~+~\omega_2\hat a^\dagger_2\hat a_2~+~E_{C_{33}}(\hat{n}_3-n_{g_{3}})^2~+~E_{J_{1}}\cos(-\hat{\varphi}_1+\hat{\varphi}_3+0.5\varphi_{\text{ext}_{1}})~+~E_{J_{2}}\cos(-\hat{\varphi}_1-\hat{\varphi}_3+0.5\varphi_{\text{ext}_{1}})~$</div></div>
+$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~+~E_{C_{22}}(\hat{n}_2-n_{g_{2}})^2~~-~E_{J_{1}}\cos(-\hat{\varphi}_1+\hat{\varphi}_2+0.5\varphi_{\text{ext}_{1}})~-~E_{J_{2}}\cos(-\hat{\varphi}_1-\hat{\varphi}_2+0.5\varphi_{\text{ext}_{1}})$</div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -453,14 +453,7 @@ $\text{mode}~1:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_1~=~\varphi_{z
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\text{mode}~2:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_2~=~\varphi_{zp_{2}}(\hat a_2+\hat a^\dagger_2)~~~~~~~~~~~\omega_2/2\pi~=~0.39497~~~~~~~~~~~\varphi_{zp_{2}}~=~8.72e-01$</div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="math notranslate nohighlight">
-$\text{mode}~3:~~~~~~~~~~~\text{charge}~~~~~~~~~~~~~~~~n_{g_{3}}~=~0$</div></div>
+$\text{mode}~2:~~~~~~~~~~~\text{charge}~~~~~~~~~~~~~~~~n_{g_{2}}~=~0$</div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -474,7 +467,7 @@ $------------------------------------------------------------$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\text{parameters}:~~~~~~~~~~~E_{C_{33}}~=~0.296~~~~~~~~~~~E_{J_{1}}~=~5.0~~~~~~~~~~~E_{J_{2}}~=~5.0~~~~~~~~~~~$</div></div>
+$\text{parameters}:~~~~~~~~~~~E_{C_{22}}~=~0.296~~~~~~~~~~~E_{J_{1}}~=~5.0~~~~~~~~~~~E_{J_{2}}~=~5.0~~~~~~~~~~~$</div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -483,14 +476,13 @@ $\text{parameters}:~~~~~~~~~~~E_{C_{33}}~=~0.296~~~~~~~~~~~E_{J_{1}}~=~5.0~~~~~~
 <div class="math notranslate nohighlight">
 $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~$</div></div>
 </div>
-<p>The above output shows that the first two modes of the <code class="docutils literal notranslate"><span class="pre">zrPi</span></code> circuit are harmonic modes with the natural frequency of 3.22 and 0.39 in the frequency unit of SQcircuit (which is GHz in default), and the third mode is a charge mode. From Josephson Junction part of the Hamiltonian, it becomes clear that the prefactor of the second mode is zero for both Josephson Junctions, which means that the second mode is decoupled from the other modes. We can remove it by setting its truncation number to
-one.</p>
+<p>The above output shows that the first mode of the <code class="docutils literal notranslate"><span class="pre">zrPi</span></code> circuit is a harmonic mode with the natural frequency of 3.22 in the frequency unit of SQcircuit (which is GHz in default), and the second mode is a charge mode.</p>
 <p>To determine the size of the Hilbert space, we specify the truncation number for each circuit mode via <code class="docutils literal notranslate"><span class="pre">set_trunc_nums()</span></code> method. Note that this is a necessary step before diagonalizing the circuit.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zrpi</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zrpi</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -540,7 +532,7 @@ one.</p>
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 4 of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="c8b2791b5368403899e56ea422ba34d0" class="no-scaled-link" src="../_images/zeroPiQubit_pic3.png" style="width: 250px;" /></p>
+<p><img alt="18b47c0014824bdbba22af4e97915530" class="no-scaled-link" src="../_images/zeroPiQubit_pic3.png" style="width: 250px;" /></p>
 </section>
 <section id="Eigenfunctions">
 <h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this heading"></a></h2>
@@ -550,7 +542,7 @@ one.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loop1</span><span class="o">.</span><span class="n">set_flux</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span>
-<span class="n">zrpi</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
+<span class="n">zrpi</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
 <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">zrpi</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">n_eig</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -560,15 +552,14 @@ one.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a range for each mode</span>
-<span class="n">phi1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">phi2</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">phi3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="c1"># the ground state</span>
-<span class="n">state0</span> <span class="o">=</span> <span class="n">zrpi</span><span class="o">.</span><span class="n">eig_phase_coord</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="n">phi1</span><span class="p">,</span> <span class="n">phi2</span><span class="p">,</span> <span class="n">phi3</span><span class="p">])</span>
+<span class="n">state0</span> <span class="o">=</span> <span class="n">zrpi</span><span class="o">.</span><span class="n">eig_phase_coord</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">])</span>
 
 <span class="c1"># the first excited state</span>
-<span class="n">state1</span> <span class="o">=</span> <span class="n">zrpi</span><span class="o">.</span><span class="n">eig_phase_coord</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="n">phi1</span><span class="p">,</span> <span class="n">phi2</span><span class="p">,</span> <span class="n">phi3</span><span class="p">])</span>
+<span class="n">state1</span> <span class="o">=</span> <span class="n">zrpi</span><span class="o">.</span><span class="n">eig_phase_coord</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="p">[</span><span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -577,7 +568,7 @@ one.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi1</span><span class="p">,</span> <span class="n">phi3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;binary&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;binary&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\phi$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta$&#39;</span><span class="p">)</span>
 </pre></div>
@@ -604,7 +595,7 @@ Text(0, 0.5, &#39;$\\theta$&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi1</span><span class="p">,</span> <span class="n">phi3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;binary&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;binary&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\phi$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta$&#39;</span><span class="p">)</span>
 </pre></div>

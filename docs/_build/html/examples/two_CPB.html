@@ -368,7 +368,7 @@ div.rendered_html tbody tr:hover {
 <section id="Introdcution">
 <h2>Introdcution<a class="headerlink" href="#Introdcution" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> designed a qubit that is protected by two Cooper-pair tunneling. We reproduced the main results of the paper such as energy spectrum, wavefunctions, and matrix elements by use of SQcircuit. The diagram of the circuit is</p>
-<p><img alt="0ac0c3739d8a4460b42357c7beafa91b" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
+<p><img alt="2d68e7ea14cb42b5acfa22223e13058c" class="no-scaled-link" src="../_images/twoCPB_pic1.png" style="width: 300px;" /></p>
 <p>The circuit consists of four equal inductors with <span class="math notranslate nohighlight">\(E_L=2\text{GHz}\)</span>, two equal Josephson Junction with <span class="math notranslate nohighlight">\(E_J=15\text{GHz}\)</span> and <span class="math notranslate nohighlight">\(E_{C_J}=2\text{GHz}\)</span>, and one shunt capacitor of <span class="math notranslate nohighlight">\(E_{C}=0.04\text{GHz}\)</span>.</p>
 </section>
 <section id="Circuit-Description">
@@ -436,7 +436,7 @@ nonlinearity of the circuit.</p>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~+~\omega_2\hat a^\dagger_2\hat a_2~+~\omega_3\hat a^\dagger_3\hat a_3~+~\omega_4\hat a^\dagger_4\hat a_4~+~E_{C_{55}}(\hat{n}_5-n_{g_{5}})^2~+~E_{J_{1}}\cos(\hat{\varphi}_3-\hat{\varphi}_4+\hat{\varphi}_5-0.5\varphi_{\text{ext}_{1}})~+~E_{J_{2}}\cos(\hat{\varphi}_3+\hat{\varphi}_4+\hat{\varphi}_5+0.5\varphi_{\text{ext}_{1}})~$</div></div>
+$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~+~\omega_2\hat a^\dagger_2\hat a_2~+~E_{C_{33}}(\hat{n}_3-n_{g_{3}})^2~~-~E_{J_{1}}\cos(\hat{\varphi}_1-\hat{\varphi}_2+\hat{\varphi}_3-0.5\varphi_{\text{ext}_{1}})~-~E_{J_{2}}\cos(\hat{\varphi}_1+\hat{\varphi}_2+\hat{\varphi}_3+0.5\varphi_{\text{ext}_{1}})$</div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -450,35 +450,21 @@ $------------------------------------------------------------$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\text{mode}~1:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_1~=~\varphi_{zp_{1}}(\hat a_1+\hat a^\dagger_1)~~~~~~~~~~~\omega_1/2\pi~=~5567.08109~~~~~~~~~~~\varphi_{zp_{1}}~=~1.94e+01$</div></div>
+$\text{mode}~1:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_1~=~\varphi_{zp_{1}}(\hat a_1+\hat a^\dagger_1)~~~~~~~~~~~\omega_1/2\pi~=~4.07921~~~~~~~~~~~\varphi_{zp_{1}}~=~9.71e-01$</div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\text{mode}~2:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_2~=~\varphi_{zp_{2}}(\hat a_2+\hat a^\dagger_2)~~~~~~~~~~~\omega_2/2\pi~=~5567.08109~~~~~~~~~~~\varphi_{zp_{2}}~=~1.94e+01$</div></div>
+$\text{mode}~2:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_2~=~\varphi_{zp_{2}}(\hat a_2+\hat a^\dagger_2)~~~~~~~~~~~\omega_2/2\pi~=~4.0~~~~~~~~~~~\varphi_{zp_{2}}~=~1.00e+00$</div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\text{mode}~3:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_3~=~\varphi_{zp_{3}}(\hat a_3+\hat a^\dagger_3)~~~~~~~~~~~\omega_3/2\pi~=~4.07921~~~~~~~~~~~\varphi_{zp_{3}}~=~9.71e-01$</div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="math notranslate nohighlight">
-$\text{mode}~4:~~~~~~~~~~~\text{harmonic}~~~~~~~~~~~\hat{\varphi}_4~=~\varphi_{zp_{4}}(\hat a_4+\hat a^\dagger_4)~~~~~~~~~~~\omega_4/2\pi~=~4.0~~~~~~~~~~~\varphi_{zp_{4}}~=~1.00e+00$</div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="math notranslate nohighlight">
-$\text{mode}~5:~~~~~~~~~~~\text{charge}~~~~~~~~~~~~~~~~n_{g_{5}}~=~0$</div></div>
+$\text{mode}~3:~~~~~~~~~~~\text{charge}~~~~~~~~~~~~~~~~n_{g_{3}}~=~0$</div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -492,7 +478,7 @@ $------------------------------------------------------------$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\text{parameters}:~~~~~~~~~~~E_{C_{55}}~=~0.154~~~~~~~~~~~E_{J_{1}}~=~15.0~~~~~~~~~~~E_{J_{2}}~=~15.0~~~~~~~~~~~$</div></div>
+$\text{parameters}:~~~~~~~~~~~E_{C_{33}}~=~0.154~~~~~~~~~~~E_{J_{1}}~=~15.0~~~~~~~~~~~E_{J_{2}}~=~15.0~~~~~~~~~~~$</div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -501,13 +487,13 @@ $\text{parameters}:~~~~~~~~~~~E_{C_{55}}~=~0.154~~~~~~~~~~~E_{J_{1}}~=~15.0~~~~~
 <div class="math notranslate nohighlight">
 $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~$</div></div>
 </div>
-<p>The above output shows that <code class="docutils literal notranslate"><span class="pre">cr</span></code> circuit has four harmonic modes with one charge mode. From Josephson Junction part of the Hamiltonian, it becomes clear that the prefactor of the first and second mode is zero for both Josephson Junctions, which means that both modes are decoupled from the other modes. We can remove them by setting their truncation number to one.</p>
+<p>The above output shows that <code class="docutils literal notranslate"><span class="pre">cr</span></code> circuit has two harmonic modes with one charge mode.</p>
 <p>To determine the size of the Hilbert space, we specify the truncation number for each circuit mode via <code class="docutils literal notranslate"><span class="pre">set_trunc_nums()</span></code> method. Note that this is a necessary step before diagonalizing the circuit.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -562,7 +548,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the spectrum from the figure 3a of the paper, which is the same spectrum that SQcircuit calculated.</p>
-<p><img alt="c49b916b339a4b9a90e1e7378a021c4e" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
+<p><img alt="d568597c6a71412fab775df167c9d0f3" class="no-scaled-link" src="../_images/twoCPB_pic2.png" style="width: 400px;" /></p>
 </section>
 <section id="Eigenfunctions">
 <h2>Eigenfunctions<a class="headerlink" href="#Eigenfunctions" title="Permalink to this heading"></a></h2>
@@ -572,7 +558,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loop1</span><span class="o">.</span><span class="n">set_flux</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">cr</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">])</span>
+<span class="n">cr</span><span class="o">.</span><span class="n">set_trunc_nums</span><span class="p">([</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">])</span>
 <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">n_eig</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -584,13 +570,11 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a range for each mode</span>
 <span class="n">phi1</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">phi2</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">phi3</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">phi4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">phi5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">phi2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">phi3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="c1"># creat the grid list</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="p">[</span><span class="n">phi1</span><span class="p">,</span> <span class="n">phi2</span><span class="p">,</span> <span class="n">phi3</span><span class="p">,</span> <span class="n">phi4</span><span class="p">,</span> <span class="n">phi5</span><span class="p">]</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="p">[</span><span class="n">phi1</span><span class="p">,</span> <span class="n">phi2</span><span class="p">,</span> <span class="n">phi3</span><span class="p">]</span>
 
 <span class="c1"># the ground state</span>
 <span class="n">state0</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">eig_phase_coord</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="p">)</span>
@@ -611,14 +595,14 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi5</span><span class="p">,</span> <span class="n">phi4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state0</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Purples&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;state0&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi5</span><span class="p">,</span> <span class="n">phi4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Greens&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;state1&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi5</span><span class="p">,</span> <span class="n">phi4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Oranges&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;state2&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi5</span><span class="p">,</span> <span class="n">phi4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state3</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;state3&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi3</span><span class="p">,</span> <span class="n">phi2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state0</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Purples&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;state0&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi3</span><span class="p">,</span> <span class="n">phi2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Greens&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;state1&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi3</span><span class="p">,</span> <span class="n">phi2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Oranges&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;state2&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">phi3</span><span class="p">,</span> <span class="n">phi2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">state3</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;state3&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\varphi_4$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\varphi_2$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handletextpad</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">handlelength</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\varphi_5$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\varphi_3$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -631,15 +615,15 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next cell shows the eigenfunctions from the figure 3c of the paper, which is the same as what SQcircuit calculated.</p>
-<p><img alt="ac2bcbb2f2654b1d98b7927da3182b46" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
+<p><img alt="89d4d4e240894587ac753e39c431c480" class="no-scaled-link" src="../_images/twoCPB_pic3.png" style="width: 800px;" /></p>
 </section>
 <section id="Matrix-Elements">
 <h2>Matrix Elements<a class="headerlink" href="#Matrix-Elements" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://doi-org.stanford.idm.oclc.org/10.1038/s41534-019-0231-2">Smith2020</a> defined the normalized matrix element as a measure of degree of freedoms to which circuit can couple. For coupling operator <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> the normalized matrix element is</p>
-<p><img alt="678e5155bcee4145bf1960c1c4247d79" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
+<p><img alt="fe7bf712422f4e0da7060b86100990a5" class="no-scaled-link" src="../_images/twoCPB_pic4.png" style="width: 220px;" /></p>
 <p>where <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> is the eigenstates of the circuit and <span class="math notranslate nohighlight">\(|0o\rangle\)</span> is the ground state. We calculate the normalized matrix element for inductive coupling to inductor between node 0 and node 2 using <code class="docutils literal notranslate"><span class="pre">cr.coupling_op()</span></code> method.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_eig</span> <span class="o">=</span> <span class="mi">2</span>
@@ -648,6 +632,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 <span class="n">inductive_01</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">phi</span><span class="p">)):</span>
+<span class="c1">#     print(i)</span>
     <span class="n">loop1</span><span class="o">.</span><span class="n">set_flux</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">evals</span><span class="p">,</span> <span class="n">estates</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">n_eig</span><span class="p">)</span>
     <span class="n">O</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">coupling_op</span><span class="p">(</span><span class="s2">&quot;inductive&quot;</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
@@ -657,7 +642,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">inductive_01</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
@@ -665,12 +650,12 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7fd87fcbe8e0&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7f804320e9a0&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -681,7 +666,7 @@ $\text{loops}:~~~~~~~~~~~~~~~~~~~~\varphi_{\text{ext}_{1}}/2\pi~=~0.0~~~~~~~~~~~
 </div>
 </div>
 <p>The next figure shows the same result from the figure 4a of the paper.</p>
-<p><img alt="fd4496d97155437698acb325aa0b6238" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
+<p><img alt="2a3862d37b3440d6bebd66a46d330172" class="no-scaled-link" src="../_images/twoCPB_pic5.png" style="width: 300px;" /></p>
 </section>
 </section>
 

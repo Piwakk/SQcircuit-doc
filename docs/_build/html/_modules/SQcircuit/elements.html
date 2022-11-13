@@ -186,6 +186,18 @@
                     <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">unt</span><span class="o">.</span><span class="n">hbar</span><span class="p">)</span> <span class="o">/</span> <span class="n">unt</span><span class="o">.</span><span class="n">get_unit_freq</span><span class="p">()</span></div></div>
 
 
+<span class="k">class</span> <span class="nc">VerySmallCap</span><span class="p">(</span><span class="n">Capacitor</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="mf">1e-20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">VeryLargeCap</span><span class="p">(</span><span class="n">Capacitor</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="mf">1e20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+
 <div class="viewcode-block" id="Inductor"><a class="viewcode-back" href="../../apidoc/elements.html#SQcircuit.Inductor">[docs]</a><span class="k">class</span> <span class="nc">Inductor</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class that contains the inductor properties.</span>
@@ -243,7 +255,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
 
         <span class="k">if</span> <span class="n">cap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">Capacitor</span><span class="p">(</span><span class="mf">1e-20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">VerySmallCap</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">cap</span>
 
@@ -373,7 +385,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
 
         <span class="k">if</span> <span class="n">cap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">Capacitor</span><span class="p">(</span><span class="mf">1e-20</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">VerySmallCap</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">cap</span>
 

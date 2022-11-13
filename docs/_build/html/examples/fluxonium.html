@@ -371,7 +371,7 @@ div.rendered_html tbody tr:hover {
 <section id="Circuit-Description">
 <h2>Circuit Description<a class="headerlink" href="#Circuit-Description" title="Permalink to this heading"></a></h2>
 <p>The following Fluxonium qubit consists of an inductor with <span class="math notranslate nohighlight">\(E_L=0.46~\text{GHz}\)</span> and Josephson Junction with <span class="math notranslate nohighlight">\(E_J=10.2~\text{GHz}\)</span>. The capacitor with <span class="math notranslate nohighlight">\(E_{C_J}=3.6~\text{GHz}\)</span> is assigned to Josephson Junction rather than the inductor.</p>
-<p><img alt="000a4861e23144ecbd8b64c91b306264" class="no-scaled-link" src="../_images/Fluxonium1.png" style="width: 185px;" /></p>
+<p><img alt="db19d0e30f5143e180afae7ef5fdd045" class="no-scaled-link" src="../_images/Fluxonium1.png" style="width: 185px;" /></p>
 <p>Firstly, we import the SQcircuit and the relavant libraries</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -412,8 +412,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>By creating an object of <code class="docutils literal notranslate"><span class="pre">Circuit</span></code> class, SQcircuit systematically finds the correct set of transformations and basis to make the circuit ready to be diagonalized.</p>
-<p>Before setting the truncation numbers for each mode and diagonalizing the Hamiltonian, we can gain more insight into our circuit by calling the <code class="docutils literal notranslate"><span class="pre">description()</span></code> method. This prints out the Hamiltonian and a listing of the modes, whether they are harmonic or charge modes, and the frequency for each harmonic in GHz (the default unit). Moreover, it shows the prefactors in the Josephson junction part of the Hamiltonian <span class="math notranslate nohighlight">\(\tilde{\textbf{w}}_k\)</span>, which helps find the modes decoupled from the
-nonlinearity of the circuit.</p>
+<p>Before setting the truncation numbers for each mode and diagonalizing the Hamiltonian, we can gain more insight into our circuit by calling the <code class="docutils literal notranslate"><span class="pre">description()</span></code> method. This prints out the Hamiltonian and a listing of the modes, whether they are harmonic or charge modes, and the frequency for each harmonic in GHz (the default unit).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -427,7 +426,7 @@ nonlinearity of the circuit.</p>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~+~E_{L_{1}}(\hat{\varphi}_1)(\varphi_{\text{ext}_{1}})~+~E_{J_{1}}\cos(\hat{\varphi}_1)~$</div></div>
+$\hat{H} =~\omega_1\hat a^\dagger_1\hat a_1~~+~E_{L_{1}}(\hat{\varphi}_1)(\varphi_{\text{ext}_{1}})~-~E_{J_{1}}\cos(\hat{\varphi}_1)$</div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -578,7 +577,7 @@ dictionary that contains the decoherence rates for each type of loss channel.</p
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7fc55c66eaf0&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fdd8a66b9a0&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
