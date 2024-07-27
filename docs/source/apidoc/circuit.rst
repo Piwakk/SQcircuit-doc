@@ -11,5 +11,4 @@ Circuit
 
 .. autoclass:: SQcircuit.Circuit
    :members:
-   :inherited-members:
-   :exclude-members: addLoop, buildOpMemory, chargeDisp, elementModel, getHJJExp, getLCHamil, linkCharges, linkFluxes, loopLCW, tensorToModes, transform1, transform2, transform3, transformHamil
+   :exclude-members: add_to_parameters, add_loop, alpha, diag_np
