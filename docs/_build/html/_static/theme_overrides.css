@@ -153,4 +153,15 @@ nav.wy-nav-top a {
 /*end*/
 
 
-
+.dl:not(.docutils)>dt,
+html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.citation):not(.glossary):not(.simple)>dt {
+    display: table;
+    margin: 6px 0;
+    font-size: 90%;
+    line-height: normal;
+    background: #f0f0f0;
+    color: #555;
+    border-top: 3px solid #ccc;
+    padding: 6px;
+    position: relative;
+}

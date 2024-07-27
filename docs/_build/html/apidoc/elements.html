@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Element Classes &mdash; SQcircuit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=c4b7b015" />
+
+  
     <link rel="shortcut icon" href="../_static/favicon.png"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -31,11 +33,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SQcircuit
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SQcircuit
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -48,10 +54,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/guides.html">Users Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="apidoc.html">API documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Element Classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#capacitor">Capacitor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#inductor">Inductor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#junction">Junction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#loop">Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#capacitor">Capacitor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#SQcircuit.Capacitor"><code class="docutils literal notranslate"><span class="pre">Capacitor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inductor">Inductor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#SQcircuit.Inductor"><code class="docutils literal notranslate"><span class="pre">Inductor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#junction">Junction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#SQcircuit.Junction"><code class="docutils literal notranslate"><span class="pre">Junction</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#loop">Loop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#SQcircuit.Loop"><code class="docutils literal notranslate"><span class="pre">Loop</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="circuit.html">Circuit Class</a></li>
@@ -74,9 +92,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="apidoc.html">API documentation</a> &raquo;</li>
-      <li>Element Classes</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="apidoc.html">API documentation</a></li>
+      <li class="breadcrumb-item active">Element Classes</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/apidoc/elements.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,79 +104,73 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="element-classes">
-<span id="id1"></span><h1>Element Classes<a class="headerlink" href="#element-classes" title="Permalink to this heading"></a></h1>
+  <section id="element-classes">
+<span id="id1"></span><h1>Element Classes<a class="headerlink" href="#element-classes" title="Link to this heading"></a></h1>
 <section id="capacitor">
-<h2>Capacitor<a class="headerlink" href="#capacitor" title="Permalink to this heading"></a></h2>
+<h2>Capacitor<a class="headerlink" href="#capacitor" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Capacitor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Capacitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor" title="Permalink to this definition"></a></dt>
-<dd><p>Class that contains the capacitor properties.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Capacitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></p>
+<p>Class that contains the capacitor properties.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The value of the capacitor.</p></li>
-<li><p><strong>unit</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The unit of input value. If <code class="docutils literal notranslate"><span class="pre">unit</span></code> is “THz”, “GHz”, and ,etc.,
-the value specifies the charging energy of the capacitor. If <code class="docutils literal notranslate"><span class="pre">unit</span></code>
-is “fF”, “pF”, and ,etc., the value specifies the capacitance in
-farad. If <code class="docutils literal notranslate"><span class="pre">unit</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default unit of capacitor is “GHz”.</p></li>
-<li><p><strong>Q</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Quality factor of the dielectric of the capacitor which is one over
-tangent loss. It can be either a float number or a Python function of
-angular frequency.</p></li>
-<li><p><strong>error</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The error in fabrication as a percentage.</p></li>
-<li><p><strong>id_str</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – ID string for the capacitor.</p></li>
+<li><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The value of the capacitor.</p></li>
+<li><p><strong>unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The unit of input value. If <code class="docutils literal notranslate"><span class="pre">unit</span></code> is “THz”, “GHz”, and, etc.,
+the value specifies the charging energy of the capacitor. If
+<code class="docutils literal notranslate"><span class="pre">unit</span></code> is “fF”, “pF”, and, etc., the value specifies the
+capacitance in farad. If <code class="docutils literal notranslate"><span class="pre">unit</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default unit of
+capacitor is “GHz”.</p></li>
+<li><p><strong>requires_grad</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – A boolean variable that specifies whether autograd should record
+operations on this element. This feature is specific to the
+<code class="docutils literal notranslate"><span class="pre">PyTorch</span></code> engine.</p></li>
+<li><p><strong>Q</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Quality factor of the dielectric of the capacitor which is one
+over tangent loss. It can be either a float number or a Python
+function of angular frequency.</p></li>
+<li><p><strong>error</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The error of fabrication in percentage.</p></li>
+<li><p><strong>id_str</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – ID string for the capacitor.</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SQcircuit.Capacitor.value_unit">
+<span class="sig-name descname"><span class="pre">value_unit</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'F'</span></em><a class="headerlink" href="#SQcircuit.Capacitor.value_unit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Capacitor.requires_grad">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">requires_grad</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#SQcircuit.Capacitor.requires_grad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Capacitor.energy">
-<span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor.energy" title="Permalink to this definition"></a></dt>
-<dd><p>Return the charging energy of the capacitor in frequency unit of
-SQcircuit (gigahertz by default).</p>
+<dt class="sig sig-object py" id="SQcircuit.Capacitor.set_value">
+<span class="sig-name descname"><span class="pre">set_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'F'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor.set_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor.set_value" title="Link to this definition"></a></dt>
+<dd><p>Set the value for the capacitor.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The value of the element.</p></li>
+<li><p><strong>u</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The unit of input value.</p></li>
+<li><p><strong>e</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The fabrication error in percentage.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Capacitor.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor.value" title="Permalink to this definition"></a></dt>
-<dd><p>Return the value of the capacitor in farad units. If <cite>random</cite> is
-<cite>True</cite>, it samples from a normal distribution with variance defined
-by the fabrication error.</p>
+<dt class="sig sig-object py" id="SQcircuit.Capacitor.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'F'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Capacitor.get_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Capacitor.get_value" title="Link to this definition"></a></dt>
+<dd><p>Return the value of the element in specified unit.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>random</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – A boolean flag which specifies whether the output is
-deterministic or random.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>u</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The unit of input value. The default is “F”.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -168,55 +180,73 @@ deterministic or random.</p>
 </section>
 <hr class="docutils" />
 <section id="inductor">
-<h2>Inductor<a class="headerlink" href="#inductor" title="Permalink to this heading"></a></h2>
+<h2>Inductor<a class="headerlink" href="#inductor" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Inductor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Inductor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor" title="Permalink to this definition"></a></dt>
-<dd><p>Class that contains the inductor properties.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Inductor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></p>
+<p>Class that contains the inductor properties.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The value of the inductor.</p></li>
-<li><p><strong>unit</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The unit of input value. If <code class="docutils literal notranslate"><span class="pre">unit</span></code> is “THz”, “GHz”, and ,etc.,
-the value specifies the inductive energy of the inductor. If <code class="docutils literal notranslate"><span class="pre">unit</span></code>
-is “fH”, “pH”, and ,etc., the value specifies the inductance in henry.
-If <code class="docutils literal notranslate"><span class="pre">unit</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default unit of inductor is “GHz”.</p></li>
-<li><p><strong>loops</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#SQcircuit.Loop" title="SQcircuit.elements.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>]]) – List of loops in which the inductor resides.</p></li>
-<li><p><strong>cap</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#SQcircuit.Capacitor" title="SQcircuit.elements.Capacitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Capacitor</span></code></a>]) – Capacitor associated to the inductor, necessary for correct
+<li><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The value of the inductor.</p></li>
+<li><p><strong>unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The unit of input value. If <code class="docutils literal notranslate"><span class="pre">unit</span></code> is “THz”, “GHz”, and ,etc.,
+the value specifies the inductive energy of the inductor. If
+<code class="docutils literal notranslate"><span class="pre">unit</span></code> is “fH”, “pH”, and ,etc., the value specifies the
+inductance in henry. If <code class="docutils literal notranslate"><span class="pre">unit</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default unit of
+inductor is “GHz”.</p></li>
+<li><p><strong>requires_grad</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – A boolean variable that specifies whether autograd should record
+operations on this element. This feature is specific to the
+<code class="docutils literal notranslate"><span class="pre">PyTorch</span></code> engine.</p></li>
+<li><p><strong>loops</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#SQcircuit.Loop" title="SQcircuit.elements.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>]]</span>) – List of loops in which the inductor resides.</p></li>
+<li><p><strong>cap</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#SQcircuit.Capacitor" title="SQcircuit.elements.Capacitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Capacitor</span></code></a>]</span>) – Capacitor associated to the inductor, necessary for correct
 time-dependent external fluxes scheme.</p></li>
-<li><p><strong>Q</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Quality factor of the inductor needed for inductive loss calculation.
-It can be either a float number or a Python function of angular
-frequency and temperature.</p></li>
-<li><p><strong>error</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The error in fabrication as a percentage.</p></li>
-<li><p><strong>id_str</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – ID string for the inductor.</p></li>
+<li><p><strong>Q</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Quality factor of the inductor needed for inductive loss
+calculation. It can be either a float number or a Python function of
+angular frequency and temperature.</p></li>
+<li><p><strong>error</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The error in fabrication as a percentage.</p></li>
+<li><p><strong>id_str</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – ID string for the inductor.</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SQcircuit.Inductor.value_unit">
+<span class="sig-name descname"><span class="pre">value_unit</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'H'</span></em><a class="headerlink" href="#SQcircuit.Inductor.value_unit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Inductor.requires_grad">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">requires_grad</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#SQcircuit.Inductor.requires_grad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Inductor.energy">
-<span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor.energy" title="Permalink to this definition"></a></dt>
-<dd><p>Return the inductive energy of the capacitor in frequency unit of
-SQcircuit (gigahertz by default).</p>
+<dt class="sig sig-object py" id="SQcircuit.Inductor.set_value">
+<span class="sig-name descname"><span class="pre">set_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'H'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor.set_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor.set_value" title="Link to this definition"></a></dt>
+<dd><p>Set the value for the element.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The value of the element.</p></li>
+<li><p><strong>u</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The unit of input value.</p></li>
+<li><p><strong>e</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The fabrication error in percentage.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Inductor.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor.value" title="Permalink to this definition"></a></dt>
-<dd><p>Return the value of the inductor in henry units. If <cite>random</cite> is
-<cite>True</cite>, it samples from a normal distribution with variance defined
-by the fabrication error.</p>
+<dt class="sig sig-object py" id="SQcircuit.Inductor.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'H'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Inductor.get_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Inductor.get_value" title="Link to this definition"></a></dt>
+<dd><p>Return the value of the element in specified unit.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>random</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – A boolean flag which specifies whether the output is
-deterministic or random.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>u</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The unit of input value. The default is “H”.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -226,43 +256,72 @@ deterministic or random.</p>
 </section>
 <hr class="docutils" />
 <section id="junction">
-<h2>Junction<a class="headerlink" href="#junction" title="Permalink to this heading"></a></h2>
+<h2>Junction<a class="headerlink" href="#junction" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Junction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Junction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.00034</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction" title="Permalink to this definition"></a></dt>
-<dd><p>Class that contains the Josephson junction properties.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Junction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.00034</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></p>
+<p>Class that contains the Josephson junction properties.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The value of the Josephson junction.</p></li>
-<li><p><strong>unit</strong> (<em>str</em>) – The unit of input value. The <code class="docutils literal notranslate"><span class="pre">unit</span></code> can be “THz”, “GHz”, and ,etc.,
-that specifies the junction energy of the inductor. If <code class="docutils literal notranslate"><span class="pre">unit</span></code> is
-<code class="docutils literal notranslate"><span class="pre">None</span></code>, the default unit of junction is “GHz”.</p></li>
-<li><p><strong>loops</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#SQcircuit.Loop" title="SQcircuit.elements.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>]]) – List of loops in which the Josephson junction reside.</p></li>
-<li><p><strong>cap</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Capacitor associated to the josephson junction, necessary for the
+<li><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The value of the Josephson junction.</p></li>
+<li><p><strong>unit</strong> (<em>str</em>) – The unit of input value. The <code class="docutils literal notranslate"><span class="pre">unit</span></code> can be “THz”, “GHz”, and
+,etc., that specifies the junction energy of the inductor. If
+<code class="docutils literal notranslate"><span class="pre">unit</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default unit of junction is “GHz”.</p></li>
+<li><p><strong>requires_grad</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – A boolean variable that specifies whether autograd should record
+operations on this element. This feature is specific to the
+<code class="docutils literal notranslate"><span class="pre">PyTorch</span></code> engine.</p></li>
+<li><p><strong>loops</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#SQcircuit.Loop" title="SQcircuit.elements.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>]]</span>) – List of loops in which the Josephson junction reside.</p></li>
+<li><p><strong>cap</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#SQcircuit.Capacitor" title="SQcircuit.elements.Capacitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Capacitor</span></code></a>]</span>) – Capacitor associated to the josephson junction, necessary for the
 correct time-dependent external fluxes scheme.</p></li>
-<li><p><strong>A</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Normalized noise amplitude related to critical current noise.</p></li>
-<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Quasiparticle density</p></li>
-<li><p><strong>delta</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Superconducting gap</p></li>
-<li><p><strong>Y</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Real part of admittance.</p></li>
-<li><p><strong>error</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The error in fabrication as a percentage.</p></li>
-<li><p><strong>id_str</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – ID string for the junction.</p></li>
+<li><p><strong>A</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Normalized noise amplitude related to critical current noise.</p></li>
+<li><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Quasiparticle density</p></li>
+<li><p><strong>delta</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Superconducting gap</p></li>
+<li><p><strong>Y</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Real part of admittance.</p></li>
+<li><p><strong>error</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The error in fabrication as a percentage.</p></li>
+<li><p><strong>id_str</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – ID string for the junction.</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SQcircuit.Junction.value_unit">
+<span class="sig-name descname"><span class="pre">value_unit</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Hz'</span></em><a class="headerlink" href="#SQcircuit.Junction.value_unit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Junction.requires_grad">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">requires_grad</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#SQcircuit.Junction.requires_grad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Junction.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction.value" title="Permalink to this definition"></a></dt>
-<dd><p>Return the value of the Josephson Junction in angular frequency.
-If <cite>random</cite> is <cite>True</cite>, it samples from a normal distribution with
-variance defined by the fabrication error.</p>
+<dt class="sig sig-object py" id="SQcircuit.Junction.set_value">
+<span class="sig-name descname"><span class="pre">set_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Hz'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction.set_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction.set_value" title="Link to this definition"></a></dt>
+<dd><p>Set the value for the element.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>random</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – A boolean flag which specifies whether the output
-is deterministic or random.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The value of the element.</p></li>
+<li><p><strong>u</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The unit of input value.</p></li>
+<li><p><strong>e</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The fabrication error in percentage.</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Junction.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Hz'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Junction.get_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Junction.get_value" title="Link to this definition"></a></dt>
+<dd><p>Return the value of the element in specified unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>u</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The unit of input value. The default is “Hz”.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -272,48 +331,57 @@ is deterministic or random.</p>
 </section>
 <hr class="docutils" />
 <section id="loop">
-<h2>Loop<a class="headerlink" href="#loop" title="Permalink to this heading"></a></h2>
+<h2>Loop<a class="headerlink" href="#loop" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Loop">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop" title="Permalink to this definition"></a></dt>
-<dd><p>Class that contains the inductive loop properties, closed path of
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that contains the inductive loop properties, closed path of
 inductive elements.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Value of the external flux at the loop.</p></li>
-<li><p><strong>A</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Normalized noise amplitude related to flux noise.</p></li>
-<li><p><strong>id_str</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – ID string for the loop.</p></li>
+<li><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Value of the external flux in the loop.</p></li>
+<li><p><strong>requires_grad</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – A boolean variable that specifies whether autograd should record
+operations on this loop. This feature is specific to the <code class="docutils literal notranslate"><span class="pre">PyTorch</span></code>
+engine.</p></li>
+<li><p><strong>A</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Normalized noise amplitude related to flux noise.</p></li>
+<li><p><strong>id_str</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – ID string for the loop.</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Loop.requires_grad">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">requires_grad</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#SQcircuit.Loop.requires_grad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Loop.set_flux">
-<span class="sig-name descname"><span class="pre">set_flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop.set_flux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop.set_flux" title="Permalink to this definition"></a></dt>
-<dd><p>Set the external flux associated to the loop.</p>
+<dt class="sig sig-object py" id="SQcircuit.Loop.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop.value" title="Link to this definition"></a></dt>
+<dd><p>Return the value of the external flux. If <cite>random</cite> is <cite>True</cite>, it
+samples from a normal distribution with variance defined by the flux
+noise amplitude.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The external flux value</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>random</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – A boolean flag which specifies whether the output is
+deterministic or random.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Loop.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop.value" title="Permalink to this definition"></a></dt>
-<dd><p>Return the value of the external flux. If <cite>random</cite> is <cite>True</cite>, it
-samples from a normal distribution with variance defined by the flux
-noise amplitude.</p>
+<dt class="sig sig-object py" id="SQcircuit.Loop.set_flux">
+<span class="sig-name descname"><span class="pre">set_flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/elements.html#Loop.set_flux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Loop.set_flux" title="Link to this definition"></a></dt>
+<dd><p>Set the external flux associated to the loop.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>random</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – A boolean flag which specifies whether the output is
-deterministic or random.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The external flux value</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>

@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Circuit Class &mdash; SQcircuit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=c4b7b015" />
+
+  
     <link rel="shortcut icon" href="../_static/favicon.png"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -31,11 +33,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SQcircuit
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SQcircuit
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -49,7 +55,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="apidoc.html">API documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="elements.html">Element Classes</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Circuit Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#circuit">Circuit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#circuit">Circuit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#SQcircuit.Circuit"><code class="docutils literal notranslate"><span class="pre">Circuit</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -71,9 +80,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="apidoc.html">API documentation</a> &raquo;</li>
-      <li>Circuit Class</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="apidoc.html">API documentation</a></li>
+      <li class="breadcrumb-item active">Circuit Class</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/apidoc/circuit.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -83,39 +92,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="circuit-class">
-<span id="id1"></span><h1>Circuit Class<a class="headerlink" href="#circuit-class" title="Permalink to this heading"></a></h1>
+  <section id="circuit-class">
+<span id="id1"></span><h1>Circuit Class<a class="headerlink" href="#circuit-class" title="Link to this heading"></a></h1>
 <section id="circuit">
-<h2>Circuit<a class="headerlink" href="#circuit" title="Permalink to this heading"></a></h2>
+<h2>Circuit<a class="headerlink" href="#circuit" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="SQcircuit.Circuit">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flux_dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'junctions'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit" title="Permalink to this definition"></a></dt>
-<dd><p>Class that contains the circuit properties and uses the theory discussed
-in the original paper of the SQcircuit to calculate:</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SQcircuit.</span></span><span class="sig-name descname"><span class="pre">Circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flux_dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'junctions'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that contains circuit properties and builds the Hamiltonian using
+the theory discussed in the original SQcircuit paper. Provides methods to
+calculate:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Eigenvalues and eigenvectors</p></li>
@@ -123,17 +110,15 @@ in the original paper of the SQcircuit to calculate:</p>
 <li><p>Coupling operators</p></li>
 <li><p>Matrix elements</p></li>
 <li><p>Decoherence rates</p></li>
-<li><p>Robustness analysis</p></li>
+<li><p>Gradients of Hamiltonian, eigenvalues/vectors , and Decoherence</p></li>
 </ul>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>elements</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="elements.html#SQcircuit.Capacitor" title="SQcircuit.elements.Capacitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Capacitor</span></code></a>, <a class="reference internal" href="elements.html#SQcircuit.Inductor" title="SQcircuit.elements.Inductor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Inductor</span></code></a>, <a class="reference internal" href="elements.html#SQcircuit.Junction" title="SQcircuit.elements.Junction"><code class="xref py py-class docutils literal notranslate"><span class="pre">Junction</span></code></a>]]]) – A dictionary that contains the circuit’s elements at each branch
+<li><p><strong>elements</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code>]]</span>) – A dictionary that contains the circuit’s elements at each edge
 of the circuit.</p></li>
-<li><p><strong>random</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <cite>True</cite>, each element of the circuit is a random number due to
-fabrication error. This is necessary for robustness analysis.</p></li>
-<li><p><strong>flux_dist</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Provide the method of distributing the external fluxes. If
+<li><p><strong>flux_dist</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Provide the method of distributing the external fluxes. If
 <code class="docutils literal notranslate"><span class="pre">flux_dist</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>, SQcircuit assign the external fluxes
 based on the capacitor of each inductive element (This option is
 necessary for time-dependent external fluxes). If <code class="docutils literal notranslate"><span class="pre">flux_dist</span></code> is
@@ -145,271 +130,545 @@ other way around.</p></li>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.alpha">
-<span class="sig-name descname"><span class="pre">alpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.alpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.alpha" title="Permalink to this definition"></a></dt>
-<dd><p>Return the alpha, amount of displacement, for the bosonic
-displacement operator for junction i and mode j.</p>
+<dt class="sig sig-object py" id="SQcircuit.Circuit.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.update" title="Link to this definition"></a></dt>
+<dd><p>Update the circuit Hamiltonian to reflect in-place changes made to
+the scalar values used for circuit elements (ex. C, L, J…).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>i</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">range</span></code>]) – Index of the Junction. (starts from zero for the first mode)</p></li>
-<li><p><strong>j</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Index of the mode. (starts from zero for the first mode)</p></li>
-</ul>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.efreqs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">efreqs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span></em><a class="headerlink" href="#SQcircuit.Circuit.efreqs" title="Link to this definition"></a></dt>
+<dd><p>Eigenfrequencies in the chosen frequency unit for SQcircuit. If the
+SQcircuit engine is <code class="docutils literal notranslate"><span class="pre">PyTorch</span></code>, the efreqs will be in <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>
+format; otherwise, they will be in <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> format.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.evecs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">evecs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Qobj</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span></em><a class="headerlink" href="#SQcircuit.Circuit.evecs" title="Link to this definition"></a></dt>
+<dd><p>List of circuit eigenvectors. If the SQcircuit engine is <code class="docutils literal notranslate"><span class="pre">PyTorch</span></code>,
+each eigenvector will be in <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> format; otherwise, they will be
+in <code class="docutils literal notranslate"><span class="pre">Qutip.Qobj</span></code> format.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.trunc_nums">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trunc_nums</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#SQcircuit.Circuit.trunc_nums" title="Link to this definition"></a></dt>
+<dd><p>List of truncation numbers of the circuit. For harmonic modes, these
+are N where the Hilbert space is 0, 1, …, (N-1) and for charge modes
+these are N where the Hilbert space is -(N-1), …, 0, …, (N-1).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.parameters">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#SQcircuit.Circuit.parameters" title="Link to this definition"></a></dt>
+<dd><p>The values of the elements in the circuit which require gradient.
+The parameters can be set by a list of new values for each of the
+elements. Only valid if <code class="docutils literal notranslate"><span class="pre">get_optim_mode()</span> <span class="pre">=</span> <span class="pre">True</span></code> or we are
+using <code class="docutils literal notranslate"><span class="pre">PyTorch</span></code> engine of SQcircuit.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.parameters_grad">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parameters_grad</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span></em><a class="headerlink" href="#SQcircuit.Circuit.parameters_grad" title="Link to this definition"></a></dt>
+<dd><p>Return the gradients of the tensors in <code class="docutils literal notranslate"><span class="pre">.parameters</span></code>. If all values
+are not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is returned as a stacked <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>, otherwise as a
+list of individual values.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.parameters_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parameters_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Element</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="elements.html#SQcircuit.Loop" title="SQcircuit.elements.Loop"><span class="pre">Loop</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#SQcircuit.Circuit.parameters_dict" title="Link to this definition"></a></dt>
+<dd><p>The dictionary of (element, value) pairs for the elements in
+the circuit which require gradient.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.parameters_elems">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parameters_elems</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Element</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="elements.html#SQcircuit.Loop" title="SQcircuit.elements.Loop"><span class="pre">Loop</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#SQcircuit.Circuit.parameters_elems" title="Link to this definition"></a></dt>
+<dd><p>The elements in the circuit which require gradient.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.get_params_type">
+<span class="sig-name descname"><span class="pre">get_params_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.get_params_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.get_params_type" title="Link to this definition"></a></dt>
+<dd><p>List of the types for each element in the circuit’s parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<a class="reference internal" href="elements.html#SQcircuit.Loop" title="SQcircuit.elements.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>]]]</span></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.charge_op">
-<span class="sig-name descname"><span class="pre">charge_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FC'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.charge_op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.charge_op" title="Permalink to this definition"></a></dt>
-<dd><p>Return charge operator for specific mode in the Fock/Charge basis or
-the eigenbasis.</p>
+<dt class="sig sig-object py" id="SQcircuit.Circuit.zero_parameters_grad">
+<span class="sig-name descname"><span class="pre">zero_parameters_grad</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.zero_parameters_grad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.zero_parameters_grad" title="Link to this definition"></a></dt>
+<dd><p>Set the gradient of all values in <cite>self.parameters</cite> to <cite>None</cite>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Integer that specifies the mode number.</p></li>
-<li><p><strong>basis</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – String that specifies the basis. It can be either <code class="docutils literal notranslate"><span class="pre">&quot;FC&quot;</span></code>
-for original Fock/Charge basis or <code class="docutils literal notranslate"><span class="pre">&quot;eig&quot;</span></code> for eigenbasis.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.coord_transform">
-<span class="sig-name descname"><span class="pre">coord_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.coord_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.coord_transform" title="Permalink to this definition"></a></dt>
-<dd><p>Return the transformation of the coordinates as ndarray for each type
-of variables, either charge or flux.</p>
+<dt class="sig sig-object py" id="SQcircuit.Circuit.safecopy">
+<span class="sig-name descname"><span class="pre">safecopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">save_eigs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.safecopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.safecopy" title="Link to this definition"></a></dt>
+<dd><p>Return a copy of <code class="docutils literal notranslate"><span class="pre">self</span></code>, explicitly detaching and cloning all
+tensor values in the circuit (which are element and loop values).
+Eigenvalues/vectors are either discarded or detached and cloned based
+on the value of <code class="docutils literal notranslate"><span class="pre">save_eigs</span></code>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>var_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The type of the variables that can be either <code class="docutils literal notranslate"><span class="pre">&quot;charge&quot;</span></code> or
-<code class="docutils literal notranslate"><span class="pre">&quot;flux&quot;</span></code>.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>save_eigs</strong> – Whether to retain the eigenvalues/vectors in the copied version
+of the circuit.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Deepcopy of <cite>self</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.coupling_op">
-<span class="sig-name descname"><span class="pre">coupling_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.coupling_op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.coupling_op" title="Permalink to this definition"></a></dt>
-<dd><p>Return the capacitive or inductive coupling operator related to the
-specified nodes. The output has the <cite>qutip.Qobj</cite> format.</p>
+<dt class="sig sig-object py" id="SQcircuit.Circuit.picklecopy">
+<span class="sig-name descname"><span class="pre">picklecopy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.picklecopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.picklecopy" title="Link to this definition"></a></dt>
+<dd><p>Helper function which returns a shallow copy of <code class="docutils literal notranslate"><span class="pre">self</span></code> with
+<code class="docutils literal notranslate"><span class="pre">._toggle_fullcopy</span> <span class="pre">=</span> <span class="pre">False</span></code>. Use for pickling circuit to save memory.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctype</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Coupling type which is either <code class="docutils literal notranslate"><span class="pre">&quot;capacitive&quot;</span></code> or
-<code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code>.</p></li>
-<li><p><strong>nodes</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of circuit nodes to which we want to couple.</p></li>
-</ul>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.dec_rate">
-<span class="sig-name descname"><span class="pre">dec_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.dec_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.dec_rate" title="Permalink to this definition"></a></dt>
-<dd><p>Return the decoherence rate in [1/s] between each two eigenstates
-for different types of depolarization and dephasing.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dec_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – decoherence type that can be: <code class="docutils literal notranslate"><span class="pre">&quot;capacitive&quot;</span></code> for capacitive
-loss; <code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code> for inductive loss; <cite>“quasiparticle”</cite> for
-quasiparticle loss; <code class="docutils literal notranslate"><span class="pre">&quot;charge&quot;</span></code> for charge noise, <code class="docutils literal notranslate"><span class="pre">&quot;flux&quot;</span></code>
-for flux noise; and <code class="docutils literal notranslate"><span class="pre">&quot;cc&quot;</span></code> for critical current noise.</p></li>
-<li><p><strong>states</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of eigenstate indices, for which we want to
-calculate the decoherence rate. For example, for <code class="docutils literal notranslate"><span class="pre">states=(0,</span>
-<span class="pre">1)</span></code>, we calculate the decoherence rate between the ground
-state and the first excited state.</p></li>
-<li><p><strong>total</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if False return a decoherence rate associated with a
-transition from state m to state n for <code class="docutils literal notranslate"><span class="pre">states=(m,</span> <span class="pre">n)</span></code>. if
-True return a decoherence rate associated with both m to n
-and n to m transitions.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Copy of self with <code class="docutils literal notranslate"><span class="pre">._toggle_fullcopy</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.description">
-<span class="sig-name descname"><span class="pre">description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.description" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.description" title="Link to this definition"></a></dt>
 <dd><p>Print out Hamiltonian and a listing of the modes (whether they are
 harmonic or charge modes with the frequency for each harmonic mode),
-Hamiltonian parameters, and external flux values.</p>
+Hamiltonian parameters, and external flux values. Constructs a
+symbolic Hamiltonian, which is stored in <cite>.descrip_vars[‘H’]</cite>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>tp</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – If <code class="docutils literal notranslate"><span class="pre">None</span></code> prints out the output as Latex if SQcircuit is
+<li><p><strong>tp</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – If <code class="docutils literal notranslate"><span class="pre">None</span></code> prints out the output as Latex if SQcircuit is
 running in a Jupyter notebook and as text if SQcircuit is
 running in Python terminal. If <code class="docutils literal notranslate"><span class="pre">tp</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;ltx&quot;</span></code>,
-the output is in Latex format if <code class="docutils literal notranslate"><span class="pre">tp</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;txt&quot;</span></code> the
+the output is in Latex format, and if <code class="docutils literal notranslate"><span class="pre">tp</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;txt&quot;</span></code> the
 output is in text format.</p></li>
-<li><p><strong>_test</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if True, return the entire description as string
-text. (use only for testing the function)</p></li>
+<li><p><strong>_test</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – if True, return the entire description as string
+text (use only for testing the function).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.diag">
-<span class="sig-name descname"><span class="pre">diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_eig</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.diag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.diag" title="Permalink to this definition"></a></dt>
-<dd><p>Diagonalize the Hamiltonian of the circuit and return the
-eigenfrequencies and eigenvectors of the circuit up to specified
-number of eigenvalues.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>n_eig</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of eigenvalues to output. The lower <code class="docutils literal notranslate"><span class="pre">n_eig</span></code>, the
-faster <code class="docutils literal notranslate"><span class="pre">SQcircuit</span></code> finds the eigenvalues.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code>]]</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><ul class="simple">
-<li><p><em>efreq</em> – ndarray of eigenfrequencies in frequency unit of SQcircuit
-(gigahertz by default)</p></li>
-<li><p><em>evecs</em> – List of eigenvectors in qutip.Qobj format.</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.eig_phase_coord">
-<span class="sig-name descname"><span class="pre">eig_phase_coord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.eig_phase_coord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.eig_phase_coord" title="Permalink to this definition"></a></dt>
-<dd><p>Return the phase coordinate representations of the eigenvectors as
-ndarray.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>k</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The eigenvector index. For example, we set it to 0 for the
-ground state and 1 for the first excited state.</p></li>
-<li><p><strong>grid</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – A list that contains the range of values of phase φ for which
-we want to evaluate the wavefunction.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.hamiltonian">
-<span class="sig-name descname"><span class="pre">hamiltonian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.hamiltonian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.hamiltonian" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the transformed hamiltonian of the circuit as
-qutip.Qobj format.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The text of the description as a string, if <code class="docutils literal notranslate"><span class="pre">_test</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.loop_description">
-<span class="sig-name descname"><span class="pre">loop_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.loop_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.loop_description" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">loop_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.loop_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.loop_description" title="Link to this definition"></a></dt>
 <dd><p>Print out the external flux distribution over inductive elements.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>_test</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if True, return the entire description as string
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_test</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – if True, return the entire description as string
 text. (use only for testing the function)</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.matrix_elements">
-<span class="sig-name descname"><span class="pre">matrix_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.matrix_elements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.matrix_elements" title="Permalink to this definition"></a></dt>
-<dd><p>Return the matrix element of two eigenstates for either capacitive
-or inductive coupling.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ctype</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Coupling type which is either <code class="docutils literal notranslate"><span class="pre">&quot;capacitive&quot;</span></code> or
-<code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code>.</p></li>
-<li><p><strong>nodes</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of circuit nodes to which we want to couple.</p></li>
-<li><p><strong>states</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A tuple of indices of eigenstates for which we want to
-calculate the matrix element.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.set_charge_noise">
-<span class="sig-name descname"><span class="pre">set_charge_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_charge_noise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_charge_noise" title="Permalink to this definition"></a></dt>
-<dd><p>set the charge noise for each charge mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – An integer that specifies the charge mode. To see which mode
-is a charge mode, we can use <code class="docutils literal notranslate"><span class="pre">description()</span></code> method.</p></li>
-<li><p><strong>A</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The charge noise.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="SQcircuit.Circuit.set_charge_offset">
-<span class="sig-name descname"><span class="pre">set_charge_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ng</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_charge_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_charge_offset" title="Permalink to this definition"></a></dt>
-<dd><p>set the charge offset for each charge mode.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – An integer that specifies the charge mode. To see, which mode
-is a charge mode, one can use <code class="docutils literal notranslate"><span class="pre">description()</span></code> method.</p></li>
-<li><p><strong>ng</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The charge offset.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The text of the external flux distribution, if <code class="docutils literal notranslate"><span class="pre">_test</span></code> is
+<code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQcircuit.Circuit.set_trunc_nums">
-<span class="sig-name descname"><span class="pre">set_trunc_nums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nums</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_trunc_nums"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_trunc_nums" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_trunc_nums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nums</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_trunc_nums"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_trunc_nums" title="Link to this definition"></a></dt>
 <dd><p>Set the truncation numbers for each mode.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>nums</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A list that contains the truncation numbers for each mode.
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>nums</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – A list that contains the truncation numbers for each mode.
 Harmonic modes with truncation number N are 0, 1 , …,
 (N-1), and charge modes with truncation number N are -(N-1),
 …, 0, …, (N-1).</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.set_charge_offset">
+<span class="sig-name descname"><span class="pre">set_charge_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ng</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_charge_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_charge_offset" title="Link to this definition"></a></dt>
+<dd><p>Set the charge offset for each charge mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – An integer that specifies the charge mode. To see, which mode
+is a charge mode, one can use <code class="docutils literal notranslate"><span class="pre">description()</span></code> method.</p></li>
+<li><p><strong>ng</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The charge offset.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.set_charge_noise">
+<span class="sig-name descname"><span class="pre">set_charge_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.set_charge_noise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.set_charge_noise" title="Link to this definition"></a></dt>
+<dd><p>Set the charge noise for each charge mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – An integer that specifies the charge mode. To see which mode
+is a charge mode, we can use <code class="docutils literal notranslate"><span class="pre">description()</span></code> method.</p></li>
+<li><p><strong>A</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The charge noise.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.charge_op">
+<span class="sig-name descname"><span class="pre">charge_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FC'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.charge_op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.charge_op" title="Link to this definition"></a></dt>
+<dd><p>Return charge operator for specific mode in the Fock/Charge basis or
+the eigenbasis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Integer that specifies the mode number.</p></li>
+<li><p><strong>basis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – String that specifies the basis. It can be either <code class="docutils literal notranslate"><span class="pre">'FC'</span></code>
+for original Fock/Charge basis or <code class="docutils literal notranslate"><span class="pre">'eig'</span></code> for eigenbasis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The charge operato for the <code class="docutils literal notranslate"><span class="pre">i``th</span> <span class="pre">mode</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">basis</span> <span class="pre">specified</span> <span class="pre">by</span>
+<span class="pre">``basis</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.op">
+<span class="sig-name descname"><span class="pre">op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keywords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.op" title="Link to this definition"></a></dt>
+<dd><p>Get a saved circuit operator of type <code class="docutils literal notranslate"><span class="pre">typ</span></code>, specified by keywords
+given in the <code class="docutils literal notranslate"><span class="pre">keywords</span></code> dict, as a backpropagatable <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> object
+when <code class="docutils literal notranslate"><span class="pre">.get_optim_mode()</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>. Currently supports the
+following operators:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'sin_half'</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>typ</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Type of saved operator.</p></li>
+<li><p><strong>keywords</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></span>) – Dictionary specifying which operator of type <code class="docutils literal notranslate"><span class="pre">typ</span></code> to return.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The <cite>typ</cite> operator of the circuit specified by <code class="docutils literal notranslate"><span class="pre">keywords</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.diag">
+<span class="sig-name descname"><span class="pre">diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_eig</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.diag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.diag" title="Link to this definition"></a></dt>
+<dd><p>Diagonalize the Hamiltonian of the circuit and return the
+eigenfrequencies and eigenvectors of the circuit up to specified
+number of eigenvalues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_eig</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of eigenvalues to output. The lower <code class="docutils literal notranslate"><span class="pre">n_eig</span></code>, the
+faster <code class="docutils literal notranslate"><span class="pre">SQcircuit</span></code> finds the eigenvalues.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]]]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>efreqs:</dt><dd><p>ndarray of eigenfrequencies in frequency unit of SQcircuit
+(gigahertz by default).</p>
+</dd>
+<dt>evecs:</dt><dd><p>List of eigenvectors in qutip.Qobj or Tensor format, depending
+on optimization mode.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.truncate_circuit">
+<span class="sig-name descname"><span class="pre">truncate_circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heuristic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.truncate_circuit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.truncate_circuit" title="Link to this definition"></a></dt>
+<dd><p>Set truncation numbers of circuit to <code class="docutils literal notranslate"><span class="pre">k=ceil(K^{1/n})</span></code> for all
+modes, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of modes in the circuit. If
+<code class="docutils literal notranslate"><span class="pre">heuristic</span></code> is true, then the truncation number for each harmonic
+mode is weighted by setting <code class="docutils literal notranslate"><span class="pre">k_i</span> <span class="pre">=</span> <span class="pre">k</span> <span class="pre">*</span> <span class="pre">prod(omega_j^(1/n))/omega_i</span></code>
+All charge modes are left with truncation number <code class="docutils literal notranslate"><span class="pre">K</span></code> as above.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>K</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Total truncation number</p></li>
+<li><p><strong>heuristic</strong> – Whether to use a heurstic to set harmonic mode truncations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>trunc_nums:</dt><dd><p>List of truncation numbers for each mode of circuit</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.check_convergence">
+<span class="sig-name descname"><span class="pre">check_convergence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eig_vec_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.check_convergence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.check_convergence" title="Link to this definition"></a></dt>
+<dd><p>Check whether the diagonalization of the circuit has converged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eig_vec_idx</strong> – Index of eigenvector to use to test convergence.</p></li>
+<li><p><strong>t</strong> – Number of entries of eigenvector to use to test convergence.</p></li>
+<li><p><strong>threshold</strong> – Cutoff for convergence.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>convergence_succeeded:</dt><dd><p>Truthy value of whether the circuit converged</p>
+</dd>
+<dt>epsilon:</dt><dd><p>Calculated value for convergence test</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.coord_transform">
+<span class="sig-name descname"><span class="pre">coord_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.coord_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.coord_transform" title="Link to this definition"></a></dt>
+<dd><p>Return the transformation of the coordinates as ndarray for each type
+of variables, either charge or flux.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>var_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The type of the variables that can be either <code class="docutils literal notranslate"><span class="pre">&quot;charge&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;flux&quot;</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matrix giving coordinate transformation for <code class="docutils literal notranslate"><span class="pre">var_type</span></code> coordinates.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.hamiltonian">
+<span class="sig-name descname"><span class="pre">hamiltonian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.hamiltonian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.hamiltonian" title="Link to this definition"></a></dt>
+<dd><p>Returns the transformed hamiltonian of the circuit as
+<code class="docutils literal notranslate"><span class="pre">qutip.Qobj</span></code> format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Circuit Hamiltonian.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.eig_phase_coord">
+<span class="sig-name descname"><span class="pre">eig_phase_coord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.eig_phase_coord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.eig_phase_coord" title="Link to this definition"></a></dt>
+<dd><p>Return the phase coordinate representations of the eigenvectors as
+ndarray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The eigenvector index. For example, we set it to 0 for the
+ground state and 1 for the first excited state.</p></li>
+<li><p><strong>grid</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – A list that contains the range of values of phase φ for which
+we want to evaluate the wavefunction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Phase coordinate representation of the <code class="docutils literal notranslate"><span class="pre">k``th</span> <span class="pre">eigenvector</span> <span class="pre">over</span>
+<span class="pre">the</span> <span class="pre">values</span> <span class="pre">of</span> <span class="pre">φ</span> <span class="pre">provided</span> <span class="pre">in</span> <span class="pre">``grid</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.coupling_op">
+<span class="sig-name descname"><span class="pre">coupling_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.coupling_op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.coupling_op" title="Link to this definition"></a></dt>
+<dd><p>Return the capacitive or inductive coupling operator related to the
+specified nodes. The output has the <code class="docutils literal notranslate"><span class="pre">qutip.Qobj</span></code> format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctype</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Coupling type which is either <code class="docutils literal notranslate"><span class="pre">&quot;capacitive&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code>.</p></li>
+<li><p><strong>nodes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – A tuple of circuit nodes to which we want to couple.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Coupling operator of type <code class="docutils literal notranslate"><span class="pre">ctype</span></code> between nodes in <code class="docutils literal notranslate"><span class="pre">nodes</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.matrix_elements">
+<span class="sig-name descname"><span class="pre">matrix_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.matrix_elements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.matrix_elements" title="Link to this definition"></a></dt>
+<dd><p>Return the matrix element of two eigenstates for either capacitive
+or inductive coupling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctype</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Coupling type which is either <code class="docutils literal notranslate"><span class="pre">&quot;capacitive&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code>.</p></li>
+<li><p><strong>nodes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – A tuple of circuit nodes to which we want to couple.</p></li>
+<li><p><strong>states</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – A tuple of indices of eigenstates for which we want to
+calculate the matrix element.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matrix element between eigenstates in <code class="docutils literal notranslate"><span class="pre">states</span></code> for coupling
+operator of type <code class="docutils literal notranslate"><span class="pre">ctype</span></code> between nodes in <code class="docutils literal notranslate"><span class="pre">nodes</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.dec_rate">
+<span class="sig-name descname"><span class="pre">dec_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dec_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.dec_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.dec_rate" title="Link to this definition"></a></dt>
+<dd><p>Return the decoherence rate in [1/s] between each two eigenstates
+for different types of depolarization and dephasing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dec_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – decoherence type that can be: <code class="docutils literal notranslate"><span class="pre">&quot;capacitive&quot;</span></code> for capacitive
+loss; <code class="docutils literal notranslate"><span class="pre">&quot;inductive&quot;</span></code> for inductive loss; <cite>“quasiparticle”</cite> for
+quasiparticle loss; <code class="docutils literal notranslate"><span class="pre">&quot;charge&quot;</span></code> for charge noise, <code class="docutils literal notranslate"><span class="pre">&quot;flux&quot;</span></code>
+for flux noise; and <code class="docutils literal notranslate"><span class="pre">&quot;cc&quot;</span></code> for critical current noise.</p></li>
+<li><p><strong>states</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – A tuple of eigenstate indices, for which we want to
+calculate the decoherence rate. For example, for <code class="docutils literal notranslate"><span class="pre">states=(0,</span>
+<span class="pre">1)</span></code>, we calculate the decoherence rate between the ground
+state and the first excited state.</p></li>
+<li><p><strong>total</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – if False return a decoherence rate associated with a
+transition from state m to state n for <code class="docutils literal notranslate"><span class="pre">states=(m,</span> <span class="pre">n)</span></code>. if
+True return a decoherence rate associated with both m to n
+and n to m transitions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Decoherence/dephasing rate between <code class="docutils literal notranslate"><span class="pre">states</span></code> specified by
+<code class="docutils literal notranslate"><span class="pre">dec_type</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.get_partial_omega">
+<span class="sig-name descname"><span class="pre">get_partial_omega</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">el</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtract_ground</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_B_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.get_partial_omega"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.get_partial_omega" title="Link to this definition"></a></dt>
+<dd><p>Return the gradient of the eigen angular frequency with respect to
+elements or loop as <code class="docutils literal notranslate"><span class="pre">qutip.Qobj</span></code> format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>el</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="elements.html#SQcircuit.Capacitor" title="SQcircuit.elements.Capacitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Capacitor</span></code></a>, <a class="reference internal" href="elements.html#SQcircuit.Inductor" title="SQcircuit.elements.Inductor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Inductor</span></code></a>, <a class="reference internal" href="elements.html#SQcircuit.Junction" title="SQcircuit.elements.Junction"><code class="xref py py-class docutils literal notranslate"><span class="pre">Junction</span></code></a>, <a class="reference internal" href="elements.html#SQcircuit.Loop" title="SQcircuit.elements.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>]</span>) – Element of a circuit that can be either <code class="docutils literal notranslate"><span class="pre">Capacitor</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Inductor</span></code>, <code class="docutils literal notranslate"><span class="pre">Junction</span></code>, or <code class="docutils literal notranslate"><span class="pre">Loop</span></code>.</p></li>
+<li><p><strong>m</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Integer specifies the eigenvalue. for example <code class="docutils literal notranslate"><span class="pre">m=0</span></code> specifies
+the ground state and <code class="docutils literal notranslate"><span class="pre">m=1</span></code> specifies the first excited state.</p></li>
+<li><p><strong>subtract_ground</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, it subtracts the ground state frequency from the
+desired frequency.</p></li>
+<li><p><strong>_B_idx</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – Optional integer to indicate which row of the B matrix
+(per-element external flux distribution) to use. This specifies
+which JJ of the circuit to consider specifically (ex. for
+critical current noise calculation).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Partial derivative of eigenfrequency <code class="docutils literal notranslate"><span class="pre">m</span></code> with respect to <code class="docutils literal notranslate"><span class="pre">el</span></code>,
+in units of angular frequency.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SQcircuit.Circuit.get_partial_vec">
+<span class="sig-name descname"><span class="pre">get_partial_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">el</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SQcircuit/circuit.html#Circuit.get_partial_vec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SQcircuit.Circuit.get_partial_vec" title="Link to this definition"></a></dt>
+<dd><p>Return the gradient of the eigenvectors with respect to
+elements or loop as <code class="docutils literal notranslate"><span class="pre">qutip.Qobj</span></code> format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>el</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code>, <a class="reference internal" href="elements.html#SQcircuit.Loop" title="SQcircuit.elements.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>]</span>) – Element of a circuit that can be either <code class="docutils literal notranslate"><span class="pre">Capacitor</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Inductor</span></code>, <code class="docutils literal notranslate"><span class="pre">Junction</span></code>, or <code class="docutils literal notranslate"><span class="pre">Loop</span></code>.</p></li>
+<li><p><strong>m</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Integer specifies the eigenvalue. for example <code class="docutils literal notranslate"><span class="pre">m=0</span></code> specifies
+the ground state and <code class="docutils literal notranslate"><span class="pre">m=1</span></code> specifies the first excited state.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qobj</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Partial derivative of the <code class="docutils literal notranslate"><span class="pre">m``th</span> <span class="pre">eigenvector,</span> <span class="pre">with</span> <span class="pre">respect</span> <span class="pre">to</span>
+<span class="pre">``el</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
